@@ -1,0 +1,422 @@
+<?xml version="1.0"?>
+<VOTABLE version="1.1">
+<DEFINITIONS>
+<COOSYS ID="J2000" equinox="2000." epoch="2000." system="eq_FK5" />
+</DEFINITIONS>
+<RESOURCE type="results">
+<DESCRIPTION>
+Results from query to  NASA/IPAC Extragalactic Database (NED),
+which is operated by the Jet Propulsion Laboratory, California Institute of
+Technology, under contract with the National Aeronautics and Space Administration.
+This work was (partially) supported by the US National Virtual Observatory
+development project, which is funded by the National Science Foundation
+under cooperative agreement AST0122449 with The Johns Hopkins University.
+</DESCRIPTION>
+<INFO name="QUERY_STATUS" value="OK"/>
+<PARAM name="queryDateTime"  ucd="time.creation" datatype="char" arraysize="*" value="2013-04-03T19:42:56PDT"/>
+<LINK content-role="query" content-type="char" 
+href="http://ned.ipac.caltech.edu/cgi-bin/datasearch?search_type=Photometry&amp;objname=PKS 0003-42&amp;of=xml_main"/>
+<TABLE ID="NED_PhotometricData" name="Photometric Data for PKS 0003-42">
+<DESCRIPTION> Published and Homogenized [Frequency, Flux Density] Units </DESCRIPTION>
+
+<FIELD ID="photo_col1" name="No." ucd="meta.number;phot.mag" datatype="int">
+<DESCRIPTION> A sequential number of Photometry Measurement for this object, applicable to this list only. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col2" name="Observed Passband" ucd="instr.bandpass" datatype="char" arraysize="*">
+<DESCRIPTION> Colloquial descriptions of the frequency or wavelength at which the data were collected, identifying the bandpass by name e.g., "V","1.4GHz", "6 cm", "HI", etc. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col3" name="Photometry Measurement" ucd="phot" datatype="double" >
+<DESCRIPTION> The published photometry or fluxes  for this point. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col4" name="Uncertainty" ucd="stat.error;phot" datatype="char" arraysize="*">
+<DESCRIPTION> The published uncertainty for photometric data. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col5" name="Units" ucd="meta.unit;phot" datatype="char" arraysize="*">
+<DESCRIPTION> Units of photometry measurement for this point. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col6" name="Frequency" ucd="em.freq" datatype="double" unit="um">
+<DESCRIPTION> The frequency, wavelength, or photometric passband, in absolute units as calculated by NED </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col7" name="NED Photometry Measurement" ucd="phot" datatype="double" unit="Jy">
+<DESCRIPTION> Flux/Photometric data for this point as transformed and stored by NED. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col8" name="NED Uncertainty" ucd="stat.error;phot" datatype="char" arraysize="*">
+<DESCRIPTION> Photometric/Flux uncertainty as transformed and stored by NED. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col9" name="NED Units" ucd="meta.unit;phot" datatype="char" arraysize="*">
+<DESCRIPTION> Absolute units of photometry measurement for this point. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col10" name="Refcode" ucd="meta.bib.bibcode" datatype="char" arraysize="*">
+<DESCRIPTION> The NED 19-digit Bibliographic Reference code. </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col11" name="Significance" ucd="meta.code.error" datatype="char" arraysize="*">
+<DESCRIPTION>Type of uncertainty reported in the original publication</DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col12" name="Published frequency" ucd="meta.ref;em.freq" datatype="char" arraysize="*">
+<DESCRIPTION>Wavelength or frequency  of observation as given in the original publication  </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col13" name="Frequency Mode" ucd="meta.ref;em.freq;instr.setup" datatype="char" arraysize="*">
+<DESCRIPTION>The method(s) by which the data were collected, reduced, or derived, regarding the frequency or wavelength; </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col14" name="Coordinates Targeted" ucd="pos" datatype="char" arraysize="*">
+<DESCRIPTION>The position at which the measurements were taken, followed by the coordinate reference frame (e.g.,  013350.90 +303935.8 (J2000) in format HHMMSS.ss +DDMMSS.s (EQUINOX),  etc.). </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col15" name="Spatial Mode" ucd="phot.flux;instr.setup" datatype="char" arraysize="*">
+<DESCRIPTION>The method(s) by which the data were collected, reduced, or derived, regarding the spatially integrated flux</DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col16" name="Qualifiers" ucd="meta.note;instr.setup" datatype="char" arraysize="*">
+<DESCRIPTION>Self-explanatory notes pertaining to the history of the data or adjustments to the data or hanges introduced by NED  </DESCRIPTION>
+</FIELD>
+<FIELD ID="photo_col17" name="Comments" ucd="meta.note;comment" datatype="char" arraysize="*">
+<DESCRIPTION>Other information from the published source or from NED that may be helpful in interpreting or qualifying the data. </DESCRIPTION>
+</FIELD>
+<DATA>
+<TABLEDATA>
+<TR>
+<TD>1</TD>
+<TD>R (AAT)             </TD>
+<TD> 20.2      </TD>
+<TD>+/-0.5  </TD>
+<TD>mag                 </TD>
+<TD>4.47E+14</TD>
+<TD>  2.40E-05</TD>
+<TD>+/-1.11E-05</TD>
+<TD>Jy</TD>
+<TD>2006AJ....131..114B</TD>
+<TD>estimated error</TD>
+<TD>     670   nm        </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 06 01.76 -42 34 41.4 (J2000)</TD>
+<TD> Flux in fixed aperture</TD>
+<TD><![CDATA[2" radius aperture                      ]]></TD>
+<TD><![CDATA[From new raw data; Standard Johnson UBVRI filters assumed]]></TD>
+</TR>
+<TR>
+<TD>2</TD>
+<TD>20 GHz (ATCA)       </TD>
+<TD> 110       </TD>
+<TD>+/-5    </TD>
+<TD>milliJy             </TD>
+<TD>1.99E+10</TD>
+<TD>  1.10E-01</TD>
+<TD>+/-5.00E-03</TD>
+<TD>Jy</TD>
+<TD>2010MNRAS.402.2403M</TD>
+<TD>rms uncertainty</TD>
+<TD>    19.904 GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 06 01.95 -42 34 39.8 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>3</TD>
+<TD>8400 MHz            </TD>
+<TD> 0.14      </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>8.40E+09</TD>
+<TD>  1.40E-01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>    8400   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>4</TD>
+<TD>8 GHz (ATCA)        </TD>
+<TD> 259       </TD>
+<TD>+/-14   </TD>
+<TD>milliJy             </TD>
+<TD>8.00E+09</TD>
+<TD>  2.59E-01</TD>
+<TD>+/-1.40E-02</TD>
+<TD>Jy</TD>
+<TD>2010MNRAS.402.2403M</TD>
+<TD>rms uncertainty</TD>
+<TD>         8 GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 06 01.95 -42 34 39.8 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>5</TD>
+<TD>5000 MHz            </TD>
+<TD> 0.540     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>5.00E+09</TD>
+<TD>  5.40E-01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>    5000   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>6</TD>
+<TD>5 GHz (ATCA)        </TD>
+<TD> 552       </TD>
+<TD></TD>
+<TD>milliJy             </TD>
+<TD>5.00E+09</TD>
+<TD>  5.52E-01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>2006AJ....131..114B</TD>
+<TD>no uncertainty reported</TD>
+<TD>       5   GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 06 01.99 -42 34 40.8 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>7</TD>
+<TD>5 GHz (ATCA)        </TD>
+<TD> 532       </TD>
+<TD>+/-27   </TD>
+<TD>milliJy             </TD>
+<TD>5.00E+09</TD>
+<TD>  5.32E-01</TD>
+<TD>+/-2.70E-02</TD>
+<TD>Jy</TD>
+<TD>2010MNRAS.402.2403M</TD>
+<TD>rms uncertainty</TD>
+<TD>         5 GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 06 01.95 -42 34 39.8 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>8</TD>
+<TD>4.85 GHz            </TD>
+<TD> 533       </TD>
+<TD>+/-28   </TD>
+<TD>milliJy             </TD>
+<TD>4.85E+09</TD>
+<TD>  5.33E-01</TD>
+<TD>+/-2.80E-02</TD>
+<TD>Jy</TD>
+<TD>1994ApJS...90..173G</TD>
+<TD>rms noise</TD>
+<TD>4.85       GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000329.7 -425119 (B1950)</TD>
+<TD> Modelled datum</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data; Corrected for contaminating sources]]></TD>
+</TR>
+<TR>
+<TD>9</TD>
+<TD>4.85 GHz            </TD>
+<TD> 589       </TD>
+<TD>+/-32   </TD>
+<TD>milliJy             </TD>
+<TD>4.85E+09</TD>
+<TD>  5.89E-01</TD>
+<TD>+/-3.20E-02</TD>
+<TD>Jy</TD>
+<TD>1994ApJS...91..111W</TD>
+<TD>rms noise</TD>
+<TD>4.85       GHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000601.2 -423435 (J2000)</TD>
+<TD> Modelled datum</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data; Corrected for contaminating sources]]></TD>
+</TR>
+<TR>
+<TD>10</TD>
+<TD>2700 MHz            </TD>
+<TD> 1.020     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>2.70E+09</TD>
+<TD>  1.02E+00</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>    2700   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>11</TD>
+<TD>1410 MHz            </TD>
+<TD> 2.080     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>1.41E+09</TD>
+<TD>  2.08E+00</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>    1410   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>12</TD>
+<TD>843 MHz (MOST)      </TD>
+<TD> 2.97      </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>8.43E+08</TD>
+<TD>  2.97E+00</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>2006AJ....131..100B</TD>
+<TD>no uncertainty reported</TD>
+<TD>     843   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000601.96 -423441.9 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>13</TD>
+<TD>843 MHz (SUMSS)     </TD>
+<TD> 2850      </TD>
+<TD>+/-85.5 </TD>
+<TD>milliJy             </TD>
+<TD>8.43E+08</TD>
+<TD>  2.85E+00</TD>
+<TD>+/-8.55E-02</TD>
+<TD>Jy</TD>
+<TD>2008SUMSS.2.1.....:</TD>
+<TD>uncertainty</TD>
+<TD>     843   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000601.86 -423440.3 (J2000)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>14</TD>
+<TD>408 MHz             </TD>
+<TD> 5.150     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>4.08E+08</TD>
+<TD>  5.15E+00</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>     408   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>15</TD>
+<TD>408 MHz             </TD>
+<TD> 5.15      </TD>
+<TD>+/-0.16 </TD>
+<TD>Jy                  </TD>
+<TD>4.08E+08</TD>
+<TD>  5.15E+00</TD>
+<TD>+/-1.60E-01</TD>
+<TD>Jy</TD>
+<TD>1981MNRAS.194..693L</TD>
+<TD>rms noise</TD>
+<TD>408        MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000329.7 -425123 (B1950)</TD>
+<TD> Modelled datum</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data; Corrected for contaminating sources]]></TD>
+</TR>
+<TR>
+<TD>16</TD>
+<TD>160 MHz             </TD>
+<TD> 11.9      </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>1.60E+08</TD>
+<TD>  1.19E+01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1995AuJPh..48..143S</TD>
+<TD>no uncertainty reported</TD>
+<TD>160        MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000329.4 -425131. (B1950)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>17</TD>
+<TD>80 MHz              </TD>
+<TD> 10.00     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>8.00E+07</TD>
+<TD>  1.00E+01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>      80   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>00 03 28.0 -42 52 18 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+</TR>
+<TR>
+<TD>18</TD>
+<TD>80 MHz              </TD>
+<TD> 11.       </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>8.00E+07</TD>
+<TD>  1.10E+01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1995AuJPh..48..143S</TD>
+<TD>no uncertainty reported</TD>
+<TD> 80        MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>000329.4 -425131. (B1950)</TD>
+<TD> Flux integrated from map</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
+</TR>
+</TABLEDATA>
+</DATA>
+</TABLE>
+</RESOURCE>
+</VOTABLE>
+

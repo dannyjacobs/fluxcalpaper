@@ -1,0 +1,10 @@
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mAttributeError[0m                            Traceback (most recent call last)
+[1;32m/home/jacobsda/scripts/SED_fit.py[0m in [0;36m<module>[1;34m()[0m
+[0;32m     18[0m o.add_option('--mcmc_recompute',action='store_true',
+[0;32m     19[0m     help='Ignore saved traces and rerun mcmc fit, otherwise just move on to plotting.')
+[1;32m---> 20[1;33m o.add_optino('--plot',action='store_true',
+[0m[0;32m     21[0m     help='Do MCMC contour plots')
+[0;32m     22[0m [0mopts[0m[1;33m,[0m[0margs[0m [1;33m=[0m [0mo[0m[1;33m.[0m[0mparse_args[0m[1;33m([0m[0msys[0m[1;33m.[0m[0margv[0m[1;33m[[0m[1;36m1[0m[1;33m:[0m[1;33m][0m[1;33m)[0m[1;33m[0m[0m
+
+[1;31mAttributeError[0m: OptionParser instance has no attribute 'add_optino'
