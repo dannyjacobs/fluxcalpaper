@@ -99,7 +99,7 @@ Numerous radio telescopes are now exploring the prospects for using
 measurements of highly redshifted 21cm emission to inform our understanding of
 cosmic reionization in the redshift range $6< z<12$, corresponding to radio
 frequencies below 200 MHz (see reviews in
-\citealt{Furlanetto:2006p2267,Morales:2010p8093,Pritchard:2012p9555}) .  These
+\citealt{Furlanetto:2006p2267,Morales:2010p8093,Pritchard:2012p9555}).  These
 include telescopes aiming to measure the global temperature change of 21cm
 emission during the Epoch of Reionization (EoR), such as the Compact
 Reionization Experiment (CoRE) and the Experiment to Detect the Global EoR
@@ -125,27 +125,49 @@ With the sparse availability of measured foreground properties in the
 100--200-MHz frequency band over large areas of the sky \citep{deolivieracosta_et_al2008}, continued
 foreground characterization is a
 vital step en route to any 21-cm EoR detection.
-Both PAPER and the MWA are located in the southern hemisphere at radio quiet
-reserves being prepared for the upcoming Square Kilometer Array.  At these low
-frequencies the Southern sky is much less well known than the North, with the
-most extensive surveying work being conducted  by the EoR experiments
+At these low
+frequencies the Southern sky is much less well known than the North, 
+with catalog source fluxes at 150MHz being inaccurate at the 20\% level
+at southern declinations ($\delta<-20$\arcdeg) (XXX cite).
+Both PAPER and the MWA are located in the southern hemisphere at radio-quiet
+reserves being prepared for the upcoming Square Kilometer Array, and hence,
+the
+most extensive surveying work is now being conducted by the EoR experiments
 themselves \citep{Jacobs:2011p8438,Williams:2012p8768}.
-  
-% XXX is the "eor science" part necessary?  this isn't a paper on eor
-Neutral hydrogen is visible during reionization as $\sim$30mK excess surface
-brightness over the CMB punctuated both spectrally and spatially by regions of
-zero emission.  This patchy signal is predicted to be visible everywhere on the
-% XXX ARP: don't like description of EoR signal as "surface brightness"
-sky at size scales up to degrees, or about $0.1$cMpc$^{-1}$.   To increase the
-surface brightness sensitivity without building costly dishes, MWA, PAPER and
-LOFAR have chosen to use combinations of phased and/or correlated dipoles. By
-design also cover much wider fields of view ($>10$\arcdeg) and bandwidths
-($\sim 100$\% fractional) than traditional dish telescopes.   As the elements
-% XXX what about GMRT?
-can not be physically pointed, the apparent flux scale varies across the sky.
+
+One significant complication to improving the state of affairs in foreground characterization
+is that many 21cm EoR experiments, including LOFAR in the northern hemisphere, and
+PAPER and MWA in the southern hemisphere, are designed for drift-scan observations.
+This design decision has largely been driven by the simplicity and cost-effectiveness of
+phased and/or correlated dipoles for achieving the aggressive sensitivity requirements
+for measuring the 21cm power spectrum of reionization (XXX cite).
+Adding to the challenge, these telescopes 
+cover much wider fields of view ($>10$\arcdeg) and bandwidths
+($\sim 100$\% fractional) than traditional dish telescopes.
+Because they do not physically point, flux calibration for such arrays relies heavily
+on an accurate model of the primary beam response to correct for an
+the apparent flux scale that varies across the sky.
 This direction dependent gain is currently uncertain to 20\% or higher
-\citep{Jacobs:2013p9713}.  The ideal solution is to use a wide-grid of
-well-known calibrators to map the primary beam and set the flux scale.  
+% XXX 20% seems a bit grim.  Doesn't jonnie argue for 5 to 10% in his paper?
+\citep{Jacobs:2013p9713}, approximately matching the level of uncertainty in the catalogs.
+
+In this paper, we set out to significantly improve the accuracy of spectral measurements between 
+100--200 MHz for a set of bright sources in the declination range XXX to XXX that
+are of particular value for southern-hemisphere 21cm EoR experiments such as PAPER and the MWA.
+Using the fact that, for this restricted declination range,
+sources transit through a nearly identical primary beam response pattern, we are able to avoid one of the
+most debilitating source of error in these measurements: the primary beam.  
+% XXX document map
+In \S\ref{sec:analysis} we describe our approach for measuring source spectra with
+drift-scan observations and deriving an absolute flux scale from catalog data.  
+In \S\ref{sec:Observations} we detail the instrumental
+setup, observations and analysis method followed. In \S\ref{sec:fits} we
+compare the spectra with available data.  We conclude in 
+\S\ref{sec:Conclusion}.
+
+
+%The ideal solution is to use a wide-grid of
+%well-known calibrators to map the primary beam and set the flux scale.  
 % XXX don't go to "ideal solution" just yet
 % XXX ARP: add importance of accurate flux vs. frequency (Parsons et al. 2012, etc.)
 
@@ -153,10 +175,14 @@ well-known calibrators to map the primary beam and set the flux scale.
 % This will in turn provide a wide base to assess the accuracy of the primary calibrator which sets the overall amplitude of the EoR power spectrum.  
 
 
+\section{Approach}
 
+% XXX write this section
 
 However, catalog source fluxes at 150MHz are also inaccurate to the 20\% level,
-particularly at southern declinations ($\delta<-20$\arcdeg) . Historically, the best
+particularly at southern declinations ($\delta<-20$\arcdeg). 
+
+Historically, the best
 EoR band data were by \citet{Slee:1995p7541} with Culgoora Circular
 Array\footnote{Known during daylight hours as Culgoora Radio Heliograph} and
 various higher frequency measurements with Parkes.  These data are typically
@@ -226,16 +252,8 @@ also measure a selection of 58 additional sources at the same Declination.  The
 primary beam is calibrated using a single common source (J2331-416), thus
 limiting the declination probed to $-45 \pm 5$\arcdeg.  The flux scale is set
 by Monte Carlo fitting to a subset of sources, all of which are calibrated to
-the Baars et al scale. In \S\ref{sec:Observations} we describe the instrumental
-setup, observations and analysis method followed. In \S\ref{sec:fits} we
-compare the spectra with available data followed by conclusions in
-\S\ref{sec:Conclusion}.
-
+the Baars et al scale. 
 %This declination limit removes the necessity of correcting for a primary beam model and allows us to calculate more precise fluxes that provide a reference standard for future work.
-
-\section{Approach}
-
-% XXX write this section
 
 % XXX incorporate
 %Given these shortcomings in the literature, we felt it prudent to examine-Pictor A directly.  We use data observed on JD2455747 
