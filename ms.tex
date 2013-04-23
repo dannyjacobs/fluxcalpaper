@@ -113,12 +113,25 @@ Murchison Widefield Array (MWA;  \citealt{Bowman:2012p9138};
 \citealt{Tingay:2013p9022}))\footnote{\url{http://www.mwatelescope.org/}}, and
 the Donald C. Backer Precision Array for Probing the Epoch of Reionization
 (PAPER; \citealt{Parsons:2010p6757,Parsons2013b})\footnote{\url{http://eor.berkeley.edu/}}.
+
+As such, there has been a renewed interest in the spectral and spatial variation of
+foreground emission in the 100--200 MHz frequency band that covers
+the $z=6$--13 redshift range expected to encompass reionization
+\citep{furlanetto_et_al2006}.
+In particular, the spectral properties of extra-galactic point-sources are important
+both because they are valuable calibration references
+and because they are strong foreground emitters that must be removed from 21-cm EoR measurements.
+With the sparse availability of measured foreground properties in the
+100--200-MHz frequency band over large areas of the sky \citep{deolivieracosta_et_al2008}, continued
+foreground characterization is a
+vital step en route to any 21-cm EoR detection.
 Both PAPER and the MWA are located in the southern hemisphere at radio quiet
 reserves being prepared for the upcoming Square Kilometer Array.  At these low
 frequencies the Southern sky is much less well known than the North, with the
 most extensive surveying work being conducted  by the EoR experiments
 themselves \citep{Jacobs:2011p8438,Williams:2012p8768}.
   
+% XXX is the "eor science" part necessary?  this isn't a paper on eor
 Neutral hydrogen is visible during reionization as $\sim$30mK excess surface
 brightness over the CMB punctuated both spectrally and spatially by regions of
 zero emission.  This patchy signal is predicted to be visible everywhere on the
@@ -223,6 +236,51 @@ compare the spectra with available data followed by conclusions in
 \section{Approach}
 
 % XXX write this section
+
+% XXX incorporate
+%Given these shortcomings in the literature, we felt it prudent to examine-Pictor A directly.  We use data observed on JD2455747 
+%from a 64-antenna single-polarization deployment of the 
+%PAPER array in a minimum redundancy configuration that is more suited for imaging.  The details
+%of these observations and their calibration are given in \citet{pober_et_al2013}.  In order to ensure that 
+%errors in
+%the beam model did not skew our result, we chose a set of calibrator sources near in declination
+%to Pictor A that would follow nearly identical tracks through the primary beam.
+
+% XXX incorporate
+%To measure the spectrum of each source, we apply per-antenna phase and gain cal
+%brations established-via self-calibration and remove
+%the known dependence of amplifier gain and cable attenuation on ambient temperature was corrected
+%using measured temperature data and temperature coefficients that were characterized in
+%laboratory measurements \citep{parashare_bradley2009} and confirmed in field-measurements \citep{pober_et_al2012}.  For each source, we phase to the source 
+%osition
+%and sum over 
+%all baselines greater than 20 wavelengths in length.
+%A fringe-rate filter is applied to the resulting
+%beam to suppress beam sidelobes where sources introduce variations that deviate more than 
+%$\pm$0.1 mHz from the fringe rate of the source in question.
+
+% XXX incorporate
+%To derive a source spectrum from each drift-scan source profile, we compute a weighted average using
+%weights derived from a model of
+%PAPER's primary beam response as an effective approximation of inverse-variance weighting
+%\citep{pober_et_al2012}, and averaging over the time series for each source.  Each output source spectrum
+%represents a best estimate given the limitations of the beam model and flux calibration that were established
+%up to this point.  To further improve these estimates, we derive an additional frequency-dependent gain parameter,
+%smoothed on 10-MHz scales,
+%that brings the spectrum of J2331-416 into closest agreement with a power-law spectrum of
+%$S_{150}=31.9\ {\rm Jy}$, $\alpha=-0.69$ that represents the best fit to measurements below 1 GHz.
+%This additional gain factor was applied to all measured spectra, including that
+%of Pictor A.  The expectation is that, since all sources at similar declinations follow similar tracks 
+%through the PAPER beam, any errors present in the original measured spectra as a result of differences between
+%the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
+%should be corrected by the applied gain factor.
+
+% XXX incorporate
+%Finally, because Pictor A is resolved at the 20\% level on the longest (300m) East-West PAPER baselines, we 
+%use per-baseline estimates of resolution weights to down-weight and correct for resolution effects.  To estimate
+%resolution weights, we use the 90cm map of Pictor A presented in \citet{perley_et_al1997}.  Averaged over all
+%the baselines in the array, the inclusion of resolution effects changed the measured flux by less than 5\%.
+
  
  \section{Observations and Data Reduction}
  \label{sec:Observations}
@@ -263,19 +321,49 @@ rate of the DDR filter.  The result is that the 2048 original frequency
 channels become 203, and the 60 original time samples per 10-minute file become
 14. 
 
+% XXX merge with below
+%Removed RFI by flagging samples in each frequency channel versus time that exceed the mean amplitude by 4-sigma
+%after performing a time derivative.  Also flagged samples in each integrated spectrum that exceeded the
+%mean amplitude across the spectrum by 6-sigma after performing a frequency derivative.  For efficiency, flagging
+%was derived using only the subset of baselines involving a fiducial antenna.
+%Frequencies below 120 MHz and above 180 MHz were also flagged, owing to roll-off of analog response.
+%After RFI flagging, frequency channel resolution was decreased by a factor of four by summing channels.
+
 
 %CALIBRATION
 \textbf{Antenna calibration}\\
+
+% XXX time-dependent calibration is critical.  modify paragraph below
+Quantization gain through the correlator was linearized \citep{parsons_et_al2008}.
+Finally, measurements of ambient temperature versus time near the balun amplifier of a fiducial antenna and near
+receiver amplifiers were used to divide out the predicted gain variation versus temperature that these amplifiers
+are known to exhibit.  A predicted gain profile was drived using coefficients characterized in
+laboratory measurements \citep{parashare_bradley2009} and
+confirmed in field measurements \citep{pober_et_al2011} of $H_{\rm balun}=-0.024$ dB/K, $H_{\rm recvr}=-0.045$
+dB/K, and $H_{\rm cable}=-0.018$ dB/K for 150m-long cables.  Because cable temperatures were not measured
+during these observations, the cable temperature was assumed to be the same as the measured balun temperature.
+
 
 Antennae delays and amplitudes were found by fitting a point source visibility
 model to Centaurus A, Pictor A, and Fornax A.  Each source is imperfectly
 modeled by a single point-source, but the solution differences are minimized by
 averaging over the three independent solutions. These same calibration
-solutions have also been successfully applied in the power spectrum analysis by
-Pober (2013) and Centaurus A imaging by Stefan (2013).  
+solutions have been successfully applied in \citet{Pober:2013XXX} and \citet{Stefan:2013:XXX}.
+for power-spectrum analysis of foregrounds and imaging of Centaurus A, respectively.
+
+% XXX differentiate amp cal here from spectral cal that comes later.
 
 %BEAMFORMING,FILTERING, AVERAGING
 \textbf{Source Selection}\\
+
+In order to ensure that errors in
+the beam model did not skew our result, we chose a set of sources near in declination
+to Pictor A that would follow nearly identical tracks through the primary beam.
+A list of these 
+sources is given in Table \ref{tab:src_spec}, with the spectra measure by PAPER
+illustrated in Figure \ref{fig:src_spec}.  These sources were chosen on the basis of brightness and
+proximity in declination to Pictor A.
+% XXX merge this with paragraph below
 
 To provide a basis for establishing the accuracy of the Pictor measurement we
 measured more sources.  Specifically, we choose sources from the Molonglo
@@ -299,6 +387,20 @@ locations. A beam is formed by phasing baselines to the desired location and
 summing over baselines.  
 %Samples were only included if there was a calibrator sample within 5\arcdeg in altitude/azimuth.   By using both seasons of data we were able to match all measurements with calibrator measurements, making this cut moot. 
 
+% XXX incorporate paragraph below
+%As the sky drifts through the primary beam of PAPER antennas, widely
+%separated points will be observed with substantially different gains and
+%so will require different data weightings to optimize SNR.
+%Drift-scan observations of sources were divided by the calibrated beam response in the
+%direction of the source as a function of time.  Spectra were calculated by averaging over
+%time, weighting data at each time step by the square of the 150-MHz beam response in the source direction.
+%Since noise and systematics relating to source observations are expected to be approximately constant
+%versus time, while source amplitude is proportional to beam response, this weighting
+%is an effective approximation of inverse-variance weighting \citep{pober_et_al2011}.
+
+% XXX exclusion of minimum uv spacing?
+
+
  These complex spectra are then delay-delay rate filtered to remove spectrally
 smooth sources far from phase center \citep{Parsons:2009p7859} (cf the LOFAR
 de-mixing approach \cite{Offringa:2012p9691})  producing a time dependent
@@ -312,9 +414,26 @@ a very long earth rotation synthesis image with a single image pixel. When
 combined with the filtering it is a robust and simple method for measuring
 spectra of unresolved sources. 
 
+% XXX incorporate paragraph below
+%To measure the spectrum of each source, we apply per-antenna phase and gain cal
+%via self-calibration and remove
+%the known dependence of amplifier gain and cable attenuation on ambient tempera
+%using measured temperature data and temperature coefficients that were characte
+%laboratory measurements \citep{parashare_bradley2009} and confirmed in field
+%measurements \citep{pober_et_al2012}.  For each source, we phase to the source 
+%and sum over 
+%all baselines greater than 20 wavelengths in length.
+%A fringe-rate filter is applied to the resulting
+%beam to suppress beam sidelobes where sources introduce variations that deviate
+%$\pm$0.1 mHz from the fringe rate of the source in question.
+
+
+
+
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{plots/PicA_Oct2011_uv_coverage.png}
 \caption{The effective uv coverage, showing the relative contributions of each baseline when beam-forming on Pictor over a 9.6 hour synthesis in the October observing session. \label{fig:uv_coverage}}
+% XXX unclear whether amplitudes include our model of Pic A, or are even actual data vs. weights
 \end{figure}
 
 The beam-forming method assumes the target is a point source. Our primary
@@ -351,6 +470,8 @@ led to a 3\% correction, at the lowest frequency, 0.6\%.
 \textbf{Spectral calibration}\\
 \label{sec:Calibration}
 
+% XXX selection of calibrator sources
+
 The gain of each channel is the product of an overall instrumental passband and
 the spectral dependence of the primary beam in the direction of the source.
 Sources sharing the same track through the primary beam will have the same
@@ -359,12 +480,25 @@ attenuation.   We matched each measured source spectrum time sample to the
 nearest sample (in altitude/azimuth) of a calibrator source
 (J2331-416)\footnote{This source was chosen for the amount of data found in the
 literature and the apparent smoothness of the spectrum.}.  We then, average the
+% XXX clarify why one source used here, and more sources later 
 two matched data streams in time.  Since both tracks make the same slice
 through the primary beam, they will have the same average effective gain.
 Assuming a power law model for J2331-416 (33Jy $\alpha=-0.76$), we compute a
 bandpass gain.  After calibrating the raw 203 channel spectra with this
 bandpass, we average into 10MHz sub-bands between 120 and 180 MHz, computing
 the standard deviation as an estimate of the error. 
+
+% XXX merge this with above
+%To further improve these estimates, we derive an additional frequency-dependent gain parameter,
+%smoothed on 10-MHz scales,
+%that brings the spectrum of J2331-416 into closest agreement with a power-law spectrum of
+%$S_{150}=31.9\ {\rm Jy}$, $\alpha=-0.69$ that represents the best fit to measurements below 1 GHz
+%\citep{slee1995,kuhr_et_al1981,large_et_al1981,burgess_hunstead2006}.
+%This additional gain factor was applied to all measured spectra, including that
+%of Pictor A.  The expectation is that, since all sources at similar declinations follow similar tracks 
+%through the PAPER beam, any errors present in the original measured spectra as a result of differences between
+%the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
+%should be corrected by the applied gain factor
 
 \textbf{Catalogs}\\
 
