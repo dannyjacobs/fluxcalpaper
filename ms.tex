@@ -29,13 +29,13 @@
 
 %\slugcomment{DRAFT: \today}
 
-\shorttitle{PSA64}
+\shorttitle{Southern Hemisphere Flux Scale}
 \shortauthors{Jacobs et al.}
 
 \begin{document}
 
 %\title{The Reionization flux scale in the Southern Sky}
-\title{A southern hemisphere flux scale for 21cm epoch of reionization experiments}
+\title{A Flux Scale for Southern Hemisphere 21cm EoR Experiments}
 \author{
 Daniel C. Jacobs\altaffilmark{1},
 Aaron R. Parsons\altaffilmark{2},
@@ -43,11 +43,12 @@ James E. Aguirre\altaffilmark{3},
 Zaki Ali\altaffilmark{2},
 Richard F. Bradley\altaffilmark{4,5,6},
 Chris L.  Carilli\altaffilmark{7},
-Dave DeBoer\altaffilmark{8},
-Matthew Dexter\altaffilmark{8},
+David R. DeBoer\altaffilmark{8},
+Matthew R. Dexter\altaffilmark{8},
 Nicole E. Gugliucci\altaffilmark{5},
-Dave MacMahon\altaffilmark{8},
-Jason Manley\altaffilmark{9},
+Pat Klima\altaffilmark{5},
+Dave H. E. MacMahon\altaffilmark{8},
+Jason R. Manley\altaffilmark{9},
 David F. Moore\altaffilmark{3},
 Jonathan C. Pober\altaffilmark{2},
 Irina I. Stefan\altaffilmark{10},
@@ -65,19 +66,31 @@ William P. Walbrugh\altaffilmark{9}}
 \altaffiltext{10}{Cavendish Lab., Cambridge, UK}
 
 \begin{abstract}
-We present the first spectral measurements from the Precision Array for Probing
+We present a first catalog of broad-band spectral measurements from the 
+Donald C. Backer Precision Array for Probing
+% XXX ARP: was irina "first"?  and maybe "catalog"
 the Epoch of Reionization (PAPER) in South Africa observed in July and
-September of 2011.  The spectra are determined by calibrating directly to a
-nearby source, eliminating the error-prone primary beam correction.  The global
-flux calibration, bootstrapped from catalog data of 5 bright sources, is
-estimated to be accurate to 3.2\%.  Comparing with prior measurements, 45 out
-of 58 sources observed are found to confirm and refine a spectral index model.
-This includes Pictor A which provides a key flux reference for PAPER's EoR
-power spectrum. Combining catalog data at other frequencies with the PAPER data
-we are able to estimate the flux model parameters to an uncertainty of 2.4\%.
-This accuracy, which is ultimately limited by the uncertainty of the many prior
-measurements used to estimate the flux scale, is an order of magnitude
-improvement on previous estimates.  
+September of 2011.  In order to reduce the impact of beam calibration, which proves to
+be a difficult endeavor for transit telescopes such as PAPER, on the determination
+of source spectra, we have focused on calibrating sources in a narrow declination range.
+Since each source follows a nearly identical path through the primary beam, this
+restriction allows beam calibration to be nearly eliminated as a source of error,
+yielding a dramatic improvement in the accuracy of source spectra measured in the 
+100--200-MHz band that is receiving renewed attention by experiments seeking to
+measure 21cm emission from the Epoch of Reionization (EoR).
+Based on the variation in our data and the estimated error in the absolute
+flux scale we bootstrap from multiple bright sources, we estimate PAPER measurements
+of sources above XXX Jy to be accurate to 3.2\%.
+When combined with catalog data at other frequencies, these data constrain parameters of
+a power-law model for flux density with an uncertainty of 2.4\%.
+% XXX ARP: this must again be dependent on source strength and location.
+This accuracy is limited by the uncertainty in the catalog measurements we use
+to estimate an absolute flux scale, and represents 
+an order of magnitude improvement over previous measurements in this band.  
+Comparing with prior measurements, 45 out
+of 58 sources observed are found to confirm and refine a power-law model for flux density.
+This includes Pictor A, which provides a key flux reference for PAPER's EoR
+power spectrum analysis.
 \end{abstract}
 
 \keywords{dark ages, reionization, first stars --- catalogs --- instrumentation: interferometers}
@@ -85,8 +98,8 @@ improvement on previous estimates.
 Numerous radio telescopes are now exploring the prospects for using
 measurements of highly redshifted 21cm emission to inform our understanding of
 cosmic reionization in the redshift range $6< z<12$, corresponding to radio
-frequencies below 200MHz (see reviews in
-\citet{Furlanetto:2006p2267,Morales:2010p8093,Pritchard:2012p9555}) .  These
+frequencies below 200 MHz (see reviews in
+\citealt{Furlanetto:2006p2267,Morales:2010p8093,Pritchard:2012p9555}) .  These
 include telescopes aiming to measure the global temperature change of 21cm
 emission during the Epoch of Reionization (EoR), such as the Compact
 Reionization Experiment (CoRE) and the Experiment to Detect the Global EoR
@@ -99,7 +112,7 @@ the LOw Frequency ARray (LOFAR;
 Murchison Widefield Array (MWA;  \citealt{Bowman:2012p9138};
 \citealt{Tingay:2013p9022}))\footnote{\url{http://www.mwatelescope.org/}}, and
 the Donald C. Backer Precision Array for Probing the Epoch of Reionization
-(PAPER; \citealt{Parsons:2010p6757})\footnote{\url{http://eor.berkeley.edu/}}.
+(PAPER; \citealt{Parsons:2010p6757,Parsons2013b})\footnote{\url{http://eor.berkeley.edu/}}.
 Both PAPER and the MWA are located in the southern hemisphere at radio quiet
 reserves being prepared for the upcoming Square Kilometer Array.  At these low
 frequencies the Southern sky is much less well known than the North, with the
@@ -109,15 +122,19 @@ themselves \citep{Jacobs:2011p8438,Williams:2012p8768}.
 Neutral hydrogen is visible during reionization as $\sim$30mK excess surface
 brightness over the CMB punctuated both spectrally and spatially by regions of
 zero emission.  This patchy signal is predicted to be visible everywhere on the
+% XXX ARP: don't like description of EoR signal as "surface brightness"
 sky at size scales up to degrees, or about $0.1$cMpc$^{-1}$.   To increase the
 surface brightness sensitivity without building costly dishes, MWA, PAPER and
 LOFAR have chosen to use combinations of phased and/or correlated dipoles. By
 design also cover much wider fields of view ($>10$\arcdeg) and bandwidths
 ($\sim 100$\% fractional) than traditional dish telescopes.   As the elements
+% XXX what about GMRT?
 can not be physically pointed, the apparent flux scale varies across the sky.
 This direction dependent gain is currently uncertain to 20\% or higher
 \citep{Jacobs:2013p9713}.  The ideal solution is to use a wide-grid of
 well-known calibrators to map the primary beam and set the flux scale.  
+% XXX don't go to "ideal solution" just yet
+% XXX ARP: add importance of accurate flux vs. frequency (Parsons et al. 2012, etc.)
 
 %The position dependent gain varies for each instrument.   LOFAR and MWA have a range of electrically steerable beams each with a different shape. For MWA and LOFAR, the number of high quality calibration sources is more important.  PAPER has a single broad, 45\arcdeg wide, primary beam; sources at nearby declinations sample the same primary beam many times.
 % This will in turn provide a wide base to assess the accuracy of the primary calibrator which sets the overall amplitude of the EoR power spectrum.  
@@ -126,7 +143,7 @@ well-known calibrators to map the primary beam and set the flux scale.
 
 
 However, catalog source fluxes at 150MHz are also inaccurate to the 20\% level,
-particularly at southern declinations ($<-20$\arcdeg) . Historically, the best
+particularly at southern declinations ($\delta<-20$\arcdeg) . Historically, the best
 EoR band data were by \citet{Slee:1995p7541} with Culgoora Circular
 Array\footnote{Known during daylight hours as Culgoora Radio Heliograph} and
 various higher frequency measurements with Parkes.  These data are typically
@@ -134,8 +151,10 @@ uncertain to 10\% or higher and provide little coverage of the EoR band beyond
 a single narrow-band data point. 
 
 PAPER, in its maximum redundancy configuration, has a very broad beam with
-large regular grating side-lobes and is therefor limited to using the few
+% XXX need background on minimum/maximum array configurations
+large regular grating side-lobes and is therefore limited to using the few
 sources above $\sim$50 Jy for flux calibration. The best calibrator for most
+% XXX qualify "best"
 observations is Pictor A. For this source the current best EoR band measurement
 is uncertain to 12\% and appears to imply spectral flattening in the EoR band
 \citep{Perley:1997p9312}.
@@ -168,10 +187,11 @@ tuned for efficient operation over a 120--170-MHz band located in the South Afri
 on the Square Kilometer Array
 South Africa (SKA-SA) reserve, 100km north of the small town of Carnarvon.
 The PAPER array has grown from 16 elements deployed in early 2009 to a
-64-element imaging array in 2011 (see Figure \ref{fig:antpos}). Since November 2011 it has been arranged in a maximally redundant grid configuration to make deep power spectral integrations.  
+64-element imaging array in 2011 (see Figure \ref{fig:antpos}). Since November 2011 it has been arranged in a maximally redundant grid configuration to make deep power spectral integrations \citep{Parsons:2012a}.
 \begin{figure*}\centering
 \includegraphics[width=0.85\columnwidth]{plots/antpos.png}
-\caption{The 64-antenna, minimum-redundancy PAPER array at Karoo Radio Observatory site in South Africa used for these observations.
+\caption{Antenna position in the 64-antenna, minimum-redundancy PAPER array configuration at the Karoo Radio Observatory site in South Africa used for these observations.
+% XXX add brief summary of observations.
 }\label{fig:antpos}
 \end{figure*}
 
@@ -181,7 +201,7 @@ data used in this paper, PAPER was reconfigured into a redundant layout
 optimized to detect a small number of power spectrum bins at high precision, an
 arrangement which trades imaging dynamic range for power spectrum sensitivity.
 As such it is only able to easily distinguish the very brightest sources on the
-sky a step necessary for setting the overall flux scale. Of these, Pictor A is
+sky a step necessary for setting the overall flux scale \citep{Parsons2013b}. Of these, Pictor A is
 one of the most useful, being bright, minimally resolved and far from from
 confusing structure. 
 
@@ -199,6 +219,10 @@ compare the spectra with available data followed by conclusions in
 \S\ref{sec:Conclusion}.
 
 %This declination limit removes the necessity of correcting for a primary beam model and allows us to calculate more precise fluxes that provide a reference standard for future work.
+
+\section{Approach}
+
+% XXX write this section
  
  \section{Observations and Data Reduction}
  \label{sec:Observations}
@@ -318,6 +342,7 @@ Pictor A imaged at 330MHz by the VLA \citep{Perley:1997p9312}. Black circle
 indicates PAPER resolution at the 150MHz, dashed, the resolution at 185MHz.  To
 correct for the small residual structure in the PAPER measurements we
 interpolated the PAPER baselines in the uv plane. At the highest frequency this
+% XXX "interpolated" needs to be clarified
 led to a 3\% correction, at the lowest frequency, 0.6\%.
 \label{fig:pic_perley}}
 \end{figure}
@@ -403,6 +428,7 @@ at 185MHz. At least half of this error is due to uncertainty in the flux scale.
  \label{sec:fits}
 
 The primary purpose of this observation is to produce a high quality Pictor A
+% XXX need to coordinate "primary purpose" here with abstract and intro motivation
 spectrum. As a verification measure we have observed many other sources at the
 same declination for comparison against previous observations.  Our comparison
 metric will be the degree to which the PAPER data are consistent with previous
@@ -444,7 +470,7 @@ these chains are given in table \ref{tab:fits}.
 Inspecting the confidence contours we find that, for the vast majority ($\sim
 75$\%), the PAPER measurements confirm the power law extrapolation from higher
 frequencies. The remaining 25\% either A) have large PAPER error bars and
-therefor provide no new information or B) do not agree with the spectral index
+therefore provide no new information or B) do not agree with the spectral index
 model.  To understand where most measurements fall on this spectrum we
 numerically quantify the overall model improvement derived from the addition of
 the PAPER data as 
@@ -452,6 +478,7 @@ the PAPER data as
 \textrm{Improvement} &= \left(\textrm{Precision increase}\right) \left(\textrm{Catalog agreement}\right)\\
 &= \left(\frac{1}{Area(\textrm{PAPER})} - \frac{1}{Area(\textrm{Cat})}\right) \left( Area(\PAPER \cap \textrm{Cat}) \right)
 \end{align}
+% XXX This equation is yucky
 
 We quantify the fit {\em precision increase} as the change in the contour
 figure of merit, defined as the inverse area of the confidence contour.
@@ -476,6 +503,7 @@ indicating strong confirmation of the extrapolated spectrum (see Figures
 \ref{fig:SI_contour_1} - \ref{fig:SI_contour_4}).  Pictor A is in the middle of
 this group  with an improvement of 0.39 ---only 14 sources show stronger
 confirmation.  The flux model is $S150=$388 $\pm$ 9.4Jy, $\alpha=-0.77\pm0.02$.
+% XXX need more detail here.  This is the crux of what is done.
 The combination of several independent PAPER data points near 150MHz with
 previous catalog measurements results in this estimated uncertainty of 2.4\%.
 This uncertainty is dominated by agreement between the 2 Wills measurements
@@ -505,6 +533,7 @@ structures implies side lobe contamination.  Therefore, though we include the
 model parameters, they are not meant to be definitive, but provide confidence
 that the reported PAPER flux values are on the correct global scale.
 
+% XXX need more discussion
 
 
 \begin{figure*}
@@ -570,6 +599,7 @@ Laboratory, California Institute of Technology, under contract with the
 National Aeronautics and Space Administration.
 
 \section*{Appendix: Model Fitting}
+% XXX this should be in main body, not an appendix
 
 In this paper we estimate spectral model parameters and flux calibration in a
 Bayesian way by calculating and marginalizing the posterior probability of the
