@@ -253,18 +253,7 @@ the beam model did not skew our result, we chose a set of calibrator sources nea
 to Pictor A that would follow nearly identical tracks through the primary beam.
 This declination limit removes the necessity of correcting for a primary beam model and allows us to calculate more precise fluxes that provide a reference standard for future work.
 
-In order to ensure that errors in
-the beam model did not skew our result, we chose a set of sources near in declination
-to Pictor A that would follow nearly identical tracks through the primary beam.
-A list of these 
-sources is given in Table \ref{tab:src_spec}. 
-These sources were chosen on the basis of brightness and
-proximity in declination to Pictor A.
-% XXX specific declination range
-% XXX merge this with paragraph below
-
-To provide a basis for establishing the accuracy of the Pictor measurement we
-measured more sources.  Specifically, we choose sources from the Molonglo
+To begin, we choose sources from the Molonglo
 Reference Catalog \cite[MRC]{Large:1981p7798} that are within 5\arcdeg in
 declination of a common calibrator (J2331-416) and have a flux extrapolated
 from 408MHz greater than 10Jy assuming a power law spectral index of
@@ -275,15 +264,30 @@ the known smoothness of the beam.   The average spectral index for radio
 sources in this band is $-0.8$.} This selection contains 62 sources in a narrow
 stripe that passes through the majority of the southern EoR fields, much of the
 galaxy and Centaurus A.
+A list of these 
+sources is given in Table \ref{tab:src_spec}. 
 
-% XXX equation for time-dependent beam amplitude times source flux for perceived flux density
+For these sources, spectral data measured below XXX GHz were compiled from 
+the NASA/IPAC Extragalactic Database (NED)
+\footnote{\url{http://ned.ipac.caltech.edu/}}. Cross-matching radio sources
+between bands is made difficult by changes in resolution, spectral curvature,
+and resolved multi-scale structure.  For a small number of sources these
+problems can be ameliorated by inspection of the spectra, source names,
+coordinates,  and originating publications. However for a large sample of
+sources this becomes unwieldily and prone to error. Thus for the larger number
+of samples we make use of the Vollmer et al meta-catalog which takes pains to
+match multi-wavelength observations \citep{Vollmer:2010p6422}.
+% given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
+
 
 To derive a source spectrum from each drift-scan source profile, we compute a weighted average using
 weights derived from a model of
 PAPER's primary beam response as an effective approximation of inverse-variance weighting
 \citep{pober_et_al2012}, and averaging over the time series for each source.  Each output source spectrum
 represents a best estimate given the limitations of the beam model and flux calibration that were established
-up to this point.  To further improve these estimates, we derive an additional frequency-dependent gain parameter,
+up to this point, according to the equation:
+% XXX equation for time-dependent beam amplitude times source flux for perceived flux density
+To further improve these estimates, we derive an additional frequency-dependent gain parameter,
 smoothed on 10-MHz scales,
 that brings the spectrum of J2331-416 into closest agreement with a power-law spectrum
 that represents the best fit to measurements below 1 GHz.
@@ -294,7 +298,7 @@ the simulated and actual beam response should be absent in the ratio between sou
 should be corrected by the applied gain factor.
 
 Finally,
-the flux scale is set
+an absolute flux scale is set
 by Monte Carlo fitting to a subset of sources, all of which are calibrated to
 the Baars et al scale. 
 % XXX elaborate on this, more on Baars, less on MC
@@ -309,6 +313,8 @@ the Baars et al scale.
 % XXX add brief summary of observations.
 }\label{fig:antpos}
 \end{figure*}
+
+\subsection{Observations}
 
  Measurements are derived from observations using  the east-west dipole arms of
 64 PAPER antennas deployed in a minimum-redundancy imaging configuration
@@ -325,14 +331,8 @@ Right Ascension. The July portion of the dataset comes from the same observing
 campaign described by \cite{Pober:2013p9567} and \cite{Stefan:2012p9707}. 
 %July (\#40,\#55), September (\#7,\#28) 
 
-% XXX incorporate
-We use data observed on JD2455747 
-from a 64-antenna single-polarization deployment of the 
-PAPER array in a minimum redundancy configuration that is more suited for imaging.  The details
-of these observations and their calibration are given in \citet{pober_et_al2013}.
-
 %COMPRESSION
-\textbf{Compression}\\
+\subsection{Data Compression}
 
 In pre-processing, we use delay/delay-rate (DDR) filters
 \citep{Parsons:2009p7859} to identify radio-frequency interference (RFI)
@@ -364,7 +364,7 @@ channels become 203, and the 60 original time samples per 10-minute file become
 
 
 %CALIBRATION
-\textbf{Per-Antenna Gain and Phase Calibration}\\
+\subsection{Per-Antenna Gain and Phase Calibration}
 
 % XXX differentiate amp cal here from spectral cal and absolute cal that comes later.
 
@@ -403,7 +403,7 @@ $\pm$0.1 mHz from the fringe rate of the source in question.
 
 %BEAMFORMING,FILTERING, AVERAGING
 
-\textbf{Beamforming}\\
+\subsection{Beamforming}
 
 Spectral time-series are computed by beam-forming to the selected sky
 locations. A beam is formed by phasing baselines to the desired location and
@@ -496,7 +496,7 @@ led to a 3\% correction, at the lowest frequency, 0.6\%.
 \end{figure}
 
 %BANDPASS CALIBRATION
-\textbf{Spectral calibration}\\
+\subsection{Bandpass Calibration}
 \label{sec:Calibration}
 
 % XXX selection of calibrator sources
@@ -530,23 +530,8 @@ the standard deviation as an estimate of the error.
 %the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
 %should be corrected by the applied gain factor
 
-\textbf{Catalogs}\\
 
-Data for prior comparison was pulled from two major sources. Catalog values for
-Pictor A, and the flux calibration sources were pulled directly from the
-NASA/IPAC Extragalactic Database (NED)
-\footnote{\url{http://ned.ipac.caltech.edu/}}. Cross-matching radio sources
-between bands is made difficult by changes in resolution, spectral curvature,
-and resolved multi-scale structure.  For a small number of sources these
-problems can be ameliorated by inspection of the spectra, source names,
-coordinates,  and originating publications. However for a large sample of
-sources this becomes unwieldily and prone to error. Thus for the larger number
-of samples we make use of the Vollmer et al meta-catalog which takes pains to
-match multi-wavelength observations \citep{Vollmer:2010p6422}.
-% given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
-
-
-\textbf{Flux Scale}\\
+\subsection{Approximating an Absolute Flux Scale}
 \label{sec:flux_scale}
 
 At this stage each source flux is tied to a model fit on the catalog values of
@@ -588,16 +573,9 @@ at 185MHz. At least half of this error is due to uncertainty in the flux scale.
 %    cal['2331-416'] = 33.9 * (fq/.150)**-0.76
 %COMPARISON WITH DATA
 
- \section{Spectral Results}
- \label{sec:fits}
+\subsection{Fitting a Power-Law Model to Spectra}
 
-The primary purpose of this observation is to produce a high quality Pictor A
-% XXX need to coordinate "primary purpose" here with abstract and intro motivation
-spectrum. As a verification measure we have observed many other sources at the
-same declination for comparison against previous observations.  Our comparison
-metric will be the degree to which the PAPER data are consistent with previous
-observations,given a model and, if consistent, they improve on the precision of
-our spectral model parameters.
+% XXX write this
 
 To compare with observations at other frequencies we must assume a spectral
 model. The prevailing spectral model for low frequency radio sources is a
@@ -613,6 +591,10 @@ but at the cost of excluding data points.  The fit is then performed again with
 both PAPER and catalog data, shown in black on the same Figures. The values are
 given in Table \ref{tab:fits}, and
 illustrated in Figure \ref{fig:src_spec}.  
+
+
+\section{Results and Discussion}
+\label{sec:fits}
 
 %0008-421#
 %1243-412#
@@ -675,9 +657,19 @@ This uncertainty is dominated by agreement between the 2 Wills measurements
 near 600MHz which are accurate to 2\% and the five PAPER measurements, which
 are accurate to ~5\%.
 
+% XXX comparison with previous in-band results (danny 2011, williams 2012)
 
- \section{Discussion and Conclusions}
+ \section{Conclusion}
  \label{sec:Conclusion}
+
+% XXX adapt this paragraph to be a summary of the broad goals attained in this paper
+The primary purpose of this observation is to produce a high quality Pictor A
+% XXX need to coordinate "primary purpose" here with abstract and intro motivation
+spectrum. As a verification measure we have observed many other sources at the
+same declination for comparison against previous observations.  Our comparison
+metric will be the degree to which the PAPER data are consistent with previous
+observations,given a model and, if consistent, they improve on the precision of
+our spectral model parameters.
  
 Direct measurements of the Pictor A spectrum are key to correctly setting the
 flux scale of PAPER and other EoR experiments. Existing EoR band measurements
@@ -704,8 +696,7 @@ close to the level of the most precise higher frequency measurements by
 calibration model to an accuracy of 2.5\%. As validation of this method, we
 also measure a selection of 58 additional sources at the same Declination.  
 
-% XXX need more discussion
-
+% XXX looking to the future, what next
 
 \begin{figure*}
 \centering
