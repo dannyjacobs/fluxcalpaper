@@ -95,6 +95,7 @@ power spectrum analysis.
 
 \keywords{dark ages, reionization, first stars --- catalogs --- instrumentation: interferometers}
 
+% XXX remove references to appendix
 
 \section{Introduction}
 
@@ -246,6 +247,7 @@ calibrated to a single calibrator making the track through the beam.
 % XXX incorporate
 Given the shortcomings in the literature, and the necessity for PAPER power-spectrum analysis
 to use Pictor A for flux calibration, we felt it prudent to examine Pictor A directly.
+In this section, we describe ... % XXX
 
 In order to ensure that 
 errors in
@@ -306,6 +308,9 @@ the Baars et al scale.
  
  \section{Data Reduction}
  \label{sec:Observations}
+
+% XXX in this section, we describe the details of data analysis used ...
+% XXX connect to Parsons2010,2013, pober2013, stefan2012, jacobs2011? for similar basic pipeline.
 
 \begin{figure*}\centering
 \includegraphics[width=0.85\columnwidth]{plots/antpos.png}
@@ -450,6 +455,8 @@ spectra of unresolved sources.
 %beam to suppress beam sidelobes where sources introduce variations that deviate
 %$\pm$0.1 mHz from the fringe rate of the source in question.
 
+\subsubsection{Compensation for Resolution Effects in Pictor A}
+
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{plots/PicA_Oct2011_uv_coverage.png}
 \caption{The effective uv coverage, showing the relative contributions of each baseline when beam-forming on Pictor over a 9.6 hour synthesis in the October observing session. \label{fig:uv_coverage}}
@@ -514,6 +521,7 @@ two matched data streams in time.  Since both tracks make the same slice
 through the primary beam, they will have the same average effective gain.
 Assuming a power law model for J2331-416 (33Jy $\alpha=-0.76$), we compute a
 % XXX I got these parameters for 2331: $S_{150}=31.9\ {\rm Jy}$, $\alpha=-0.69$ 
+% XXX forward reference section on fitting spectra for how this was derived for 2331
 bandpass gain.  After calibrating the raw 203 channel spectra with this
 bandpass, we average into 10MHz sub-bands between 120 and 180 MHz, computing
 the standard deviation as an estimate of the error. 
@@ -530,6 +538,98 @@ the standard deviation as an estimate of the error.
 %the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
 %should be corrected by the applied gain factor
 
+
+\subsection{Fitting a Power-Law Model to Spectra}
+
+% XXX write this
+
+To compare with observations at other frequencies we must assume a spectral
+model. The prevailing spectral model for low frequency radio sources is a
+single power law due to synchrotron emission, though curvature or other
+deviation from a power-law is not-uncommon.   To establish a baseline model, we
+fit a spectral model to prior catalog data from the spectrally and spatially
+cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the MCMC method
+described in \S \ref{sec:flux_scale} and the Appendix. Confidence contours for
+these fits are shown in grey in Figs. \ref{fig:SI_contour_1} -
+\ref{fig:SI_contour_4}.  In general these are lower limits on the possible
+precision, as the Vollmer catalog emphasizes minimization of cross-match error
+but at the cost of excluding data points.  The fit is then performed again with
+both PAPER and catalog data, shown in black on the same Figures. The values are
+given in Table \ref{tab:fits}, and
+illustrated in Figure \ref{fig:src_spec}.  
+
+In this paper we estimate spectral model parameters and flux calibration in a
+Bayesian way by calculating and marginalizing the posterior probability of the
+data, past and present, given a spectral and instrumental model.   This method
+offers improved repeatability by specifying a single objective function that
+represents the quality of the model fit and naturally defines the errors on the
+parameters \citep{Hogg:2010p8759}.   See  \citet{Mackay:2003p9717}  or
+\citet{Sivia:2006p9736} for more on Bayesian analysis methods and an excellent
+astrophysical example by \cite{Press:1997p9783}.
+
+% XXX paragraph too remedial. digest
+In general an experiment measures data $D$ and given some model of the
+statistics of the measurement one usually assigns an error bar defining the
+probability of getting that data, given a model $M$.  Given all the new data,
+and prior data, there will be a new optimal set of model parameters $M$ with
+associated error bars.  In general, these error bars are a parameterization of
+a probability distribution function.  The pdf associated with the data often
+called the likelihood ($\mathcal{L}$), while the one corresponding the model
+error bars is the {\em posterior probability distribution}, $\Prob(M|D)$. They
+are related
+
+\[
+\Prob(M|D) = \frac{\mathcal{L}(D|M) \Prob(M)}{\Prob(D)}
+\] 
+by the factor $\frac{\Prob(M)}{\Prob(D)}$, the prior probability of the model
+$M$ (given past experiments) over the normalization factor, integrating over
+all models.  In general the posterior pdf depends on both the known relation
+between the model parameters and as well as correlations hidden within the
+data.  
+
+% XXX too remedial.  digest to 1 senetence
+Direct calculation of the posterior is difficult, particularly the
+normalization factor, however there is a simple procedure for drawing samples
+from the posterior. In this paper we use a Markov Chain Monte Carlo sampler.
+Given any current location in parameter space, this algorithm draws a new set
+of parameters and computes the relative likelihood increase. If the probability
+difference is larger than a number drawn randomly from the set $(0:1]$, the
+jump is accepted ---a Metropolis-Hastings step. In the limit of an infinity of
+such steps, this process has been shown to converge on the true posterior
+distribution.  In practice it is run for a large number of steps until things
+appear to stabilize. The best fit model is the median of all the sampled
+parameter sets, while the volume containing a well defined fraction of samples
+sets the confidence limits.  The oft quoted ``1$\sigma$" probability level
+corresponding to a gaussian distribution contains 65\% of the samples. In
+practice the contours are not gaussian. Here we choose a slightly more
+conservative probability level of 76\% 
+
+We fit a spectral power law to catalog values by sampling
+a (log) likelihood which assumes Gaussian measurement errors
+
+\[
+\logL = \sum_\nu{\frac{\left(S_\nu - S150\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta \textrm{SPAPER}_\nu}} \label{eq:catlogL}
+\]
+
+We estimate the confidence interval of the resulting parameters as the boundary
+enclosing 76\% of the samples. In the catalog we report both the upper and
+lower of these values for both parameters and plot the 2D contour to show the
+correlation of the two parameters. Many of these contours, the grey curves in
+Fig. \ref{fig:SI_contour_1}, are classic banana plots, displaying a non-linear
+correlation between the parameters.    In most cases the single contour
+adequately describes 2D posterior distribution.
+
+\begin{figure}[htbp]
+\includegraphics[width=0.49\textwidth]{plots/pic_trace_hist.png}
+\includegraphics[width=0.49\textwidth]{plots/1556-466_trace_hist.png}
+\caption{
+A more detailed view of the posterior probability distribution. On the left
+Pictor A, on the right 1556-466. Confidence contours range from 0.2 to 0.8.
+Compare with the contours for this source shown in Fig. \ref{fig:SI_contour_3}.
+As above, grey for  the fit to catalog data, black for joint catalog and PAPER
+fit.
+}
+\end{figure}
 
 \subsection{Approximating an Absolute Flux Scale}
 \label{sec:flux_scale}
@@ -573,24 +673,20 @@ at 185MHz. At least half of this error is due to uncertainty in the flux scale.
 %    cal['2331-416'] = 33.9 * (fq/.150)**-0.76
 %COMPARISON WITH DATA
 
-\subsection{Fitting a Power-Law Model to Spectra}
+% XXX connect with text above
+A single overall flux scale is computed in a similar way. However, here we add
+a single extra gain factor $g$ multiplying all PAPER measurements, and sum over
+several sources.
 
-% XXX write this
-
-To compare with observations at other frequencies we must assume a spectral
-model. The prevailing spectral model for low frequency radio sources is a
-single power law due to synchrotron emission, though curvature or other
-deviation from a power-law is not-uncommon.   To establish a baseline model, we
-fit a spectral model to prior catalog data from the spectrally and spatially
-cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the MCMC method
-described in \S \ref{sec:flux_scale} and the Appendix. Confidence contours for
-these fits are shown in grey in Figs. \ref{fig:SI_contour_1} -
-\ref{fig:SI_contour_4}.  In general these are lower limits on the possible
-precision, as the Vollmer catalog emphasizes minimization of cross-match error
-but at the cost of excluding data points.  The fit is then performed again with
-both PAPER and catalog data, shown in black on the same Figures. The values are
-given in Table \ref{tab:fits}, and
-illustrated in Figure \ref{fig:src_spec}.  
+\begin{align}
+\log\mathcal{L}_s &= \sum_{\nu}\frac{ (S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
+\frac{ (g*S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2}\\
+\log\mathcal{L} &= \sum_{s} \log\mathcal{L}_s
+\end{align}
+Another nice feature of the MCMC sampler is that each parameter sample is fully
+covariant with the others. To marginalize over the fitted flux and spectral
+index parameters and compute confidence limits on the gain parameter, we simply
+ignore them.
 
 
 \section{Results and Discussion}
@@ -760,94 +856,6 @@ Extragalactic Database (NED) which is operated by the Jet Propulsion
 Laboratory, California Institute of Technology, under contract with the
 National Aeronautics and Space Administration.
 
-\section*{Appendix: Model Fitting}
-% XXX this should be in main body, not an appendix
-
-In this paper we estimate spectral model parameters and flux calibration in a
-Bayesian way by calculating and marginalizing the posterior probability of the
-data, past and present, given a spectral and instrumental model.   This method
-offers improved repeatability by specifying a single objective function that
-represents the quality of the model fit and naturally defines the errors on the
-parameters \citep{Hogg:2010p8759}.   See  \citet{Mackay:2003p9717}  or
-\citet{Sivia:2006p9736} for more on Bayesian analysis methods and an excellent
-astrophysical example by \cite{Press:1997p9783}.
-
-In general an experiment measures data $D$ and given some model of the
-statistics of the measurement one usually assigns an error bar defining the
-probability of getting that data, given a model $M$.  Given all the new data,
-and prior data, there will be a new optimal set of model parameters $M$ with
-associated error bars.  In general, these error bars are a parameterization of
-a probability distribution function.  The pdf associated with the data often
-called the likelihood ($\mathcal{L}$), while the one corresponding the model
-error bars is the {\em posterior probability distribution}, $\Prob(M|D)$. They
-are related
-
-\[
-\Prob(M|D) = \frac{\mathcal{L}(D|M) \Prob(M)}{\Prob(D)}
-\] 
-by the factor $\frac{\Prob(M)}{\Prob(D)}$, the prior probability of the model
-$M$ (given past experiments) over the normalization factor, integrating over
-all models.  In general the posterior pdf depends on both the known relation
-between the model parameters and as well as correlations hidden within the
-data.  
-
-Direct calculation of the posterior is difficult, particularly the
-normalization factor, however there is a simple procedure for drawing samples
-from the posterior. In this paper we use a Markov Chain Monte Carlo sampler.
-Given any current location in parameter space, this algorithm draws a new set
-of parameters and computes the relative likelihood increase. If the probability
-difference is larger than a number drawn randomly from the set $(0:1]$, the
-jump is accepted ---a Metropolis-Hastings step. In the limit of an infinity of
-such steps, this process has been shown to converge on the true posterior
-distribution.  In practice it is run for a large number of steps until things
-appear to stabilize. The best fit model is the median of all the sampled
-parameter sets, while the volume containing a well defined fraction of samples
-sets the confidence limits.  The oft quoted ``1$\sigma$" probability level
-corresponding to a gaussian distribution contains 65\% of the samples. In
-practice the contours are not gaussian. Here we choose a slightly more
-conservative probability level of 76\% 
-
-In \S \ref{sec:fits} we fit a spectral power law to catalog values by sampling
-a (log) likelihood which assumes Gaussian measurement errors
-
-\[
-\logL = \sum_\nu{\frac{\left(S_\nu - S150\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta \textrm{SPAPER}_\nu}} \label{eq:catlogL}
-\]
-
-We estimate the confidence interval of the resulting parameters as the boundary
-enclosing 76\% of the samples. In the catalog we report both the upper and
-lower of these values for both parameters and plot the 2D contour to show the
-correlation of the two parameters. Many of these contours, the grey curves in
-Fig. \ref{fig:SI_contour_1}, are classic banana plots, displaying a non-linear
-correlation between the parameters.    In most cases the single contour
-adequately describes 2D posterior distribution.
-
-\begin{figure}[htbp]
-\includegraphics[width=0.49\textwidth]{plots/pic_trace_hist.png}
-\includegraphics[width=0.49\textwidth]{plots/1556-466_trace_hist.png}
-\caption{
-A more detailed view of the posterior probability distribution. On the left
-Pictor A, on the right 1556-466. Confidence contours range from 0.2 to 0.8.
-Compare with the contours for this source shown in Fig. \ref{fig:SI_contour_3}.
-As above, grey for  the fit to catalog data, black for joint catalog and PAPER
-fit.
-}
-\end{figure}
-
-
-A single overall flux scale is computed in a similar way. However, here we add
-a single extra gain factor $g$ multiplying all PAPER measurements, and sum over
-several sources.
-
-\begin{align}
-\log\mathcal{L}_s &= \sum_{\nu}\frac{ (S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
-\frac{ (g*S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2}\\
-\log\mathcal{L} &= \sum_{s} \log\mathcal{L}_s
-\end{align}
-Another nice feature of the MCMC sampler is that each parameter sample is fully
-covariant with the others. To marginalize over the fitted flux and spectral
-index parameters and compute confidence limits on the gain parameter, we simply
-ignore them.
 
 
 \begin{figure*}[htbp]
