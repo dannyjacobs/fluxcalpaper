@@ -26,33 +26,34 @@ dt = 10 /(24*60.)
 srclist,cutoff,catalogs = a.scripting.parse_srcs(opts.src, opts.cat)
 cat = a.cal.get_catalog(opts.cal, srclist, cutoff, catalogs)
 assert(len(cat)>0)#make sure the catalog got found
-print "loading beam files ",
-print args
-files = args
-B = []
-print "freqs"
-print [f.split('_')[-1][:-4] for f in files]
-freqs = [float(f.split('_')[-1][:-4]) for f in files] #grab the frequencies in MHz
-freqs = n.array(freqs)/1e3 #convert to GHz to match with the cal file option freqs
-plotfreq = n.median(range(len(freqs))).astype(int)
-nfreqs = len(files)
-for f in files:
-    B.append(n.loadtxt(f,skiprows=2))
-#reshape the datas
-B = n.array(B)
-THETA = B[:,:,0]
-THETA.shape = (nfreqs,360,181)
-PHI = B[:,:,1]
-PHI.shape = (nfreqs,360,181)
-BEAM = idB(B[:,:,2])**2 #put the beam into linear units and square
-BEAM.shape = (nfreqs,360,181)
-BEAM /= BEAM[plotfreq,0,0]
-def bradleybeam(src):
-    azalt = src.get_crds('top',ncrd=2)
-    theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
-    phi = azalt[0]*180/n.pi #phi is longitude
-    if opts.pol.startswith('y'): phi -= 90
-    return BEAM[:,floor(phi),floor(theta)]
+if len(args)>0
+    print "loading beam files ",
+    print args
+    files = args
+    B = []
+    print "freqs"
+    print [f.split('_')[-1][:-4] for f in files]
+    freqs = [float(f.split('_')[-1][:-4]) for f in files] #grab the frequencies in MHz
+    freqs = n.array(freqs)/1e3 #convert to GHz to match with the cal file option freqs
+    plotfreq = n.median(range(len(freqs))).astype(int)
+    nfreqs = len(files)
+    for f in files:
+        B.append(n.loadtxt(f,skiprows=2))
+    #reshape the datas
+    B = n.array(B)
+    THETA = B[:,:,0]
+    THETA.shape = (nfreqs,360,181)
+    PHI = B[:,:,1]
+    PHI.shape = (nfreqs,360,181)
+    BEAM = idB(B[:,:,2])**2 #put the beam into linear units and square
+    BEAM.shape = (nfreqs,360,181)
+    BEAM /= BEAM[plotfreq,0,0]
+    def bradleybeam(src):
+        azalt = src.get_crds('top',ncrd=2)
+        theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
+        phi = azalt[0]*180/n.pi #phi is longitude
+        if opts.pol.startswith('y'): phi -= 90
+        return BEAM[:,floor(phi),floor(theta)]
 def rotbeam(src):
     xyz = src.get_crds('top')
     if opts.pol.startswith('x'):pol = 'y'
