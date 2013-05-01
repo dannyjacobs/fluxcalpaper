@@ -8,7 +8,7 @@ What is the error?
 import aipy as a, numpy as n, sys, os, ephem, optparse
 import matplotlib as mpl
 from pylab import *
-from scipy.interpolate import interp2d
+from glob import glob
 def dB(x):
     return 10*n.log10(x)
 def idB(x):
@@ -26,42 +26,45 @@ dt = 10 /(24*60.)
 srclist,cutoff,catalogs = a.scripting.parse_srcs(opts.src, opts.cat)
 cat = a.cal.get_catalog(opts.cal, srclist, cutoff, catalogs)
 assert(len(cat)>0)#make sure the catalog got found
-if len(args)>0:
-    print "loading beam files ",
-    print args
-    files = args
-    B = []
-    print "freqs"
-    print [f.split('_')[-1][:-4] for f in files]
-    freqs = [float(f.split('_')[-1][:-4]) for f in files] #grab the frequencies in MHz
-    freqs = n.array(freqs)/1e3 #convert to GHz to match with the cal file option freqs
-    plotfreq = n.median(range(len(freqs))).astype(int)
-    nfreqs = len(files)
-    for f in files:
-        B.append(n.loadtxt(f,skiprows=2))
-    #reshape the datas
-    B = n.array(B)
-    THETA = B[:,:,0]
-    THETA.shape = (nfreqs,360,181)
-    PHI = B[:,:,1]
-    PHI.shape = (nfreqs,360,181)
-    BEAM = idB(B[:,:,2])**2 #put the beam into linear units and square
-    BEAM.shape = (nfreqs,360,181)
-    BEAM /= BEAM[plotfreq,0,0]
-    def bradleybeam(src):
-        azalt = src.get_crds('top',ncrd=2)
-        theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
-        phi = azalt[0]*180/n.pi #phi is longitude
-        if opts.pol.startswith('y'): phi -= 90
-        return BEAM[:,floor(phi),floor(theta)]
-    def rotbradleybeam(src):
-        azalt = src.get_crds('top',ncrd=2)
-        theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
-        phi = azalt[0]*180/n.pi #phi is longitude
-        if opts.pol.startswith('y'): phi -= 90
-        phi -= 90
-        return BEAM[:,floor(phi),floor(theta)]
-        
+print "loading CST beam files ",
+#files = [f for f in args if f.endswith('.txt')]
+files  = glob('sdipole*ffx*150.txt')
+B = []
+print "freqs"
+print [f.split('_')[-1][:-4] for f in files]
+freqs = [float(f.split('_')[-1][:-4]) for f in files] #grab the frequencies in MHz
+freqs = n.array(freqs)/1e3 #convert to GHz to match with the cal file option freqs
+plotfreq = n.median(range(len(freqs))).astype(int)
+nfreqs = len(files)
+for f in files:
+    B.append(n.loadtxt(f,skiprows=2))
+#reshape the datas
+B = n.array(B)
+THETA = B[:,:,0]
+THETA.shape = (nfreqs,360,181)
+PHI = B[:,:,1]
+PHI.shape = (nfreqs,360,181)
+BEAM = idB(B[:,:,2])**2 #put the beam into linear units and square
+BEAM.shape = (nfreqs,360,181)
+BEAM /= BEAM[plotfreq,0,0]
+def bradleybeam(src):
+    azalt = src.get_crds('top',ncrd=2)
+    theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
+    phi = azalt[0]*180/n.pi #phi is longitude
+    if opts.pol.startswith('y'): phi -= 90
+    return BEAM[:,floor(phi),floor(theta)]
+def rotbradleybeam(src):
+    azalt = src.get_crds('top',ncrd=2)
+    theta = (n.pi/2 - azalt[1])*180/n.pi #theta is the polar coord, zero at pole
+    phi = azalt[0]*180/n.pi #phi is longitude
+    if opts.pol.startswith('y'): phi -= 90
+    phi -= 90
+    return BEAM[:,floor(phi),floor(theta)]
+    
+print "Loading fits beam"
+jcp_beam = a.map.Map()
+jcp_beam.from_fits('test19b_f6_sm.fits')
+
 def rotbeam(src):
     xyz = src.get_crds('top')
     if opts.pol.startswith('x'):pol = 'y'
@@ -73,8 +76,9 @@ def calbeam(src):
 def ModelBeam(src):
     return bradleybeam(src)
 def TrueBeam(src):
-    return rotbradleybeam(src)
+#    return rotbradleybeam(src)
 #    return calbeam(src)
+    return jcp_beam[tuple(src.get_crds('top'))]**2
 nfreqs = len(freqs)
 plotfreq = int(nfreqs/2)
 print "loading cal file"
@@ -91,9 +95,9 @@ print "Beam model amplitudes at meridian"
 for src in cat:
     aa.date = aa.next_transit(cat[src])
     cat.compute(aa)
-    print "beamfreq=",aa.get_afreqs()[3]
+    print "beamfreq=",aa.get_afreqs()[0]
     print src,cat[src].get_crds('top',ncrd=2),
-    print ModelBeam(cat[src])[3],TrueBeam(cat[src])[3]
+    print ModelBeam(cat[src])[0],TrueBeam(cat[src])[0]
 
 #old stuff
 if False:
