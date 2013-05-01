@@ -19,8 +19,6 @@ o.set_description(__doc__)
 a.scripting.add_standard_options(o, cal=True, src=True,pol=True)
 o.add_option('--calsrc',
     help='choose a src from the list to divide out')
-#o.add_option('--beamfile',
-#    help='CST beam file')
 opts,args = o.parse_args(sys.argv[1:])
 dt = 10 /(24*60.)
 srclist,cutoff,catalogs = a.scripting.parse_srcs(opts.src, opts.cat)
@@ -74,7 +72,7 @@ def calbeam(src):
     xyz = src.get_crds('top')
     return aa[0].bm_response(xyz,pol=opts.pol[0]).squeeze()**2
 def ModelBeam(src):
-    return bradleybeam(src)
+    return calbeam(src)
 def TrueBeam(src):
 #    return rotbradleybeam(src)
 #    return calbeam(src)
@@ -98,59 +96,6 @@ for src in cat:
     print "beamfreq=",aa.get_afreqs()[0]
     print src,cat[src].get_crds('top',ncrd=2),
     print ModelBeam(cat[src])[0],TrueBeam(cat[src])[0]
-
-#old stuff
-if False:
-    figure(1)
-    for src in cat:
-        pos[src] = []
-        Abeam[src] = []
-        Bbeam[src] = []
-        times = []
-        risetime = aa.next_rising(cat[src])
-        aa.date = risetime
-        print src
-        while(True):
-            t = aa.date
-            aa.set_ephemtime(t+dt)
-            cat.compute(aa)
-            src_xyz = cat[src].get_crds('top')
-            if src_xyz[2]<0:break
-            times.append(t-risetime)
-            src_angle = cat[src].get_crds('top',ncrd=2)
-            #print src_angle,bradleybeam(cat[src])[plotfreq],calbeam(cat[src])[plotfreq]
-            pos[src].append(src_angle)
-    #        Abeam[src].append(calbeam(cat[src]))
-    #        Bbeam[src].append(rotbeam(cat[src]))    
-            Abeam[src].append(bradleybeam(cat[src]))
-            Bbeam[src].append(rotbradleybeam(cat[src]))
-    
-    
-        pos[src] = n.array(pos[src])
-        Abeam[src] = n.array(Abeam[src])
-        Bbeam[src] = n.array(Bbeam[src])
-        times = n.array(times)*24 #time in hours
-        if src=='zen': color = '0.5'
-        else: color = 'k'
-        HA = (pos[src][:,0]-n.pi)*12/n.pi
-        peaktime = times[pos[src][:,1].argmax()]
-        plot(times-peaktime,Abeam[src][:,plotfreq],color,label=src)
-        plot(times-peaktime,Bbeam[src][:,plotfreq],color,linestyle=':',label=src)
-    xlabel('time [h]')
-    ylabel('beam amplitude')
-    grid()
-    subplot(212)
-    for src in cat:
-        print Abeam[src].shape,Bbeam[src].shape
-        bandpass = n.sum(Abeam[src] * Bbeam[src],axis=0)/n.sum(Bbeam[src]**2,axis=0)
-        if not opts.calsrc is None:
-            bandpass /= (n.sum(Abeam[opts.calsrc] * Bbeam[opts.calsrc],axis=0)/n.sum(Bbeam[opts.calsrc]**2,axis=0))
-        if src=='zen': color='0.5'
-        else: color='k'
-        plot(freqs*1e3,bandpass,color,label=src)
-    xlabel('freqs [MHz]')
-    ylabel('passband amplitude')
-    grid()
 
 
 #scan through a range of decs and simulate the weight factor g using two different beams
