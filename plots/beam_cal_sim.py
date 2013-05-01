@@ -3,7 +3,7 @@
 Simulate a source track with the cal file beam, then use the bradley beam to calibrate it
 What is the error?
 """
-
+#./beam_cal_sim.py -C psa64_CSTbeam -s pic,2331-416,zen -pyy --cat=southern_sky_v3 --calsrc=2331-416 /Users/danny/Work/radio_astronomy/2010_beam/sdipole_05e_eg_ffx_*.txt
 
 import aipy as a, numpy as n, sys, os, ephem, optparse
 import matplotlib as mpl
@@ -94,6 +94,8 @@ for src in cat:
     print "beamfreq=",aa.get_afreqs()[3]
     print src,cat[src].get_crds('top',ncrd=2),
     print ModelBeam(cat[src])[3],TrueBeam(cat[src])[3]
+
+#old stuff
 if False:
     figure(1)
     for src in cat:
@@ -174,7 +176,6 @@ for i,src in enumerate(n.sort(cat.keys())[::-1]):
         cat.compute(aa)        
         src_xyz = cat[src].get_crds('top')
         if src_xyz[2]<0:break
-        #print src_xyz
         crds[src].append(src_xyz)
         g[:,i] += ModelBeam(cat[src]) * TrueBeam(cat[src])
         w[:,i] += ModelBeam(cat[src]) * ModelBeam(cat[src])
@@ -184,26 +185,21 @@ for i,src in enumerate(n.sort(cat.keys())[::-1]):
         times[src].append(t)
 
 g /= w
-#TODO add a pane to the weighted plot showing the un-weighted tracks
 figure()
 clf()
-print n.max(A['0_-40']),n.argmax(A['0_-40']),len(crds['0_-40'])#crds['0_-40'][n.argmax(A['0_-40'])]
-print n.max(A['0_-50']),n.argmax(A['0_-50']),len(crds['0_-50'])##crds['0_-50'][n.argmax(A['0_-50'])]
-
+caldec = 15
+print "calibrating to declination %d"%decs[caldec]
 for src in ['0_-40','0_-50']:
     t = n.array(times[src])
     t -= n.median(t)
     t *= 24
-    B_A = n.array(A[src]).copy()
-    B_M = n.array(B[src]).copy()
+    B_A = n.array(A[src])
+    B_M = n.array(B[src])
     subplot(211)
     plot(t,B_A[:,plotfreq])
     plot(t,B_M[:,plotfreq],ls=':')
     subplot(212)
-    print src,B_A[:,plotfreq].max(),B_M[:,plotfreq].max(),(B_A[:,plotfreq]*B_M[:,plotfreq]).max()
     plot(t,B_A[:,plotfreq]*B_M[:,plotfreq])
-#    G = n.array([q/sw[src] for q in sg[src]])
-#    plot((t-n.median(t))*24,G[:,plotfreq],'k')
 subplots_adjust(bottom=0.1,left=0.1)
 xlabel('time [hrs]')
 ylabel('$B_M(\\theta,\\phi) B_A(\\theta,\\phi)$')
@@ -213,12 +209,12 @@ print "\t model_weighted_beam_sim_track.png"
 figure()
 subplot(211)
 for i in range(len(decs)):
-    plot(freqs*1e3,g[:,i],'0.5')
+    plot(freqs*1e3,g[:,i]/g[:,caldec],'0.5')
 grid()
 xlabel('freq [MHz]')
 ylabel('g($\\delta$)')
 subplot(212)
-plot(decs,g[plotfreq,:],'k')
+plot(decs,g[plotfreq,:]/g[plotfreq,caldec],'k')
 subplots_adjust(bottom=0.1,left=0.1)
 xlabel('$\\delta$  [deg]')
 ylabel('g($\\delta$)')
