@@ -66,7 +66,7 @@ William P. Walbrugh\altaffilmark{9}}
 \altaffiltext{10}{Cavendish Lab., Cambridge, UK}
 
 \begin{abstract}
-We present a first catalog of broad-band spectral measurements from the 
+We present a catalog of broad-band spectral measurements from the 
 Donald C. Backer Precision Array for Probing
 % XXX ARP: was irina "first"?  and maybe "catalog"
 the Epoch of Reionization (PAPER) in South Africa observed in July and
@@ -81,6 +81,7 @@ measure 21cm emission from the Epoch of Reionization (EoR).
 Based on the variation in our data and the estimated error in the absolute
 flux scale we bootstrap from multiple bright sources, we estimate PAPER measurements
 of sources above XXX Jy to be accurate to 3.2\%.
+% DCJ 3.2% is just for Pictor A, and certainly not all PAPER measurements of sources above XXX Jy
 When combined with catalog data at other frequencies, these data constrain parameters of
 a power-law model for flux density with an uncertainty of 2.4\%.
 % XXX ARP: this must again be dependent on source strength and location.
@@ -151,9 +152,11 @@ cover much wider fields of view ($>10$\arcdeg) and bandwidths
 Because they do not physically point, flux calibration for such arrays relies heavily
 on an accurate model of the primary beam response to correct for an
 the apparent flux scale that varies across the sky.
-This direction dependent gain is currently uncertain to 20\% or higher
+This direction dependent gain is currently uncertain to 10\% or higher
 % XXX 20% seems a bit grim.  Doesn't jonnie argue for 5 to 10% in his paper?
-\citep{Jacobs:2013p9713}, approximately matching the current level of uncertainty in catalogs.
+%XXX 20\% comes from the overall uncertainty between MWA and PAPER, part of which is also side lobes. 
+%	Jonnie's fluxes are dominated by the side lobes in the pgb16 data, the fluxes have a range of errors around 15 to 20%
+\citep{Pober:2012p8800}, and comprises a large fraction of the 20\% difference between current telescopes \citep{Jacobs:2013p9713}.
 
 In this paper, we set out to significantly improve the accuracy of spectral measurements between 
 100--200 MHz for a set of bright sources in the declination range XXX to XXX that
@@ -164,7 +167,7 @@ most debilitating source of error in these measurements: the primary beam.
 % XXX update document map
 In \S\ref{sec:analysis} we describe our approach for measuring source spectra with
 drift-scan observations and deriving an absolute flux scale from catalog data.  
-In \S\ref{sec:Observations} we detail the instrumental
+In \S\ref{sec:Observations} we detail the instrumental 
 setup, observations and analysis method followed. In \S\ref{sec:fits} we
 compare the spectra with available data.  We conclude in 
 \S\ref{sec:Conclusion}.
@@ -186,7 +189,7 @@ Historically, the best
 EoR band data were by \citet{Slee:1995p7541} with Culgoora Circular
 Array\footnote{Known during daylight hours as Culgoora Radio Heliograph} and
 various higher frequency measurements with Parkes.  These data are typically
-uncertain to 10\% or higher and provide little coverage of the EoR band beyond
+uncertain to 20\% or higher and provide little coverage of the EoR band beyond
 a single narrow-band data point. 
 
 More recent surveys include narrow-band surveys by the GMRT and Mauritius, a
@@ -197,37 +200,6 @@ Williams catalog, though with 60-80\% error bars ---large compared to the 30\%
 uncertainty on their wide band measurements.  The latter cover the band and
 spatial scales relevant to EoR measurements but are limited by the accuracy of
 the primary beam \citep{Jacobs:2013p9713}.
-
-% XXX elaborate on:
-%However, catalog source fluxes at 150MHz are also inaccurate to the 20\% level,
-%particularly at southern declinations ($\delta<-20$\arcdeg). 
-
-% XXX remove PAPER specificity from below?
-For power-spectrum measurements, PAPER uses an antenna layout
-optimized to detect a small number of Fourier modes at high precision.  This ``maximum-redundancy''
-array configuration trades imaging dynamic range for power spectrum sensitivity \citep{Parsons2012a}.
-As such it is only able to easily distinguish the very brightest sources on the
-sky for setting the overall flux scale \citep{Parsons2013b}. 
-Of these, Pictor A is
-one of the most useful, being bright, minimally resolved, and far from
-confusing structure. 
-For this source the current best EoR band measurement
-is uncertain to 12\% and appears to imply spectral flattening in the EoR band
-\citep{Perley:1997p9312}.
-% XXX more background on pictor A
-
-% XXX transition to the PAPER instrument
-Establishing an accurate spectrum for Pictor A is of particular importance for
-PAPER --- a dedicated EoR experiment 
-that employs drift-scanning, dual-polarization dipole antennas 
-tuned for efficient operation over a 120--170-MHz band.  PAPER is located in the South African Karoo desert
-on the Square Kilometer Array
-South Africa (SKA-SA) reserve, 100km north of the small town of Carnarvon.
-The PAPER array has grown from 16 elements deployed in early 2009 to a
-64-element imaging array in 2011 (see Figure \ref{fig:antpos}). 
-Since November 2011 it has been arranged in a maximally redundant grid 
-configuration to make deep power spectral integrations \citep{Parsons:2012a}.
-% XXX to calibrate these observations...
 
 A method for decoupling uncertain fluxes from the uncertain beam has been
 described by \citet{Pober:2012p8800}. In simulation the method was able to
@@ -242,34 +214,140 @@ This paper reports a set of flux measurements where a primary beam
 model has not been used to estimate the flux, but instead are directly
 calibrated to a single calibrator making the track through the beam.
 
+% XXX elaborate on:
+%However, catalog source fluxes at 150MHz are also inaccurate to the 20\% level,
+%particularly at southern declinations ($\delta<-20$\arcdeg). 
+% not sure where this went. -dcj
+
+% XXX remove PAPER specificity from below?
+EoR measurements in the southern sky have focused on the coldest regions where
+galactic foregrounds are minimal. With the majority of possible observing time falling on 
+RA=4h,Dec=-30. The brightest and least-resolved calibrator in this region is Pictor A 
+(5h19m49.1 -45d46m45.0). Pictor A is a nearby FR-II type radio galaxy 
+ similar to Cygnus A.  At $\sim$400Jy Pictor is bright and sufficiently distant from other 
+bright sources to make it eminently suitable as both a phase and flux calibrator. Its apparent
+size of $\sim$8\arcmin is smaller than the scales being probed by current EoR instruments , 
+making resolution effects, making it suitable for precision calibration.  However, 
+like most other sources, precise flux measurements in the EoR band are not available.
+The current best EoR band measurement
+is uncertain to 12\% and appears to imply spectral flattening in the EoR band
+\citep{Perley:1997p9312}. 
+ 
+% XXX more background on pictor A
+%  added dcj
+%0518-458	 PKS, Pictor A	G	 25.93	 24.01	1		W	 0.0342	 23.63	 176.
+% XXX transition to the PAPER instrument
+Establishing an accurate spectrum for Pictor A is of particular importance for
+PAPER --- a dedicated EoR experiment 
+that employs drift-scanning, dual-polarization dipole antennas 
+tuned for efficient operation over a 120--170-MHz band.  PAPER is located in the South African Karoo desert
+on the Square Kilometer Array
+South Africa (SKA-SA) reserve, 100km north of the small town of Carnarvon.
+The PAPER array has grown from 16 elements deployed in early 2009 to a
+64-element imaging array in 2011 (see Figure \ref{fig:antpos}). 
+Since November 2011 it has been arranged in a maximally redundant grid 
+configuration to make deep power spectral integrations \citep{Parsons:2012a}.
+Though highly sensitive as a power spectrum instrument, the maximally redundant
+has a broad point spread function and is able to measure only the brightest sources,
+like Pictor A, for flux calibration purposes.  
+% XXX to calibrate these observations...
+% added dcj
+
+
+
 \section{Approach}
 
 % XXX incorporate
-Given the shortcomings in the literature, and the necessity for PAPER power-spectrum analysis
+Given the large uncertainties in the literature, and the necessity for PAPER power-spectrum analysis
 to use Pictor A for flux calibration, we felt it prudent to examine Pictor A directly.
-In this section, we describe ... % XXX
+In this section, we describe how we use PAPER in its imaging configuration
+to measure Pictor A and a selection of known, bright sources in a 5\arcdeg strip centered
+on -45\arcdeg. % XXX  
 
-In order to ensure that 
-errors in
-the beam model did not skew our result, we chose a set of calibrator sources near in declination
-to Pictor A that would follow nearly identical tracks through the primary beam.
-This declination limit removes the necessity of correcting for a primary beam model and allows us to calculate more precise fluxes that provide a reference standard for future work.
+As we've seen above, any one point in the primary beam might be uncertain to 10\% or more. However
+this is partially a function of the imaging mode. In \citet{Jacobs:2013p9837} several limitations were identified that
+exasperated the primary beam uncertainty.  First, in imaging each source flux is measured at just a few 
+points in the primary beam. As errors tend to vary across the beam, the uncertainty will tend to vary between sources.
+Here we have averaged over all possible positions making the uncertainty a function of the net uncertainty in the beam,
+and stabilizing the source-to-source variations in error bars. The second limitation identified also identified in \citet{Williams:2012p8768}
+was the increase of uncertainty towards the edge of the beam. To minimize our sensitivity to both beam and noise
+uncertainty, we weight the source track by an additional factor of the primary beam model. 
 
-To begin, we choose sources from the Molonglo
+Algebraically, the apparent flux at alittude-azimuth position $\theta-\phi$,
+ is the true flux multiplied by the actual primary beam
+
+\[
+S_\textrm{apparent}(\theta,\phi) = B_A(\theta,\phi)  S
+\]
+
+Integrating over the full source track and weighting by our model primary beam, we estimate the spectrum
+
+\begin{align}
+S_\textrm{estimate} &=& \sum_t   \frac{\sum_\phi B_M(\theta,\phi) S_\textrm{apparent}(\theta,\phi) }{ \sum_\phi B^2_M(\theta,\phi)}
+S_\texrm{estimate} & =&  \frac{\sum_\phi B_M(\theta,\phi) B_A(\theta,\phi)}{ \sum_\phi B^2_M(\theta,\phi)} S
+\end{align}
+In the fully general case, an incompletely sampled track will have its own unique weight. In this case, where each track is fully sampled,
+ the only remaining independent variable is the source declination.
+\[
+g(\delta) = \frac{\sum_\phi B_M(\theta,\phi) B_A(\theta,\phi)}{ \sum_\phi B^2_M(\theta,\phi)}
+\label{eq:g}
+\]
+ 
+ \begin{figure}[htbp]
+\begin{center}
+\includgraphics[width=0.9\textwidth]{plots/model_weighted_beam_sim_track.png}
+\caption{\label{fig:beam_track_sim} Simulated model weighted beam track. }
+\label{default}
+\end{center}
+\end{figure}
+
+  \begin{figure}[htbp]
+\begin{center}
+\includgraphics[width=0.9\textwidth]{plots/model_weighted_beam_sim_track.png}
+\caption{\label{fig:beam_track_sim} Simulated model weighted beam track. }
+\label{default}
+\end{center}
+\end{figure}
+ We may simulate this integral by calculating $g$ for 
+similar, but not identical models. For example, consider the case where the true beam is the model beam 
+but rotated by 90 degrees ('y' instead of 'x').  As shown in Figure \ref{XXX}
+ tracks separated by 10\arcdeg declination differ by as much as 25\%. 
+However, looking at the weighted tracks, the portion inside the sum in Eq \ref{eq:g} (Figure \ref{fig:beam_track_sim}), 
+we see that  we see that over a good portion of the beam, these tracks are very similar.  Thus
+  the sum displays very little declination dependance (Figure \ref{XXX}), varying by a maximum of 0.7\% over 
+  the declination range -30 to -60. 
+   However this conclusion is limited by the accuracy of the simulation. To limit our susceptibility to possibly larger errors we limit our use of this
+  technique to with $\pm5$\arcdeg of Pictor A.
+  
+Another implication of this simulation is that there will be a net bandpass common to each source. 
+We estimate this bandpass by nominating one source as a bandpass calibrator, dividing its integrated spectrum by a 
+spectral model, and applying these calibration coefficients to the rest of the sources. Note that this  
+only puts the measurements on a common flux scale within the PAPER band given the flux model
+chosen for the calibrator.  A flux scale extrapolated from many catalog values is calculated separately in \S \ref{sec:flux_scale}.
+
+
+
+
+%This limitation in declination allows us to use a single source to calibrate all the measurements without 
+%needing to transfer gain solutions across the sky using a beam model. By insisting that the tracks of all sources
+% overlap entirely with a common calibrator we are able to directly calibrate out the effective passband of
+% the primary beam. 
+%This allows us to make a more precise flux measurement that provides a reference standard for future work.
+
+
+We choose sources from the Molonglo
 Reference Catalog \cite[MRC]{Large:1981p7798} that are within 5\arcdeg in
 declination of a common calibrator (J2331-416) and have a flux extrapolated
 from 408MHz greater than 10Jy assuming a power law spectral index of
 -1.\footnote{Most radio sources in this band have power law spectra $S(\nu) =
-\left(\frac{\nu}{\nu_0}\right)^\alpha$.  The 5\arcdeg distance between source
-and calibrator was chosen as a balance between number of sources included and
-the known smoothness of the beam.   The average spectral index for radio
-sources in this band is $-0.8$.} This selection contains 62 sources in a narrow
+\left(\frac{\nu}{\nu_0}\right)^\alpha$. } This selection contains 62 sources in a narrow
 stripe that passes through the majority of the southern EoR fields, much of the
-galaxy and Centaurus A.
+galaxy and Centaurus A. This stripe in the broader context of the galactic plane
+is shown in Figure \ref{fig:error_map}.
 A list of these 
 sources is given in Table \ref{tab:src_spec}. 
 
-For these sources, spectral data measured below XXX GHz were compiled from 
+For these sources, spectral data measured below 2 GHz were compiled from 
 the NASA/IPAC Extragalactic Database (NED)
 \footnote{\url{http://ned.ipac.caltech.edu/}}. Cross-matching radio sources
 between bands is made difficult by changes in resolution, spectral curvature,
@@ -280,6 +358,18 @@ sources this becomes unwieldily and prone to error. Thus for the larger number
 of samples we make use of the Vollmer et al meta-catalog which takes pains to
 match multi-wavelength observations \citep{Vollmer:2010p6422}.
 % given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
+
+The spectra reported here are measured by beam-forming, phasing the visibilities to
+the target location, and summing to produce a dynamic spectrum. The spectrum is then isolated
+from neighboring sources by filtering and averaged in the time domain.  Though we do not rely on
+the primary beam model to estimate flux, we do employ it here to down weight low SNR measurements.
+Each source track is paired with samples of a calibrator to build a calibrator spectrum with the same weighting
+and the same track through the primary beam.  This calibrator observation provides a spectral bandpass unique 
+to that particular cut through the beam.
+The expectation is that, since all sources at similar declinations follow similar tracks 
+through the PAPER beam, any errors present in the original measured spectra as a result of differences between
+the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
+should be corrected by the applied gain factor.
 
 
 To derive a source spectrum from each drift-scan source profile, we compute a weighted average using
@@ -294,10 +384,7 @@ smoothed on 10-MHz scales,
 that brings the spectrum of J2331-416 into closest agreement with a power-law spectrum
 that represents the best fit to measurements below 1 GHz.
 This additional gain factor was applied to all measured spectra, including that
-of Pictor A.  The expectation is that, since all sources at similar declinations follow similar tracks 
-through the PAPER beam, any errors present in the original measured spectra as a result of differences between
-the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
-should be corrected by the applied gain factor.
+of Pictor A.  
 
 Finally,
 an absolute flux scale is set
