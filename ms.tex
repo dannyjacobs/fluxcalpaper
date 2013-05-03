@@ -256,83 +256,52 @@ like Pictor A, for flux calibration purposes.
 
 
 \section{Approach}
-
+\label{sec:approach}
 % XXX incorporate
 Given the large uncertainties in the literature, and the necessity for PAPER power-spectrum analysis
 to use Pictor A for flux calibration, we felt it prudent to examine Pictor A directly.
 In this section, we describe how we use PAPER in its imaging configuration
 to measure Pictor A and a selection of known, bright sources in a 5\arcdeg strip centered
-on -45\arcdeg. % XXX  
+on -45\arcdeg. 
 
-As we've seen above, any one point in the primary beam might be uncertain to 10\% or more. However
-this is partially a function of the imaging mode. In \citet{Jacobs:2013p9837} several limitations were identified that
+ In \citet{Jacobs:2013p9837} several limitations were identified that
 exasperated the primary beam uncertainty.  First, in imaging each source flux is measured at just a few 
 points in the primary beam. As errors tend to vary across the beam, the uncertainty will tend to vary between sources.
 Here we have averaged over all possible positions making the uncertainty a function of the net uncertainty in the beam,
-and stabilizing the source-to-source variations in error bars. The second limitation identified also identified in \citet{Williams:2012p8768}
+and stabilizing the source-to-source variations in error bars. The second limitation, identified in \citet{Williams:2012p8768},
 was the increase of uncertainty towards the edge of the beam. To minimize our sensitivity to both beam and noise
-uncertainty, we weight the source track by an additional factor of the primary beam model. 
+uncertainty, we weight the source track by an additional factor of the primary beam model.  
 
-Algebraically, the apparent flux at alittude-azimuth position $\theta-\phi$,
- is the true flux multiplied by the actual primary beam
+
+As PAPER is a drift scan instrument, each declination $\delta$ describes a distinct cut through the primary beam. Each source track
+provides a detailed measurement of the primary beam relative to the peak of the measured flux. However,
+a model $g(\delta)$ is still required to calibrate between declinations. This model will be effective over a range of declinations, but will diverge at
+some rate depending on the accuracy of the slope of the beam model, limiting our declination range ($\Delta \delta$).  
+
+
+EQUATION FOR BEAM ERROR %XXX
+% \[
+% g(\alpha,\delta) = \frac{d B(\theta,\phi)}{d\delta} \Delta \delta 
+% \]
+Using our source tracks, we can measure the slope of the beam and compare with models over a range of angles
+
+EQUATION FOR BEAM ERROR ALONG SOURCE TRACK %XXX
+
+
+As we see in Figure XXX the model beam is able to predict the measured beam slope across a 5\arcdeg
+distance to within XXX\%.
+
+
+
+
 
 \[
-S_\textrm{apparent}(\theta,\phi) = B_A(\theta,\phi)  S
+B_M = B_M(\theta(t),\phi(t))\\
+\sim 0.02\\
+\Delta B /B_M= \Delta (S_p)/B^2_M \sim \Delta B_M \\
+(\Delta B - \Delta B_M)/B_M < 0.01
 \]
 
-Integrating over the full source track and weighting by our model primary beam, we estimate the spectrum
-
-\begin{align}
-S_\textrm{estimate} &=& \sum_t   \frac{\sum_\phi B_M(\theta,\phi) S_\textrm{apparent}(\theta,\phi) }{ \sum_\phi B^2_M(\theta,\phi)}
-S_\texrm{estimate} & =&  \frac{\sum_\phi B_M(\theta,\phi) B_A(\theta,\phi)}{ \sum_\phi B^2_M(\theta,\phi)} S
-\end{align}
-In the fully general case, an incompletely sampled track will have its own unique weight. In this case, where each track is fully sampled,
- the only remaining independent variable is the source declination.
-\[
-g(\delta) = \frac{\sum_\phi B_M(\theta,\phi) B_A(\theta,\phi)}{ \sum_\phi B^2_M(\theta,\phi)}
-\label{eq:g}
-\]
- 
- \begin{figure}[htbp]
-\begin{center}
-\includgraphics[width=0.9\textwidth]{plots/model_weighted_beam_sim_track.png}
-\caption{\label{fig:beam_track_sim} Simulated model weighted beam track. }
-\label{default}
-\end{center}
-\end{figure}
-
-  \begin{figure}[htbp]
-\begin{center}
-\includgraphics[width=0.9\textwidth]{plots/model_weighted_beam_sim_track.png}
-\caption{\label{fig:beam_track_sim} Simulated model weighted beam track. }
-\label{default}
-\end{center}
-\end{figure}
- We may simulate this integral by calculating $g$ for 
-similar, but not identical models. For example, consider the case where the true beam is the model beam 
-but rotated by 90 degrees ('y' instead of 'x').  As shown in Figure \ref{XXX}
- tracks separated by 10\arcdeg declination differ by as much as 25\%. 
-However, looking at the weighted tracks, the portion inside the sum in Eq \ref{eq:g} (Figure \ref{fig:beam_track_sim}), 
-we see that  we see that over a good portion of the beam, these tracks are very similar.  Thus
-  the sum displays very little declination dependance (Figure \ref{XXX}), varying by a maximum of 0.7\% over 
-  the declination range -30 to -60. 
-   However this conclusion is limited by the accuracy of the simulation. To limit our susceptibility to possibly larger errors we limit our use of this
-  technique to with $\pm5$\arcdeg of Pictor A.
-  
-Another implication of this simulation is that there will be a net bandpass common to each source. 
-We estimate this bandpass by nominating one source as a bandpass calibrator, dividing its integrated spectrum by a 
-spectral model, and applying these calibration coefficients to the rest of the sources. Note that this  
-only puts the measurements on a common flux scale within the PAPER band given the flux model
-chosen for the calibrator.  A flux scale extrapolated from many catalog values is calculated separately in \S \ref{sec:flux_scale}.
-
-
-
-
-%This limitation in declination allows us to use a single source to calibrate all the measurements without 
-%needing to transfer gain solutions across the sky using a beam model. By insisting that the tracks of all sources
-% overlap entirely with a common calibrator we are able to directly calibrate out the effective passband of
-% the primary beam. 
-%This allows us to make a more precise flux measurement that provides a reference standard for future work.
 
 
 We choose sources from the Molonglo
@@ -361,36 +330,30 @@ match multi-wavelength observations \citep{Vollmer:2010p6422}.
 
 The spectra reported here are measured by beam-forming, phasing the visibilities to
 the target location, and summing to produce a dynamic spectrum. The spectrum is then isolated
-from neighboring sources by filtering and averaged in the time domain.  Though we do not rely on
-the primary beam model to estimate flux, we do employ it here to down weight low SNR measurements.
-Each source track is paired with samples of a calibrator to build a calibrator spectrum with the same weighting
-and the same track through the primary beam.  This calibrator observation provides a spectral bandpass unique 
-to that particular cut through the beam.
-The expectation is that, since all sources at similar declinations follow similar tracks 
-through the PAPER beam, any errors present in the original measured spectra as a result of differences between
-the simulated and actual beam response should be absent in the ratio between source spectra, and therefore
-should be corrected by the applied gain factor.
+from neighboring sources by filtering and averaged in the time domain.  This time average is 
+weighted by an additional factor of the PAPER's primary beam response 
+\citep{pober_et_al2012}.  
+\begin{align}
+S_\textrm{est} &= \frac{\sum_t B_M S_p}{\sum_t B^2_M}\\
+&= \frac{\sum_t B_M B}{\sum_t B^2_M} S\\ \label{eq:g}
+\end{align}
 
+which is an effective approximation of inverse-variance weighting. The pre factor in Eq \ref{eq:g} is identical for 
+sources at the same declination, and as we found above, diverges slowly from the model in the 10\arcdeg declination stripe.
+We estimate this spectral dependent gain for a calibrator (J2331-416) fitting a spectral index model to the
+ well-defined data points below 2GHz. This removes an overall offset.
+ 
+ Finally we average the spectra from a resolution of 400kHz to 10MHz bins, taking the standard deviation within these bins
+ for an estimate of the uncertainty.
 
-To derive a source spectrum from each drift-scan source profile, we compute a weighted average using
-weights derived from a model of
-PAPER's primary beam response as an effective approximation of inverse-variance weighting
-\citep{pober_et_al2012}, and averaging over the time series for each source.  Each output source spectrum
-represents a best estimate given the limitations of the beam model and flux calibration that were established
-up to this point, according to the equation:
-% XXX equation for time-dependent beam amplitude times source flux for perceived flux density
-To further improve these estimates, we derive an additional frequency-dependent gain parameter,
-smoothed on 10-MHz scales,
-that brings the spectrum of J2331-416 into closest agreement with a power-law spectrum
-that represents the best fit to measurements below 1 GHz.
-This additional gain factor was applied to all measured spectra, including that
-of Pictor A.  
-
-Finally,
-an absolute flux scale is set
-by Monte Carlo fitting to a subset of sources, all of which are calibrated to
-the Baars et al scale. 
-% XXX elaborate on this, more on Baars, less on MC
+At this point we have a set of spectra that have been calibrated relative to each other to the best of our ability. Now 
+they must be put on a global flux scale. We also have only a limited estimate of our error from our intra-channel
+rms.  To address both points we fit for a global flux scale that incorporates data from many catalogs. These catalogs
+have all been set, as best as possible, to the Baars et al scale.  Using a Bayesian analysis we compute the 
+variation in the flux scale implied by comparing many sources to prior catalog. By including sources from across
+the declination range,the variation in this flux scale fit estimates the overall uncertainty in flux resulting from primary beam 
+or prior catalog uncertainty.  So though the final scale is calibrated to the Baars scale as extrapolated beyond its
+defined band, the error on the flux scale fully encapsulates the error resulting from this extrapolation.
 
  
  \section{Data Reduction}
@@ -402,7 +365,7 @@ the Baars et al scale.
 \begin{figure*}\centering
 \includegraphics[width=0.85\columnwidth]{plots/antpos.png}
 \caption{Antenna position in the 64-antenna, minimum-redundancy PAPER array configuration at the Karoo Radio Observatory site in South Africa used for these observations.
-% XXX add brief summary of observations.
+Data was captured during July and October of 2011 on a single 'x' polarization over a band between 120 and 180 MHz.
 }\label{fig:antpos}
 \end{figure*}
 
@@ -454,6 +417,7 @@ channels become 203, and the 60 original time samples per 10-minute file become
 %Frequencies below 120 MHz and above 180 MHz were also flagged, owing to roll-off of analog response.
 %After RFI flagging, frequency channel resolution was decreased by a factor of four by summing channels.
 
+%I'm Confused.  These are describing a different ordering of steps. Must re-read compression script.  
 
 %CALIBRATION
 \subsection{Per-Antenna Gain and Phase Calibration}
@@ -461,10 +425,10 @@ channels become 203, and the 60 original time samples per 10-minute file become
 % XXX differentiate amp cal here from spectral cal and absolute cal that comes later.
 
 % XXX time-dependent calibration is critical.  modify paragraph below
-Quantization gain through the correlator was linearized \citep{parsons_et_al2008}.
+
 Measurements of ambient temperature versus time near the balun amplifier of a fiducial antenna and near
 receiver amplifiers were used to divide out the predicted gain variation versus temperature that these amplifiers
-are known to exhibit.  A predicted gain profile was drived using coefficients characterized in
+are known to exhibit.  A predicted gain profile was derived using coefficients characterized in
 laboratory measurements \citep{parashare_bradley2009} and
 confirmed in field measurements \citep{pober_et_al2011} of $H_{\rm balun}=-0.024$ dB/K, $H_{\rm recvr}=-0.045$
 dB/K, and $H_{\rm cable}=-0.018$ dB/K for 150m-long cables.  Because cable temperatures were not measured
@@ -479,19 +443,19 @@ solutions have been successfully applied in \citet{Pober:2013XXX} and \citet{Ste
 for power-spectrum analysis of foregrounds and imaging of Centaurus A, respectively.
 
 % XXX incorporate
-To measure the spectrum of each source, we begin by applying per-antenna phase and gain
-calibrations established via self-calibration.  We next remove
-the known dependence of amplifier gain and cable attenuation on ambient temperature 
-using measured temperature data and temperature coefficients that were characterized in
-laboratory measurements \citep{parashare_bradley2009} and confirmed 
-in field-measurements \citep{pober_et_al2012}.  For each source, we phase to the source 
-osition
-and sum over 
-all baselines greater than 20 wavelengths in length.
-A fringe-rate filter (see \citet{parsons_backer2009} and Appendix A in \citet{Parsons2013b})
-is applied to the resulting
-beam to suppress beam sidelobes where sources introduce variations that deviate more than 
-$\pm$0.1 mHz from the fringe rate of the source in question.
+%To measure the spectrum of each source, we begin by applying per-antenna phase and gain
+%calibrations established via self-calibration.  We next remove
+%the known dependence of amplifier gain and cable attenuation on ambient temperature 
+%using measured temperature data and temperature coefficients that were characterized in
+%laboratory measurements \citep{parashare_bradley2009} and confirmed 
+%in field-measurements \citep{pober_et_al2012}.  For each source, we phase to the source 
+%osition
+%and sum over 
+%all baselines greater than 20 wavelengths in length.
+%A fringe-rate filter (see \citet{parsons_backer2009} and Appendix A in \citet{Parsons2013b})
+%is applied to the resulting
+%beam to suppress beam sidelobes where sources introduce variations that deviate more than 
+%$\pm$0.1 mHz from the fringe rate of the source in question.
 
 %BEAMFORMING,FILTERING, AVERAGING
 
@@ -499,7 +463,7 @@ $\pm$0.1 mHz from the fringe rate of the source in question.
 
 Spectral time-series are computed by beam-forming to the selected sky
 locations. A beam is formed by phasing baselines to the desired location and
-summing over baselines.  
+summing over baselines longer than 20 wavelengths.
 %Samples were only included if there was a calibrator sample within 5\arcdeg in altitude/azimuth.   By using both seasons of data we were able to match all measurements with calibrator measurements, making this cut moot. 
 
 % XXX incorporate paragraph below
@@ -516,16 +480,15 @@ summing over baselines.
 % XXX exclusion of minimum uv spacing?
 
 
- These complex spectra are then delay-delay rate filtered to remove spectrally
-smooth sources far from phase center \citep{Parsons:2009p7859} (cf the LOFAR
+ These complex spectra are then fringe rate filtered to remove spectrally
+smooth sources that deviate more than $\pm$0.1mHz from the fringe rate of the source in question
+ \citep{Parsons:2009p7859} (cf the LOFAR
 de-mixing approach \cite{Offringa:2012p9691})  producing a time dependent
-spectrum. This is then averaged in time,  weighting by a model of the primary
-beam. This down-weighting, or multiplying by the primary beam, should be
-clearly distinguished from up-weighting, which we are at pains to avoid.
-Weighting by another factor of the primary beam is an effective approximation
-of inverse-variance weighting \citep{Pober:2012p8800} and reduces the
-contribution of noisy low elevation measurements.  The result is equivalent to
-a very long earth rotation synthesis image with a single image pixel. When
+spectrum with minimal side lobes. This is then averaged in time,  weighting by a model of the primary
+beam as discussed above.
+The result is equivalent to
+a very long earth rotation synthesis image with a single image pixel. The weighted
+contributions from each baseline are shown in Figure \ref{fig:uv_coverage}.When
 combined with the filtering it is a robust and simple method for measuring
 spectra of unresolved sources. 
 
@@ -546,8 +509,8 @@ spectra of unresolved sources.
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{plots/PicA_Oct2011_uv_coverage.png}
-\caption{The effective uv coverage, showing the relative contributions of each baseline when beam-forming on Pictor over a 9.6 hour synthesis in the October observing session. \label{fig:uv_coverage}}
-% XXX unclear whether amplitudes include our model of Pic A, or are even actual data vs. weights
+\caption{The effective uv coverage of a 10MHz-wide spectrum bin, showing the relative contributions of each baseline when beam-forming on Pictor over a 9.6 hour synthesis in the October observing session. \label{fig:uv_coverage}}
+Not shown here are the weights interpolated from the Perley et al 330MHz map (Fig. \ref{fig:pic_perley}) used to recover the total integrated flux of Pic  which represent a few \% change on the longest baselines.
 \end{figure}
 
 The beam-forming method assumes the target is a point source. Our primary
@@ -555,9 +518,9 @@ target, Pictor A, is slightly resolved by PAPER, and merits closer attention.
 Pictor A is a double-lobed radio galaxy with a main lobe separation of
 7\arcmin. As we see in Figure \ref{fig:pic_perley}, it is nearly unresolved by
 PAPER's 15\arcmin synthesized beam. However, given the high SNR of the
-observations, resolution effects are observers, in a slight decrease in flux on
-the longest ($\sim$300m) baselines. We account for this by weighting baselines
-in the beam form step according to a model of structure observed by
+observations, we see a 20\% drop in flux on the longest ($\sim$300m) baselines. 
+We account for this by weighting baselines
+in the beamform step according to a model of structure observed by
 \citet{Perley:1997p9312} at 330MHz, which they found to be consistent with
 their more limited 74MHz images as well as the detailed high frequency maps.
 The normalized image is Fourier transformed and sampled at the desired uv
@@ -568,13 +531,6 @@ the band, the correction is 3\%. At the bottom of the band, where the
 resolution size has grown to 19\arcmin, the correction is only 0.6\%. The
 resulting spectrum is shown in Figure \ref{fig:pic_spectrum}a.
 
-% XXX specific discussion of baseline weights to compensate for resolution effects for Pictor A
-% XXX need to elaborate on correcting for resolution effects for PicA.
-% XXX check paragraph below for relavant phrases
-Because Pictor A is resolved at the 20\% level on the longest (300m) East-West PAPER baselines, we 
-use per-baseline estimates of resolution weights to down-weight and correct for resolution effects.  To estimate
-resolution weights, we use the 90cm map of Pictor A presented in \citet{perley_et_al1997}.  Averaged over all
-the baselines in the array, the inclusion of resolution effects changed the measured flux by less than 5\%.
 
 
 \begin{figure}
@@ -582,9 +538,9 @@ the baselines in the array, the inclusion of resolution effects changed the meas
 \caption{
 Pictor A imaged at 330MHz by the VLA \citep{Perley:1997p9312}. Black circle
 indicates PAPER resolution at the 150MHz, dashed, the resolution at 185MHz.  To
-correct for the small residual structure in the PAPER measurements we
-interpolated the PAPER baselines in the uv plane. At the highest frequency this
-% XXX "interpolated" needs to be clarified
+correct for the small residual structure in the PAPER measurements we resampled
+the Perley image to the PAPER resolution and estimated the relative contribution
+ to each PAPER baseline.  At the highest frequency this
 led to a 3\% correction, at the lowest frequency, 0.6\%.
 \label{fig:pic_perley}}
 \end{figure}
@@ -593,25 +549,35 @@ led to a 3\% correction, at the lowest frequency, 0.6\%.
 \subsection{Bandpass Calibration}
 \label{sec:Calibration}
 
-% XXX selection of calibrator sources
+The resulting set of spectra were then calibrated to a model of J2331-416 to remove 
+the residual bandpass due to the net effect of the primary beam as discussed in \S \ref{sec:approach}. J2331-416 
+\footnote{Here we set the spectrum to $S_{150}=33$Jy, $\alpha=-0.76$} fit to measurements beolow 1GHz \citep{slee1995,kuhr_et_al1981,large_et_al1981,burgess_hunstead2006}.}
+was selected for its relatively high brightness, spectral smoothness and large quantity
+ of available catalog data. Each source track has a slightly different sample profile
+ resulting from different amounts of flagged data at each time and channel. To account
+ for these differences in the bandpass calibration we build a set of calibration tracks 
+ that match the tracks for each source. Calibration of each source then proceeds with
+ an optimally matched calibration spectrum.
 
-The gain of each channel is the product of an overall instrumental passband and
-the spectral dependence of the primary beam in the direction of the source.
-Sources sharing the same track through the primary beam will have the same
-average spectral gain function resulting from frequency dependent primary beam
-attenuation.   We matched each measured source spectrum time sample to the
-nearest sample (in altitude/azimuth) of a calibrator source
-(J2331-416)\footnote{This source was chosen for the amount of data found in the
-literature and the apparent smoothness of the spectrum.}.  We then, average the
-% XXX clarify why one source used here, and more sources later 
-two matched data streams in time.  Since both tracks make the same slice
-through the primary beam, they will have the same average effective gain.
-Assuming a power law model for J2331-416 (33Jy $\alpha=-0.76$), we compute a
-% XXX I got these parameters for 2331: $S_{150}=31.9\ {\rm Jy}$, $\alpha=-0.69$ 
-% XXX forward reference section on fitting spectra for how this was derived for 2331
-bandpass gain.  After calibrating the raw 203 channel spectra with this
-bandpass, we average into 10MHz sub-bands between 120 and 180 MHz, computing
-the standard deviation as an estimate of the error. 
+
+
+%The gain of each channel is the product of an overall instrumental passband and
+%the spectral dependence of the primary beam in the direction of the source.
+%Sources sharing the same track through the primary beam will have the same
+%average spectral gain function resulting from frequency dependent primary beam
+%attenuation.   We matched each measured source spectrum time sample to the
+%nearest sample (in altitude/azimuth) of a calibrator source
+%(J2331-416)\footnote{This source was chosen for the amount of data found in the
+%literature and the apparent smoothness of the spectrum.}.  We then, average the
+%% XXX clarify why one source used here, and more sources later 
+%two matched data streams in time.  Since both tracks make the same slice
+%through the primary beam, they will have the same average effective gain.
+%Assuming a power law model for J2331-416 (33Jy $\alpha=-0.76$), we compute a
+%% XXX I got these parameters for 2331: $S_{150}=31.9\ {\rm Jy}$, $\alpha=-0.69$ 
+%% XXX forward reference section on fitting spectra for how this was derived for 2331
+%bandpass gain.  After calibrating the raw 203 channel spectra with this
+%bandpass, we average into 10MHz sub-bands between 120 and 180 MHz, computing
+%the standard deviation as an estimate of the error. 
 
 % XXX merge this with above
 %To further improve these estimates, we derive an additional frequency-dependent gain parameter,
@@ -628,75 +594,120 @@ the standard deviation as an estimate of the error.
 
 \subsection{Fitting a Power-Law Model to Spectra}
 
-% XXX write this
 
-To compare with observations at other frequencies we must assume a spectral
-model. The prevailing spectral model for low frequency radio sources is a
-single power law due to synchrotron emission, though curvature or other
-deviation from a power-law is not-uncommon.   To establish a baseline model, we
-fit a spectral model to prior catalog data from the spectrally and spatially
-cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the MCMC method
-described in \S \ref{sec:flux_scale} and the Appendix. Confidence contours for
-these fits are shown in grey in Figs. \ref{fig:SI_contour_1} -
-\ref{fig:SI_contour_4}.  In general these are lower limits on the possible
-precision, as the Vollmer catalog emphasizes minimization of cross-match error
-but at the cost of excluding data points.  The fit is then performed again with
-both PAPER and catalog data, shown in black on the same Figures. The values are
-given in Table \ref{tab:fits}, and
-illustrated in Figure \ref{fig:src_spec}.  
+There is a variety of prior data at multiple wavelengths to which we want to calibrate
+and then compare our measurements.  Our method for doing both of these steps
+is to assume a basic spectral model relating the different catalog data points and
+fit for spectral model and gain parameters. 
 
-In this paper we estimate spectral model parameters and flux calibration in a
+We estimate spectral model parameters and flux calibration in a
 Bayesian way by calculating and marginalizing the posterior probability of the
-data, past and present, given a spectral and instrumental model.   This method
+catalog and new PAPER data.   This method
 offers improved repeatability by specifying a single objective function that
 represents the quality of the model fit and naturally defines the errors on the
 parameters \citep{Hogg:2010p8759}.   See  \citet{Mackay:2003p9717}  or
 \citet{Sivia:2006p9736} for more on Bayesian analysis methods and an excellent
-astrophysical example by \cite{Press:1997p9783}.
+astrophysical example by \cite{Press:1997p9783}. In brief, measurement errors
+are related to parameter model errors via the likelihood, which we can calculate, 
+and the posterior, which we cannot.  However, the posterior is theoretically
+well sampled by a Markov Chain Monte Carlo sampler, which selects parameter
+values at random, computes the likelihood of the model given the data and noise model,
+and accepts or rejects the step based on an outside decision factor unrelated to the data.
 
-% XXX paragraph too remedial. digest
-In general an experiment measures data $D$ and given some model of the
-statistics of the measurement one usually assigns an error bar defining the
-probability of getting that data, given a model $M$.  Given all the new data,
-and prior data, there will be a new optimal set of model parameters $M$ with
-associated error bars.  In general, these error bars are a parameterization of
-a probability distribution function.  The pdf associated with the data often
-called the likelihood ($\mathcal{L}$), while the one corresponding the model
-error bars is the {\em posterior probability distribution}, $\Prob(M|D)$. They
-are related
 
-\[
-\Prob(M|D) = \frac{\mathcal{L}(D|M) \Prob(M)}{\Prob(D)}
-\] 
-by the factor $\frac{\Prob(M)}{\Prob(D)}$, the prior probability of the model
-$M$ (given past experiments) over the normalization factor, integrating over
-all models.  In general the posterior pdf depends on both the known relation
-between the model parameters and as well as correlations hidden within the
-data.  
-
-% XXX too remedial.  digest to 1 senetence
-Direct calculation of the posterior is difficult, particularly the
-normalization factor, however there is a simple procedure for drawing samples
-from the posterior. In this paper we use a Markov Chain Monte Carlo sampler.
-Given any current location in parameter space, this algorithm draws a new set
-of parameters and computes the relative likelihood increase. If the probability
-difference is larger than a number drawn randomly from the set $(0:1]$, the
-jump is accepted ---a Metropolis-Hastings step. In the limit of an infinity of
-such steps, this process has been shown to converge on the true posterior
-distribution.  In practice it is run for a large number of steps until things
-appear to stabilize. The best fit model is the median of all the sampled
+Here we use the emcee sampler by \citet{Mackay:2003p9717} et al to generate chains of
+parameter values. The best fit model is the median of all the sampled
 parameter sets, while the volume containing a well defined fraction of samples
 sets the confidence limits.  The oft quoted ``1$\sigma$" probability level
 corresponding to a gaussian distribution contains 65\% of the samples. In
 practice the contours are not gaussian. Here we choose a slightly more
 conservative probability level of 76\% 
 
-We fit a spectral power law to catalog values by sampling
-a (log) likelihood which assumes Gaussian measurement errors
+
+To model the relationship between different wavelengths we assume a single spectral index
+which is the prevailing spectral energy distribution at low frequencies, 
+though curvature or other
+deviation from a power-law is not-uncommon.  
+
+When fitting models to the full catalog, we use the Vollmer et al
+catalog which has been optimally cross-matched at the expense of excluding more data points.
+Meanwhile, the gain fit used a small sample of
+sources with spectra which meet our calibration criteria: more precision data available,
+brighter than most sources in the sample and far from any possibly confusing areas of
+the sky. 
+By limiting ourselves to a small number of sources we are able to go include catalog points by hand,
+to avoid making the error of falsely including erroneously matched 
+data points but benefiting from some measurements not included. 
+
+
+\subsection{Approximating an Absolute Flux Scale}
+\label{sec:flux_scale}
+
+At the output of the beam forming and bandpass calibration step, the flux scale
+ is tied to a model fit tp the catalog values of
+J2331-416. The accuracy of this fit, and the implied uncertainty in the flux
+scale, limits the accuracy of the PAPER measurements..  To refine the flux
+scale and estimate our flux scale uncertainty, we bootstrap a single global flux scale 
+correction factor using 5
+sources selected for their brightness, spectral linearity and data
+availability\footnote{Calibration sources:
+2250-412,2331-416,2140-434,0007-446,0704-427}. To build a more complete
+spectral model we go beyond the data found in Vollmer et al, including all spectral
+measurements below 2GHz found in the NED database \footnote{\url{ned.ipac.caltech.edu}: Accessed 1 April 2013}.  These catalog measurements
+are primarily by Parkes, and Molonglo with the best precision coming from the
+Wills fluxes at 538 and 634 MHz (when available). Where error bars are not
+given, we assume uncertainty of 25\%. 
+
+Using the MCMC method we fit spectral index models to the catalog fluxes
+ simultaneously with a global PAPER flux scale factor using  an MCMC chain to calculate the log likelihood
+
+\begin{align}
+\log\mathcal{L}_s &= \sum_{\nu}\frac{ (S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
+\frac{ (g*S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2}\\
+\log\mathcal{L} &= \sum_{s} \log\mathcal{L}_s
+\end{align}
+
+
+which samples the posterior probability of PAPER data ($SPAPER_{\nu}$) and
+catalog values ($Scat_{\nu}$) given a spectral index model for each source and
+a global flux scale factor ($g$) ($S_\PAPER^\textrm{calibrated} = g S_\PAPER$).
+Marginalizing over the fitted flux scales, we find the resulting flux scale distribution function which is shown in Figure
+\ref{fig:gain}. The 76\% confidence limit on this flux scale, relative to the
+J2331-413 calibration, is  $-0.01 ^{+0.11}_{-0.17}$ dB, or a 3.24\%
+multiplicative error on every calibrated PAPER measurement.  These errors are added, in quadrature,
+to the errors in the PAPER spectra.
+
+
+These calibrated spectra are plotted in Figures \ref{fig:srcs1},\ref{fig:srcs2},
+\& \ref{fig:srcs3} and the data are listed in Table \ref{tab:data}.  The
+resulting Pictor A spectrum ranges in precision from 6.5\% at 125MHz to 4.7\%
+at 185MHz. At least half of this error is due to uncertainty in the flux scale.  
+
+%The Pictor track is calibrated to 2331-416 ($S_{150}=33.8$Jy,$\alpha=-0.76$) and the Hydra A track to 0231-126 ($S_{150}=21$Jy,$\alpha=-0.7$).  
+%    cal['0213-132'] = 21 * (fq/.150)**-0.7  
+%    cal['1932-464'] = 93.7 * (fq/.150)**-0.82 
+%    #cal['2331-416'] = 31.9 * (fq/.150)**-0.69
+%    cal['2331-416'] = 33.9 * (fq/.150)**-0.76
+%COMPARISON WITH DATA
+
+
+\subsection{Fitting Spectral Models}
+\label{sec:fitting_models}
+
+Finally we compare all of our  calibrated spectra to catalog measurements. Our method
+will be to first establish a best fit model to existing data, then add the PAPER data
+to the fit, and assess the degree to which the PAPER data is supported by prior measurements, or the reverse
+the degree to which PAPER offers an improvement in our knowledge of the spectrum.
+
+ To establish the baseline model, we
+fit a spectral model to catalog data from the spectrally and spatially
+cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the
+ (log) likelihood which assumes Gaussian measurement errors
 
 \[
-\logL = \sum_\nu{\frac{\left(S_\nu - S150\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta \textrm{SPAPER}_\nu}} \label{eq:catlogL}
+\logL = \sum_\nu{\frac{\left(S_\nu - S_{150}\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta S_\nu} \label{eq:catlogL}
 \]
+
 
 We estimate the confidence interval of the resulting parameters as the boundary
 enclosing 76\% of the samples. In the catalog we report both the upper and
@@ -705,6 +716,20 @@ correlation of the two parameters. Many of these contours, the grey curves in
 Fig. \ref{fig:SI_contour_1}, are classic banana plots, displaying a non-linear
 correlation between the parameters.    In most cases the single contour
 adequately describes 2D posterior distribution.
+
+Confidence contours for
+the complete set are shown in grey in Figs. \ref{fig:SI_contour_1} -
+\ref{fig:SI_contour_4}.  In general these are lower limits on the possible
+precision, as the Vollmer catalog emphasizes minimization of cross-match error
+but at the cost of excluding data points.  The fit is then performed again with
+both PAPER and catalog data, shown in black on the same Figures. The values are
+given in Table \ref{tab:fits}, and
+illustrated in Figure \ref{fig:src_spec}.  
+
+
+
+
+
 
 \begin{figure}[htbp]
 \includegraphics[width=0.49\textwidth]{plots/pic_trace_hist.png}
@@ -717,63 +742,39 @@ As above, grey for  the fit to catalog data, black for joint catalog and PAPER
 fit.
 }
 \end{figure}
+% XXX paragraph too remedial. digest
+%In general an experiment measures data $D$ and given some model of the
+%statistics of the measurement one usually assigns an error bar defining the
+%probability of getting that data, given a model $M$.  Given all the new data,
+%and prior data, there will be a new optimal set of model parameters $M$ with
+%associated error bars.  In general, these error bars are a parameterization of
+%a probability distribution function.  The pdf associated with the data often
+%called the likelihood ($\mathcal{L}$), while the one corresponding the model
+%error bars is the {\em posterior probability distribution}, $\Prob(M|D)$. They
+%are related
+%
+%\[
+%\Prob(M|D) = \frac{\mathcal{L}(D|M) \Prob(M)}{\Prob(D)}
+%\] 
+%by the factor $\frac{\Prob(M)}{\Prob(D)}$, the prior probability of the model
+%$M$ (given past experiments) over the normalization factor, integrating over
+%all models.  In general the posterior pdf depends on both the known relation
+%between the model parameters and as well as correlations hidden within the
+%data.  
+%
+%% XXX too remedial.  digest to 1 senetence
+%Direct calculation of the posterior is difficult, particularly the
+%normalization factor, however there is a simple procedure for drawing samples
+%from the posterior. In this paper we use a Markov Chain Monte Carlo sampler.
+%Given any current location in parameter space, this algorithm draws a new set
+%of parameters and computes the relative likelihood increase. If the probability
+%difference is larger than a number drawn randomly from the set $(0:1]$, the
+%jump is accepted ---a Metropolis-Hastings step. In the limit of an infinity of
+%such steps, this process has been shown to converge on the true posterior
+%distribution.  In practice it is run for a large number of steps until things
+%appear to stabilize. 
 
-\subsection{Approximating an Absolute Flux Scale}
-\label{sec:flux_scale}
 
-At this stage each source flux is tied to a model fit on the catalog values of
-J2331-416. The accuracy of this fit and the implied uncertainty in the flux
-scale limits the accuracy of the PAPER measurements..  To refine the flux
-scale, we bootstrap a single global flux scale correction factor using 5
-sources selected for their brightness, spectral linearity and data
-availability\footnote{Calibration sources:
-2250-412,2331-416,2140-434,0007-446,0704-427}. To build a more complete
-spectral model we go beyond the data found in SPECFIND, using all spectral
-measurements below 2GHz found in the NED database.  These catalog measurements
-are primarily by Parkes, and Molonglo with the best precision coming from the
-Wills fluxes at 538 and 634 MHz (when available). Where error bars are not
-given, we assume uncertainty of 25\%. 
-
-As described in the Appendix, we fit spectral index models for all sources
-(using catalog data) simultaneously with a global PAPER flux scale factor
-(using the PAPER data). We fit the model using a Markov Chain Monte Carlo
-sampler to sample the posterior probability of PAPER data ($SPAPER_{\nu}$) and
-catalog values ($Scat_{\nu}$) given a spectral index model for each source and
-a global flux scale factor ($g$) ($S_\PAPER^\textrm{calibrated} = g S_\PAPER$).
-The resulting flux scale distribution function is shown in Figure
-\ref{fig:gain}. The 76\% confidence limit on this flux scale, relative to the
-J2331-413 calibration, is  $-0.01 ^{+0.11}_{-0.17}$ dB, or a 3.24\%
-multiplicative error on every calibrated PAPER measurement.  
-
-
-The calibrated spectra are plotted in Figures \ref{fig:srcs1},\ref{fig:srcs2},
-\& \ref{fig:srcs3} and the data are listed in Table \ref{tab:data}.  See the
-Appendix for details on this fitting procedure and definition of terms.  The
-resulting Pictor A spectrum ranges in precision from 6.5\% at 125MHz to 4.7\%
-at 185MHz. At least half of this error is due to uncertainty in the flux scale.  
-%\footnote{Of the 315 data points in this catalog, 7 fluxes points are negative. All three occur quite close to Centaurus A, which has large structure on degree scales in this region and is the brightest sources in the sky. These sources have been flagged and removed from further analysis.}
-
-%The Pictor track is calibrated to 2331-416 ($S_{150}=33.8$Jy,$\alpha=-0.76$) and the Hydra A track to 0231-126 ($S_{150}=21$Jy,$\alpha=-0.7$).  
-%    cal['0213-132'] = 21 * (fq/.150)**-0.7  
-%    cal['1932-464'] = 93.7 * (fq/.150)**-0.82 
-%    #cal['2331-416'] = 31.9 * (fq/.150)**-0.69
-%    cal['2331-416'] = 33.9 * (fq/.150)**-0.76
-%COMPARISON WITH DATA
-
-% XXX connect with text above
-A single overall flux scale is computed in a similar way. However, here we add
-a single extra gain factor $g$ multiplying all PAPER measurements, and sum over
-several sources.
-
-\begin{align}
-\log\mathcal{L}_s &= \sum_{\nu}\frac{ (S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
-\frac{ (g*S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2}\\
-\log\mathcal{L} &= \sum_{s} \log\mathcal{L}_s
-\end{align}
-Another nice feature of the MCMC sampler is that each parameter sample is fully
-covariant with the others. To marginalize over the fitted flux and spectral
-index parameters and compute confidence limits on the gain parameter, we simply
-ignore them.
 
 
 \section{Results and Discussion}
