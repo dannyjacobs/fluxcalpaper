@@ -420,12 +420,12 @@ channels become 203, and the 60 original time samples per 10-minute file become
 %I'm Confused.  These are describing a different ordering of steps. Must re-read compression script.  
 
 %CALIBRATION
-\subsection{Per-Antenna Gain and Phase Calibration}
+\subsection{Per-Antenna Gain Calibration}
 
 % XXX differentiate amp cal here from spectral cal and absolute cal that comes later.
 
-% XXX time-dependent calibration is critical.  modify paragraph below
-
+Small gain variations between antennae and over time introduce significant systematic effects which degrade 
+instrument performance. Temporal variations are dominated by changes in ambient temperature. 
 Measurements of ambient temperature versus time near the balun amplifier of a fiducial antenna and near
 receiver amplifiers were used to divide out the predicted gain variation versus temperature that these amplifiers
 are known to exhibit.  A predicted gain profile was derived using coefficients characterized in
@@ -435,7 +435,11 @@ dB/K, and $H_{\rm cable}=-0.018$ dB/K for 150m-long cables.  Because cable tempe
 during these observations, the cable temperature was assumed to be the same as the measured balun temperature.
 
 
-Antenna delays and amplitudes were found by fitting a point source visibility
+Matching of relative gains and phases between antenna was done by fitting a per-antenna complex gain to portions
+of data which have easily modeled sky. 
+This calibration is only relative between antennae, absolute flux calibration
+comes after time and frequency averaging in  \S \ref{sec:flux_scale}.   
+The antenna delays and amplitudes were found by fitting a point source visibility
 model to Centaurus A, Pictor A, and Fornax A.  Each source is imperfectly
 modeled by a single point-source, but the solution differences are minimized by
 averaging over the three independent solutions. These same calibration
@@ -477,7 +481,6 @@ summing over baselines longer than 20 wavelengths.
 %versus time, while source amplitude is proportional to beam response, this weighting
 %is an effective approximation of inverse-variance weighting \citep{pober_et_al2011}.
 
-% XXX exclusion of minimum uv spacing?
 
 
  These complex spectra are then fringe rate filtered to remove spectrally
@@ -551,7 +554,7 @@ led to a 3\% correction, at the lowest frequency, 0.6\%.
 
 The resulting set of spectra were then calibrated to a model of J2331-416 to remove 
 the residual bandpass due to the net effect of the primary beam as discussed in \S \ref{sec:approach}. J2331-416 
-\footnote{Here we set the spectrum to $S_{150}=33$Jy, $\alpha=-0.76$} fit to measurements beolow 1GHz \citep{slee1995,kuhr_et_al1981,large_et_al1981,burgess_hunstead2006}.}
+\footnote{Here we set the spectrum to $S_{150}=33$Jy, $\alpha=-0.76$} fit to measurements beolow 1GHz \citep{slee1995,kuhr_et_al1981,large_et_al1981,burgess_hunstead2006}.
 was selected for its relatively high brightness, spectral smoothness and large quantity
  of available catalog data. Each source track has a slightly different sample profile
  resulting from different amounts of flagged data at each time and channel. To account
@@ -704,9 +707,10 @@ fit a spectral model to catalog data from the spectrally and spatially
 cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the
  (log) likelihood which assumes Gaussian measurement errors
 
-\[
-\logL = \sum_\nu{\frac{\left(S_\nu - S_{150}\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta S_\nu} \label{eq:catlogL}
-\]
+\begin{equation}
+\logL = \sum_\nu{\frac{\left(S_\nu - S_{150}\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta S_\nu} }
+%\label{eq:catlogL}
+\end{equation}
 
 
 We estimate the confidence interval of the resulting parameters as the boundary
@@ -742,37 +746,6 @@ As above, grey for  the fit to catalog data, black for joint catalog and PAPER
 fit.
 }
 \end{figure}
-% XXX paragraph too remedial. digest
-%In general an experiment measures data $D$ and given some model of the
-%statistics of the measurement one usually assigns an error bar defining the
-%probability of getting that data, given a model $M$.  Given all the new data,
-%and prior data, there will be a new optimal set of model parameters $M$ with
-%associated error bars.  In general, these error bars are a parameterization of
-%a probability distribution function.  The pdf associated with the data often
-%called the likelihood ($\mathcal{L}$), while the one corresponding the model
-%error bars is the {\em posterior probability distribution}, $\Prob(M|D)$. They
-%are related
-%
-%\[
-%\Prob(M|D) = \frac{\mathcal{L}(D|M) \Prob(M)}{\Prob(D)}
-%\] 
-%by the factor $\frac{\Prob(M)}{\Prob(D)}$, the prior probability of the model
-%$M$ (given past experiments) over the normalization factor, integrating over
-%all models.  In general the posterior pdf depends on both the known relation
-%between the model parameters and as well as correlations hidden within the
-%data.  
-%
-%% XXX too remedial.  digest to 1 senetence
-%Direct calculation of the posterior is difficult, particularly the
-%normalization factor, however there is a simple procedure for drawing samples
-%from the posterior. In this paper we use a Markov Chain Monte Carlo sampler.
-%Given any current location in parameter space, this algorithm draws a new set
-%of parameters and computes the relative likelihood increase. If the probability
-%difference is larger than a number drawn randomly from the set $(0:1]$, the
-%jump is accepted ---a Metropolis-Hastings step. In the limit of an infinity of
-%such steps, this process has been shown to converge on the true posterior
-%distribution.  In practice it is run for a large number of steps until things
-%appear to stabilize. 
 
 
 
@@ -809,7 +782,6 @@ the PAPER data as
 \textrm{Improvement} &= \left(\textrm{Precision increase}\right) \left(\textrm{Catalog agreement}\right)\\
 &= \left(\frac{1}{Area(\textrm{PAPER})} - \frac{1}{Area(\textrm{Cat})}\right) \left( Area(\PAPER \cap \textrm{Cat}) \right)
 \end{align}
-% XXX This equation is yucky
 
 We quantify the fit {\em precision increase} as the change in the contour
 figure of merit, defined as the inverse area of the confidence contour.
@@ -834,53 +806,60 @@ indicating strong confirmation of the extrapolated spectrum (see Figures
 \ref{fig:SI_contour_1} - \ref{fig:SI_contour_4}).  Pictor A is in the middle of
 this group  with an improvement of 0.39 ---only 14 sources show stronger
 confirmation.  The flux model is $S150=$388 $\pm$ 9.4Jy, $\alpha=-0.77\pm0.02$.
-% XXX need more detail here.  This is the crux of what is done.
 The combination of several independent PAPER data points near 150MHz with
 previous catalog measurements results in this estimated uncertainty of 2.4\%.
 This uncertainty is dominated by agreement between the 2 Wills measurements
 near 600MHz which are accurate to 2\% and the five PAPER measurements, which
-are accurate to ~5\%.
+are accurate to ~5\%.  This error estimate includes an estimate of accuracy of the overall flux scale,
+as well as the source-source variation due to primary beam errors. 
+
 
 % XXX comparison with previous in-band results (danny 2011, williams 2012)
+% work TODO
 
  \section{Conclusion}
  \label{sec:Conclusion}
 
-% XXX adapt this paragraph to be a summary of the broad goals attained in this paper
-The primary purpose of this observation is to produce a high quality Pictor A
-% XXX need to coordinate "primary purpose" here with abstract and intro motivation
-spectrum. As a verification measure we have observed many other sources at the
-same declination for comparison against previous observations.  Our comparison
-metric will be the degree to which the PAPER data are consistent with previous
-observations,given a model and, if consistent, they improve on the precision of
-our spectral model parameters.
- 
-Direct measurements of the Pictor A spectrum are key to correctly setting the
-flux scale of PAPER and other EoR experiments. Existing EoR band measurements
-are accurate to 20\% implying a 40\% uncertainty in the absolute power spectrum
-level.  Here we have provided new measurements of Pictor A that are accurate to
-2.4\%;  388 $\pm$ 9.4Jy on the \citet{Baars:1977p9678} scale. The PAPER
-measurement has a precision of $<$1\%; the majority of the uncertainty comes in
-setting the absolute flux scale from prior data.  
+Here we have provided a measurement of Pictor A with enough precision to confirm
+a highly linear spectral index between 150 and 600MHz. We then used the same
+filtered beam form method to measure the spectra of bright sources with similar
+primary beam response. This primary beam limit is based on our measurements 
+of the primary beam along slices of constant declination.  
 
-We also take advantage of multiple PAPER observations to measure the next  61
-brightest, previously cataloged, sources. These sources are distributed over
-the full 24 hours of Right Ascension coverage but are within 5 degrees
+
+The measurements provided
+here are the first, calibrated, broad-band spectra to cover the EoR band. Existing EoR band measurements
+are accurate to 20\% implying a 40\% uncertainty in the absolute power spectrum
+level.  The Pictor A spectrum here is shown to be accurate to 
+$\sim$5\%, a factor of 5 improvement over previous measurements.
+
+This uncertainty includes the 
+variation in each PAPER measurement ($\sim$1\%), variation between sources and the errors resulting
+from extrapolating the \citet{Baars:1977p9678} scale beyond its original range. These last
+two are found simultaneously by fitting the spectral extrapolations of several flux calibrators
+at once and account for the the majority of the error. Though past measurements suggested the possibility
+of spectral curvature below 200MHz we have found no evidence for this.  With these measurements we are able 
+to confirm single spectral index model for Pictor between 120MHz and 600MHz.
+
+A set of  61 verification sources were selected to be bright, previously cataloged
+and  distributed over
+the full 24 hours of Right Ascension coverage but only within 5 degrees
 declination of Pictor A.  Using a Bayesian analysis we conclude that most of
 these are consistent with previous measurements and provide useful new
-constraints. However, in the remainder, the simple spectral model fails to
+constraints. However, in a small remainder, the simple spectral model fails to
 adequately describe the data. In most cases the proximity to bright or extended
 structures implies side lobe contamination.  Therefore, though we include the
 model parameters, they are not meant to be definitive, but provide confidence
 that the reported PAPER flux values are on the correct global scale.
 
-The data  include new measurements of Pictor A that are uncertain to 3.5\%,
-close to the level of the most precise higher frequency measurements by
-\citet{Wills:1975p9314}. Using these new measurements we update the spectral
-calibration model to an accuracy of 2.5\%. As validation of this method, we
-also measure a selection of 58 additional sources at the same Declination.  
 
-% XXX looking to the future, what next
+Direct measurements of the Pictor A spectrum are key to correctly setting the
+flux scale of PAPER, MWA and future EoR experiments like the Hydrogen Epoch of Reionization Array (HERA).
+These spectra provide tighter constraints on many of the EoR band fluxes, while
+limiting the pernicious affect of primary beam uncertainty.  Future work will use these
+fluxes to further  refine the primary beam models of these experiments which is crucial to properly reconstructing
+both image and power spectrum flux.
+
 
 \begin{figure*}
 \centering
