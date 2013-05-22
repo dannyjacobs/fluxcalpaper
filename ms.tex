@@ -68,30 +68,28 @@ William P. Walbrugh\altaffilmark{9}}
 \begin{abstract}
 We present a catalog of broad-band spectral measurements from the 
 Donald C. Backer Precision Array for Probing
-% XXX ARP: was irina "first"?  and maybe "catalog"
 the Epoch of Reionization (PAPER) in South Africa observed in July and
 September of 2011.  In order to reduce the impact of beam calibration, which proves to
 be a difficult endeavor for transit telescopes such as PAPER, on the determination
 of source spectra, we have focused on calibrating sources in a narrow declination range.
 Since each source follows a nearly identical path through the primary beam, this
-restriction allows beam calibration to be nearly eliminated as a source of error,
+restriction allows beam calibration to be greatly reduced as a source of error,
 yielding a dramatic improvement in the accuracy of source spectra measured in the 
-100--200-MHz band that is receiving renewed attention by experiments seeking to
-measure 21cm emission from the Epoch of Reionization (EoR).
-Based on the variation in our data and the estimated error in the absolute
-flux scale we bootstrap from multiple bright sources, we estimate PAPER measurements
-of sources above XXX Jy to be accurate to 3.2\%.
-% DCJ 3.2% is just for Pictor A, and certainly not all PAPER measurements of sources above XXX Jy
-When combined with catalog data at other frequencies, these data constrain parameters of
-a power-law model for flux density with an uncertainty of 2.4\%.
-% XXX ARP: this must again be dependent on source strength and location.
+100--200-MHz band which is receiving renewed attention by experiments seeking to
+measure 21cm emission from the Epoch of Reionization (EoR). Using beam forming
+and fringe-rate filtering we measure spectra for Pictor A, which provides a key flux reference for PAPER's EoR
+power spectrum analysis, 
+as well as 60 other sources at nearby declinations. Extrapolating from higher frequency
+catalogs we set the flux scale in a monte-carlo fit across multiple sources. This fit 
+propagates uncertainty from both catalog and measurement errors. Fitting new spectral 
+models to both catalog and the new PAPER data we find a Pictor A flux model accurate to
+2.4\%.
 This accuracy is limited by the uncertainty in the catalog measurements we use
 to estimate an absolute flux scale, and represents 
 an order of magnitude improvement over previous measurements in this band.  
 Comparing with prior measurements, 45 out
 of 58 sources observed are found to confirm and refine a power-law model for flux density.
-This includes Pictor A, which provides a key flux reference for PAPER's EoR
-power spectrum analysis.
+
 \end{abstract}
 
 \keywords{dark ages, reionization, first stars --- catalogs --- instrumentation: interferometers}
@@ -199,7 +197,17 @@ elements \cite{Jacobs:2011p8438}. Several sub-channels were provided in the
 Williams catalog, though with 60-80\% error bars ---large compared to the 30\%
 uncertainty on their wide band measurements.  The latter cover the band and
 spatial scales relevant to EoR measurements but are limited by the accuracy of
-the primary beam \citep{Jacobs:2013p9713}.
+the primary beam \citep{Jacobs:2013p9713}. The accuracy of the absolute flux calibrators in the southern hemisphere
+is similarly limited.  
+
+
+The response of the primary beam is of critical importance to EoR measurements.
+Differences between the polarization responses cause leakage of polarized
+signals into the total intensity measurement possibly corrupting the 
+EoR power spectrum \cite{Moore:2013p9621}.  The primary beam 
+shape is also critical to measuring and subtracting foregrounds 
+\cite{Bernardi:2012p9020} a process which, to be affective, must be done to better than 1\%
+precision for the brightest sources \citet{Liu:2009p4762,Bowman:2009p7816} .
 
 A method for decoupling uncertain fluxes from the uncertain beam has been
 described by \citet{Pober:2012p8800}. In simulation the method was able to
@@ -210,11 +218,11 @@ is under way to improve and implement this method and would be greatly aided by
 the availability of precise flux measurements unaffected by primary beam
 uncertainty. 
 
-This paper reports a set of flux measurements where a primary beam
-model has not been used to estimate the flux, but instead are directly
-calibrated to a single calibrator making the track through the beam.
+In this paper we provide a set of detailed total flux measurements aimed at providing
+an absolute flux calibration for southern hemisphere EoR studies as well as a
+small set of verification fluxes suitable for constraining future primary beam studies.
 
-
+\subsection{The sources and instrument}
 EoR measurements in the southern sky have focused on the coldest regions where
 galactic foregrounds are minimal. With the majority of possible observing time falling on 
 RA=4h,Dec=-30. The brightest and least-resolved calibrator in this region is Pictor A 
@@ -253,45 +261,54 @@ the EoR observing season, making it an ideal flux calibrator.
 
 \section{Approach}
 \label{sec:approach}
-Given the large uncertainties in the literature, and the necessity for PAPER power-spectrum analysis
-to use Pictor A for flux calibration, we felt it prudent to examine Pictor A directly.
 In this section, we describe how we use PAPER in its imaging configuration
-to measure Pictor A and a selection of known, bright sources in a 5\arcdeg strip centered
-on -45\arcdeg. 
+to measure Pictor A and a selection of known, bright sources suitable for confirming the accuracy of the measurement
+and extrapolated flux scale.
 
  In \citet{Jacobs:2013p9837} several limitations were identified that
-exasperated the primary beam uncertainty.  First, in imaging each source flux is measured at just a few 
+exasperated the primary beam uncertainty.  First, under most imaging schemes, each source flux is measured at just a few 
 points in the primary beam. As errors tend to vary across the beam, the uncertainty will tend to vary between sources.
-Here we have averaged over all possible positions making the uncertainty a function of the net uncertainty in the beam,
-and stabilizing the source-to-source variations in error bars. The second limitation, identified in \citet{Williams:2012p8768},
+Here we have averaged over long tracks through the primary beam. Using the drift scan-beamforming technique, each 
+source is measured hundreds of times at a variety of different pointings. The variation between these measurements is then
+used to calculate measurement uncertainty. Second, the flux scale was found to vary substantially over the 
+sky, due to the dual uncertainties of primary beam response and prior catalog. As a hedge against beam uncertainty 
+we limit our selection to source with similar primary beam responses. A third limitation, identified in \citet{Williams:2012p8768},
 was the increase of uncertainty towards the edge of the beam. To minimize our sensitivity to both beam and noise
 uncertainty, we weight the source track by an additional factor of the primary beam model.  
 
 
-As PAPER is a drift scan instrument, each declination $\delta$ describes a distinct cut through the primary beam. These cuts
-provide a detailed measurement of the primary beam relative to the peak of the trace, however,
-a model $g(\delta)$ is still required to calibrate between declinations. This model will be effective over a range of declinations, but will diverge at
-some rate depending on the accuracy with which the model describes the slope.  As an estimate of the extrapolated 
-beam amplitude we fit the slope of our Pictor A source track and compute the amplitude extrapolated over our fiducial
-stripe width of 5\arcdeg.
-
-\[
-B = dB/dt dt/\theta \Delta \theta
-\]
-
-Comparing this with the simulation in Figure \ref{fig:beam_extrapolation}, we find that the model predicts the 5\arcdeg extrapolation to better
-than 2\% even into the more uncertain areas far from zenith. The RMS difference for the central 15\arcdeg of the track
-is 1.5\%. From this we conclude that, as long as we constrain our extrapolations to $\pm5$\arcdeg around Pictor A,
-we will have negligible beam area. 
-
-\begin{figure*}
-\includegraphics[width=.9\textwidth]{plots/beam_slope_compare.png}
-\caption{The beam is well along a declination cut but beam formed source tracks. Here we measure the beam, 
-as extrapolated by fitting a slope (dotted), and compare with the beam model (solid). The difference (circles) is never larger
-than $\sim$1\%.  Thus we conclude that the beam slope is locally well modeled and our beam model is suitable 
-for extrapolation over $\sim$5\arcdeg scales.
-  \label{fig:beam_extrapolation}}
-\end{figure*}
+\subsection{Selection of confirmation sources}
+As PAPER is a drift scan instrument, each declination describes a distinct path through the primary beam. These paths
+provide a detailed sample of the primary beam relative to the peak of the trace, however,
+a model is still required to calibrate between declinations and the accuracy of the trace is sometimes contaminated by
+sidelobes. In section XXX we will compare the beam response as measured by the PicA trace with the model 
+used to estimate flux. We will see that, on average, the primary beam is not the limiting factor in estimating the flux and that
+limiting ourselves to a declination range of 10\arcdeg around Pictor A for flux verification is a good compromise.
+%
+%
+%
+%This model will be effective over a range of declinations, but will diverge at
+%some rate depending on the accuracy with which the model describes the slope.  As an estimate of the extrapolated 
+%beam amplitude we fit the slope of our Pictor A source track and compute the amplitude extrapolated over our fiducial
+%stripe width of 5\arcdeg.
+%
+%\[
+%B = dB/dt dt/\theta \Delta \theta
+%\]
+%
+%Comparing this with the simulation in Figure \ref{fig:beam_extrapolation}, we find that the model predicts the 5\arcdeg extrapolation to better
+%than 2\% even into the more uncertain areas far from zenith. The RMS difference for the central 15\arcdeg of the track
+%is 1.5\%. From this we conclude that, as long as we constrain our extrapolations to $\pm5$\arcdeg around Pictor A,
+%we will have negligible beam area. 
+%
+%\begin{figure*}
+%\includegraphics[width=.9\textwidth]{plots/beam_slope_compare.png}
+%\caption{The beam is well along a declination cut but beam formed source tracks. Here we measure the beam, 
+%as extrapolated by fitting a slope (dotted), and compare with the beam model (solid). The difference (circles) is never larger
+%than $\sim$1\%.  Thus we conclude that the beam slope is locally well modeled and our beam model is suitable 
+%for extrapolation over $\sim$5\arcdeg scales.
+%  \label{fig:beam_extrapolation}}
+%\end{figure*}
 
 We choose sources from the Molonglo
 Reference Catalog \cite[MRC]{Large:1981p7798} that are within 5\arcdeg in
@@ -741,13 +758,6 @@ fit.
 
 \section{Results and Discussion}
 \label{sec:fits}
-
-%0008-421#
-%1243-412#
-%1247-401#
-%1315-460
-%TODO round up the source counts
-
 In the 59 sources measured, four demonstrated poor convergence fitting a single
 spectral index to both the PAPER data and prior catalog data. In three
 cases\footnote{1243-412,1247-401,1315-460} %TODO update these sources are in
