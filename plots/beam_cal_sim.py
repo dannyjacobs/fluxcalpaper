@@ -70,7 +70,9 @@ def rotbeam(src):
     return aa[0].bm_response(xyz,pol=pol).squeeze()**2
 def calbeam(src):
     xyz = src.get_crds('top')
-    return aa[0].bm_response(xyz,pol=opts.pol[0]).squeeze()**2
+    bm = aa[0].bm_response(xyz,pol=opts.pol[0]).squeeze()**2
+    if type(bm)!=n.ndarray: bm = n.array([bm])
+    return bm
 def ModelBeam(src):
     return calbeam(src)
 def TrueBeam(src):
@@ -108,6 +110,7 @@ g = n.zeros((nfreqs,len(cat)))
 w = n.zeros((nfreqs,len(cat)))
 A = {}
 B = {}
+A2 = {}
 W = {}
 crds = {}
 times = {}
@@ -116,6 +119,7 @@ for i,src in enumerate(n.sort(cat.keys())[::-1]):
     aa.date = aa.next_rising(cat[src])
     A[src] = []
     B[src] = []
+    A2[src] = []
     crds[src] = []
     W[src] = n.zeros(nfreqs)
     times[src] = []
@@ -124,14 +128,21 @@ for i,src in enumerate(n.sort(cat.keys())[::-1]):
         aa.set_ephemtime(t+dt)
         cat.compute(aa)        
         src_xyz = cat[src].get_crds('top')
+        src_ang = cat[src].get_crds('top',ncrd=2)
         if src_xyz[2]<0:break
+        if n.abs(src_ang[1]-n.pi)<(10*n.pi/180): break
+        print src_ang
         crds[src].append(src_xyz)
         g[:,i] += ModelBeam(cat[src]) * TrueBeam(cat[src])
         w[:,i] += ModelBeam(cat[src]) * ModelBeam(cat[src])
         A[src].append(ModelBeam(cat[src]))
         B[src].append(TrueBeam(cat[src]))
+        A2[src].append(bradleybeam(cat[src]))
         W[src] += ModelBeam(cat[src]) * ModelBeam(cat[src])
         times[src].append(t)
+    A[src] = n.array(A[src])
+    B[src] = n.array(B[src])
+    A2[src] = n.array(A2[src])
 
 g /= w
 figure()
@@ -156,14 +167,20 @@ print "Model weighted, simulated beam"
 savefig('model_weighted_beam_sim_track.png')
 print "\t model_weighted_beam_sim_track.png"
 figure()
-subplot(211)
+#subplot(211)
 for i in range(len(decs)):
     plot(freqs*1e3,g[:,i]/g[:,caldec],'0.5')
 grid()
 xlabel('freq [MHz]')
 ylabel('g($\\delta$)')
-subplot(212)
+
+#compare the two beam models
+g2 = n.array([n.sum(A2['0_%d'%dec]*B['0_%d'%dec])/n.sum(A2['0_%d'%dec]**2) for dec in decs])
+print g2.shape
+figure()
+#subplot(212)
 plot(decs,g[plotfreq,:]/g[plotfreq,caldec],'k')
+plot(decs,g2/g2[caldec],'k')
 subplots_adjust(bottom=0.1,left=0.1)
 xlabel('$\\delta$  [deg]')
 ylabel('g($\\delta$)')

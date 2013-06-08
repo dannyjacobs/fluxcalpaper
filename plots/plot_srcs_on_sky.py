@@ -471,7 +471,9 @@ for i,file in enumerate(args):
 
                 if sd!=0:
                     #size = n.log10(n.abs((1./sd - 0.99/srcdatamax)*srcdatamin+1))*10+20
-                    size = n.abs((1.001/sd - 0.99/srcdatamax)*srcdatamin)*10+20
+                    size = n.abs((1.001/sd - 0.99/srcdatamax)*srcdatamin)*500+20
+                    print sd,srcdatamin,srcdatamax,
+                    #size = (sd-srcdatamin)/srcdatamax*20
                     print size
                     sizes[size] = name
                     if not opts.highquality is None:
@@ -481,12 +483,12 @@ for i,file in enumerate(args):
                     #else:
                     #    size =1./n.abs((sd - srcdatamin)/srcdatamax)+5
 #                    else:
-                    map.scatter(xpt,ypt,marker=marker,color='k',s=size)    
+                    map.scatter(xpt,ypt,marker=marker,color='w',s=size)    
                 else:
                     marker = 'o'
                     if not opts.highquality is None: size= 10*opts.highquality
                     else: size = 10
-                    map.scatter(xpt,ypt,marker=marker,color='k',s=size)
+                    map.scatter(xpt,ypt,marker=marker,color='w',s=size)
 
             else:
                 map.scatter(xpt,ypt,marker='o',color='k',s=s)

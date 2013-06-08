@@ -66,7 +66,7 @@ colorbarrgb configure -fontslant roman
 colorbarrgb colorbar rgb 0.5 0.5 0.5 1 1 1 0
 CreateNameNumberFrame Frame1 base
 global loadParam
-array set loadParam [list file,name ./picA_Perley.bck.dir/Frame1/PPIC-A-ALL.ICNV30.1 file,mode {} load,layer {} file,type fits load,type mmapincr]
+array set loadParam [list load,layer {} file,mode {} file,name ./picA_Perley.bck.dir/Frame1/PPIC-A-ALL.ICNV30.1 load,type mmapincr file,type fits]
 if [BackupFindFile loadParam] {
   ProcessLoad
 }
@@ -118,7 +118,7 @@ Frame1 wcs wcs fk5 sexagesimal
 Frame1 mask color red
 Frame1 mask mark 1
 Frame1 mask transparency 0
-Frame1 grid create wcs fk5 sexagesimal publication {" Grid=0, Colour(grid)=255, Width(grid)=1, Style(grid)=0, DrawAxes=1, Colour(axes)=16711680, Width(axes)=1, Style(axes)=0, Format(1)=h:m:s, Format(2)=d:m, Colour(ticks)=16777215, Width(ticks)=1, Style(ticks)=0, Border=1, Colour(border)=0, Width(border)=1, Style(border)=0, Labelling=exterior, LabelUp=0, Edge(1)=bottom, Edge(2)=left, NumLab=1, Font(numlab)=2, Size(numlab)=10, Colour(numlab)=0, TextLab(1)=1, TextLab(2)=1, Font(textlab)=2, Size(textlab)=10, Colour(textlab)=0, DrawTitle=1, Font(title)=2, Size(title)=12, Colour(title)=0, NumLabGap(1)=0.02, NumLabGap(2)=0.01, TextLabGap(1)=-0.02, TextLabGap(2)=.04, TitleGap=-1.04, Edge(1)=top, Edge(2)=left, "}
+Frame1 grid create wcs fk5 sexagesimal publication {" Grid=0, Colour(grid)=255, Width(grid)=1, Style(grid)=0, DrawAxes=1, Colour(axes)=16711680, Width(axes)=1, Style(axes)=0, Format(1)=h:m:s, Format(2)=d:m, Colour(ticks)=16777215, Width(ticks)=1, Style(ticks)=0, Border=1, Colour(border)=0, Width(border)=1, Style(border)=0, Labelling=exterior, LabelUp=0, Edge(1)=bottom, Edge(2)=left, NumLab=1, Font(numlab)=2, Size(numlab)=10, Colour(numlab)=0, TextLab(1)=1, TextLab(2)=1, Font(textlab)=2, Size(textlab)=10, Colour(textlab)=0, DrawTitle=1, Font(title)=2, Size(title)=12, Colour(title)=0, Gap(1)=0.0017453277777777776, Gap(2)=0.0017453277777777776, NumLabGap(1)=0.02, NumLabGap(2)=0.01, TextLabGap(1)=-0.02, TextLabGap(2)=.04, TitleGap=-1.04, Edge(1)=top, Edge(2)=left, "}
 global pds9
 array set pds9 { dialog native samp 1 font,weight normal automarker 1 language locale dialog,all 0 font,slant roman nan black backup 1 confirm 1 language,dir {} font helvetica language,name English xpa 1 bg white theme native tcl 0 font,size 9 }
 global current
@@ -212,7 +212,7 @@ array set contour { numlevel 5 scale log init,scale 0 method block view 0 copy {
 global pcontour
 array set pcontour { numlevel 5 dash 0 width 1 method block smooth 4 color green }
 global grid
-array set grid { textlab,text3 {} grid,color blue grid,style 0 view 1 numlab,type exterior border 1 tick,width 1 numlab,color black numlab,weight normal title,text {} axes,color red numlab,slant roman axes,style 0 textlab,color black numlab 1 skyformat sexagesimal textlab,gap1 -2 border,color black edge,1 bottom textlab,slant roman textlab,gap2 {} edge,2 left textlab,size 10 textlab,gap3 {} grid,gapunit1 degrees border,style 0 grid,gapunit2 degrees grid,gapunit3 pixels title,gap {} textlab,font helvetica grid,width 1 format1 h:m:s title 1 format2 d:m sky fk5 textlab 1 title,color black axes,width 1 title,slant roman border,width 1 system wcs numlab,vertical 0 tick,color white textlab,def1 1 tick,style 0 textlab,def2 1 axes 1 textlab,def3 1 type publication frame Frame1 grid,gap1 {} tick 1 grid,gap2 {} numlab,gap1 {} grid,gap3 {} numlab,gap2 {} grid 0 numlab,size 10 numlab,gap3 {} axes,type exterior textlab,weight normal title,size 12 numlab,font helvetica title,def 0 title,font helvetica textlab,text1 {} title,weight normal textlab,text2 {} }
+array set grid { textlab,text3 {} grid,color blue grid,style 0 view 1 numlab,type exterior border 1 tick,width 1 numlab,color black numlab,weight normal title,text {} axes,color red numlab,slant roman axes,style 0 textlab,color black numlab 1 skyformat sexagesimal textlab,gap1 -2 border,color black edge,1 bottom textlab,slant roman textlab,gap2 {} edge,2 left textlab,size 10 textlab,gap3 {} grid,gapunit1 degrees border,style 0 grid,gapunit2 degrees grid,gapunit3 pixels title,gap {} textlab,font helvetica grid,width 1 format1 h:m:s title 1 format2 d:m sky fk5 textlab 1 title,color black axes,width 1 title,slant roman border,width 1 system wcs numlab,vertical 0 tick,color white textlab,def1 1 tick,style 0 textlab,def2 1 axes 1 textlab,def3 1 type publication frame Frame1 grid,gap1 .1 tick 1 grid,gap2 .1 numlab,gap1 {} grid,gap3 {} numlab,gap2 {} grid 0 numlab,size 10 numlab,gap3 {} axes,type exterior textlab,weight normal title,size 12 numlab,font helvetica title,def 0 title,font helvetica textlab,text1 {} title,weight normal textlab,text2 {} }
 global smooth
 array set smooth { radius 3 function gaussian view 0 }
 global psmooth

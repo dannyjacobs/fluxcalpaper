@@ -13,7 +13,7 @@ development project, which is funded by the National Science Foundation
 under cooperative agreement AST0122449 with The Johns Hopkins University.
 </DESCRIPTION>
 <INFO name="QUERY_STATUS" value="OK"/>
-<PARAM name="queryDateTime"  ucd="time.creation" datatype="char" arraysize="*" value="2013-04-01T14:54:22PDT"/>
+<PARAM name="queryDateTime"  ucd="time.creation" datatype="char" arraysize="*" value="2013-05-13T10:13:42PDT"/>
 <LINK content-role="query" content-type="char" 
 href="http://ned.ipac.caltech.edu/cgi-bin/datasearch?search_type=Photometry&amp;objname=PKS 2323-40&amp;of=xml_main"/>
 <TABLE ID="NED_PhotometricData" name="Photometric Data for PKS 2323-40">
@@ -530,22 +530,22 @@ href="http://ned.ipac.caltech.edu/cgi-bin/datasearch?search_type=Photometry&amp;
 </TR>
 <TR>
 <TD>25</TD>
-<TD>80 MHz              </TD>
-<TD> 23.00     </TD>
+<TD>145 MHz (PAPER)     </TD>
+<TD> 13.0      </TD>
 <TD></TD>
 <TD>Jy                  </TD>
-<TD>8.00E+07</TD>
-<TD>  2.30E+01</TD>
+<TD>1.45E+08</TD>
+<TD>  1.30E+01</TD>
 <TD></TD>
 <TD>Jy</TD>
-<TD>1990PKS90.C...0000W</TD>
+<TD>2011ApJ...734L..34J</TD>
 <TD>no uncertainty reported</TD>
-<TD>      80   MHz       </TD>
+<TD>       145 MHz       </TD>
 <TD> Broad-band measurement</TD>
-<TD>23 23 51.7 -40 43 46 (B1950)</TD>
-<TD> Integrated from scans</TD>
+<TD>351.83 -40.42 (J2000)</TD>
+<TD> Flux integrated from map</TD>
 <TD><![CDATA[                                        ]]></TD>
-<TD><![CDATA[Homogenized from new and previously published data]]></TD>
+<TD><![CDATA[From new raw data]]></TD>
 </TR>
 <TR>
 <TD>26</TD>
@@ -584,6 +584,25 @@ href="http://ned.ipac.caltech.edu/cgi-bin/datasearch?search_type=Photometry&amp;
 <TD> Flux integrated from map</TD>
 <TD><![CDATA[                                        ]]></TD>
 <TD><![CDATA[From new raw data]]></TD>
+</TR>
+<TR>
+<TD>28</TD>
+<TD>80 MHz              </TD>
+<TD> 23.00     </TD>
+<TD></TD>
+<TD>Jy                  </TD>
+<TD>8.00E+07</TD>
+<TD>  2.30E+01</TD>
+<TD></TD>
+<TD>Jy</TD>
+<TD>1990PKS90.C...0000W</TD>
+<TD>no uncertainty reported</TD>
+<TD>      80   MHz       </TD>
+<TD> Broad-band measurement</TD>
+<TD>23 23 51.7 -40 43 46 (B1950)</TD>
+<TD> Integrated from scans</TD>
+<TD><![CDATA[                                        ]]></TD>
+<TD><![CDATA[Homogenized from new and previously published data]]></TD>
 </TR>
 </TABLEDATA>
 </DATA>

@@ -5,7 +5,7 @@ import numpy as n,sys
 from pylab import *
 
 lines = open(sys.argv[-1]).readlines()
-lines = [line for line in lines if not line.startswith('#')]
+lines = [line for line in lines if not (line.startswith('#') or len(line)<3)]
 print [len(line.split()) for line in lines]
 improvement = n.array([n.float(line.split()[9]) for line in lines]) # (FOM change)*(fraction of PAPER overlapping previos)
 overlap = n.array([n.float(line.split()[8]) for line in lines])
