@@ -144,6 +144,9 @@ if not opts.srcfile is None:
     lines = [l.split() for l in open(opts.srcfile).readlines() if not l.startswith('#') and not len(l)==0]
     opts.src = ','.join([l[0] for l in lines])
     srcdata = dict(zip([l[0] for l in lines],[l[opts.datacol] for l in lines]))
+    cals = [l[0] for l in lines if int(l[-1])]
+    print "found %d cals"%len(cals)
+    nocatdata= [l[0] for l in lines if l[3].startswith('-1')]
     for src in n.sort(srcdata.keys()):
         print src,srcdata[src]
     srcdatamin,srcdatamax = n.array(map(float,srcdata.values())).min()*1.001,n.array(map(float,srcdata.values())).max()
@@ -483,13 +486,18 @@ for i,file in enumerate(args):
                     #else:
                     #    size =1./n.abs((sd - srcdatamin)/srcdatamax)+5
 #                    else:
-                    map.scatter(xpt,ypt,marker=marker,color='w',s=size)    
+                    #map.scatter(xpt,ypt,marker=marker,color='w',s=size)    
+                elif name in nocatdata:
+                    marker='x'
+                    if not opts.highquality is None: size= 10*opts.highquality
+                    else: size = 10                   
                 else:
                     marker = 'o'
                     if not opts.highquality is None: size= 10*opts.highquality
                     else: size = 10
-                    map.scatter(xpt,ypt,marker=marker,color='w',s=size)
-
+                map.scatter(xpt,ypt,marker=marker,color='w',s=size)
+                if name in cals:
+                    map.scatter(xpt,ypt,marker='o',color='w',s=size*2,facecolor='None')
             else:
                 map.scatter(xpt,ypt,marker='o',color='k',s=s)
             if flx < 10: flx = 10
