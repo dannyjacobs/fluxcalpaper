@@ -25,6 +25,10 @@
 \newcommand{\PAPER}{\mathrm{PAPER}}
 \bibliographystyle{apj_w_etal}
 
+\newcommand{\Nconf}{31}
+\newcommand{\Nsrc}{32}
+
+
 	% End definitions
 
 %\slugcomment{DRAFT: \today}
@@ -79,7 +83,7 @@ yielding a dramatic improvement in the accuracy of source spectra measured in th
 measure 21cm emission from the Epoch of Reionization (EoR). Using beam forming
 and fringe-rate filtering we measure spectra for Pictor A, which provides a key flux reference for PAPER's EoR
 power spectrum analysis, 
-as well as 60 other sources at nearby declinations. Extrapolating from higher frequency
+as well as \Nconf other sources at nearby declinations. Extrapolating from higher frequency
 catalogs we set the flux scale in a monte-carlo fit across multiple sources. This fit 
 propagates uncertainty from both catalog and measurement errors. Fitting new spectral 
 models to both catalog and the new PAPER data we find a Pictor A flux model accurate to
@@ -87,8 +91,7 @@ models to both catalog and the new PAPER data we find a Pictor A flux model accu
 This accuracy is limited by the uncertainty in the catalog measurements we use
 to estimate an absolute flux scale, and represents 
 an order of magnitude improvement over previous measurements in this band.  
-Comparing with prior measurements, 45 out
-of 58 sources observed are found to confirm and refine a power-law model for flux density.
+Comparing with prior measurements, 90\% are found to confirm and refine a power-law model for flux density.
 
 \end{abstract}
 
@@ -136,7 +139,7 @@ Both PAPER and the MWA are located in the southern hemisphere at radio-quiet
 reserves being prepared for the upcoming Square Kilometer Array, and hence,
 the
 most extensive surveying work is now being conducted by the EoR experiments
-themselves \citep{Jacobs:2011p8438,Williams:2012p8768}.
+themselves \citep{Jacobs:2011p8438,Williams:2012p8768,Bernardi:2013p9859}.
 
 One significant complication to improving the state of affairs in foreground characterization
 is that many 21cm EoR experiments, including LOFAR in the northern hemisphere, and
@@ -157,7 +160,7 @@ This direction dependent gain is currently uncertain to 10\% or higher
 \citep{Pober:2012p8800}, and comprises a large fraction of the 20\% difference between current telescopes \citep{Jacobs:2013p9713}.
 
 In this paper, we set out to significantly improve the accuracy of spectral measurements between 
-100--200 MHz for a set of bright sources in the declination range XXX to XXX that
+100--200 MHz for a set of bright sources in the declination range -46\arcdeg to -40\arcdeg that
 are of particular value for southern-hemisphere 21cm EoR experiments such as PAPER and the MWA.
 Using the fact that, for this restricted declination range,
 sources transit through a nearly identical primary beam response pattern, we are able to avoid one of the
@@ -262,17 +265,22 @@ the EoR observing season, making it an ideal flux calibrator.
 \section{Approach}
 \label{sec:approach}
 In this section, we describe how we use PAPER in its imaging configuration
-to measure Pictor A and a selection of known, bright sources suitable for confirming the accuracy of the measurement
-and extrapolated flux scale.
+to measure Pictor A and confirm our results by measuring a  selection of known, bright sources. The fluxes are obtained
+by forming beams towards known sources as they drift through the primary beam, calibrating to a single source making a similar track.
+These long tracks provide allow us to sidestep primary beam uncertainty to measure accurately calibrated fluxes.
 
- In \citet{Jacobs:2013p9837} several limitations were identified that
-exasperated the primary beam uncertainty.  First, under most imaging schemes, each source flux is measured at just a few 
-points in the primary beam. As errors tend to vary across the beam, the uncertainty will tend to vary between sources.
-Here we have averaged over long tracks through the primary beam. Using the drift scan-beamforming technique, each 
-source is measured hundreds of times at a variety of different pointings. The variation between these measurements is then
-used to calculate measurement uncertainty. Second, the flux scale was found to vary substantially over the 
-sky, due to the dual uncertainties of primary beam response and prior catalog. As a hedge against beam uncertainty 
-we limit our selection to source with similar primary beam responses. A third limitation, identified in \citet{Williams:2012p8768},
+
+ In \citet{Jacobs:2013p9837} several errors were identified as originating in primary beam uncertainty.
+  First, under most imaging schemes, each source flux is measured at just a few 
+points in the primary beam. As errors tend to vary across the beam, the uncertainty will tend to vary between sources making
+it difficult to decouple flux uncertainty from beam uncertainty.
+ Using the drift scan-beamforming technique, each 
+source is measured hundreds of times at a variety of different pointings to provide a complete sample of the
+flux variance due to primary beam variation.  Second, the flux calibration was found to vary over the 
+sky due to the dual uncertainties of primary beam response and prior catalog. To limit our exposure to flux calibration
+variation we limit our observations to sources passing within 5\arcdeg of locations which we can directly calibrate
+from a single reference source.
+ A third limitation, identified in \citet{Williams:2012p8768},
 was the increase of uncertainty towards the edge of the beam. To minimize our sensitivity to both beam and noise
 uncertainty, we weight the source track by an additional factor of the primary beam model.  
 
@@ -283,7 +291,7 @@ provide a detailed sample of the primary beam relative to the peak of the trace,
 a model is still required to calibrate between declinations and the accuracy of the trace is sometimes contaminated by
 sidelobes. In section XXX we will compare the beam response as measured by the PicA trace with the model 
 used to estimate flux. We will see that, on average, the primary beam is not the limiting factor in estimating the flux and that
-limiting ourselves to a declination range of 10\arcdeg around Pictor A for flux verification is a good compromise.
+limiting ourselves to a declination range of 5\arcdeg around calibrator 2331-416 for flux verification is a good compromise.
 %
 %
 %
@@ -334,20 +342,25 @@ of samples we make use of the Vollmer et al meta-catalog which takes pains to
 match multi-wavelength observations \citep{Vollmer:2010p6422}.
 % given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
 
-The spectra reported here are measured by beam-forming, phasing the visibilities to
-the target location, and summing to produce a dynamic spectrum. The spectrum is then isolated
+\subsection*{Data Processing Overview}
+\label{sec:data_overview}
+The spectra reported here are measured by beam-forming ---phasing the visibilities to
+the target location and summing to produce a dynamic spectrum. The spectrum is then isolated
 from neighboring sources by filtering and averaged in the time domain.  This time average is 
-weighted by an additional factor of the PAPER's primary beam response 
+weighted by an additional factor of PAPER's primary beam response 
 \citep{pober_et_al2012}.  
 \begin{align}
-S_\textrm{est} &= \frac{\sum_t B_M S_p}{\sum_t B^2_M}\\
-&= \frac{\sum_t B_M B}{\sum_t B^2_M} S\\ \label{eq:g}
+S_\textrm{est} &= \frac{\sum_t B_M S_p}{\sum_t B^2_M} \nonumber \\ 
+&= \frac{\sum_t B_M B}{\sum_t B^2_M} S  \nonumber \\
+&= g(\delta) S  \label{eq:g}
 \end{align}
 
 which is an effective approximation of inverse-variance weighting. The pre factor in Eq \ref{eq:g} is identical for 
-sources at the same declination, and as we found above, diverges slowly from the model in the 10\arcdeg declination stripe.
-We estimate this spectral dependent gain for a calibrator (J2331-416) fitting a spectral index model to the
- well-defined data points below 2GHz. This removes an overall offset.
+sources at the same declination.  In simulation we multiplied an early attempt to map the beam \cite{Pober:2012p8800}
+by electromagnetic simulations of the PAPER beam and find that it 
+diverges slowly with declination, with a maximum of 10\% over 5\arcdeg of declination range.
+We estimate this spectral dependent gain at a reference declination of 41\arcdeg36\arcmin using (J2331-416) fitting a spectral index model to the
+ well-defined data points below 2GHz. 
  
  Finally we average the spectra from a resolution of 400kHz to 10MHz bins, taking the standard deviation within these bins
  for an estimate of the uncertainty.
@@ -653,7 +666,7 @@ data points but benefiting from some measurements not included.
 \label{sec:flux_scale}
 
 At the output of the beam forming and bandpass calibration step, the flux scale
- is tied to a model fit tp the catalog values of
+ is tied to a model fit of the catalog values of
 J2331-416. The accuracy of this fit, and the implied uncertainty in the flux
 scale, limits the accuracy of the PAPER measurements..  To refine the flux
 scale and estimate our flux scale uncertainty, we bootstrap a single global flux scale 
@@ -671,22 +684,23 @@ Using the MCMC method we fit spectral index models to the catalog fluxes
  simultaneously with a global PAPER flux scale factor using  an MCMC chain to calculate the log likelihood
 
 \begin{align}
-\log\mathcal{L}_s &= \sum_{\nu}\frac{ (S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
-\frac{ (g*S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2}\\
+\log\mathcal{L}_s &= \sum_{\nu}\frac{ \left[S_\textrm{cat}^{\nu}  - S_{150}  \left(\frac{\nu}{150}\right)^\alpha\right]^2}{2(\Delta S_\textrm{cat}^\nu)^2} +
+\frac{ (g S_\PAPER^{\nu}  - S_{150}\left(\frac{\nu}{150}\right)^\alpha)^2}{2(\Delta S_\PAPER^\nu)^2} \nonumber \\
 \log\mathcal{L} &= \sum_{s} \log\mathcal{L}_s
 \end{align}
 
 
-which samples the posterior probability of PAPER data ($SPAPER_{\nu}$) and
-catalog values ($Scat_{\nu}$) given a spectral index model for each source and
-a global flux scale factor ($g$) ($S_\PAPER^\textrm{calibrated} = g S_\PAPER$).
+which samples the posterior probability of PAPER data ($S_\PAPER^{\nu}$) and
+catalog values ($S_\textrm{cat}^{\nu}$) given a spectral index model for each source and
+a global flux scale factor ($g$).
 Marginalizing over the fitted flux scales, we find the resulting flux scale distribution function which is shown in Figure
 \ref{fig:gain}. The 76\% confidence limit on this flux scale, relative to the
-J2331-413 calibration, is  $-0.01 ^{+0.11}_{-0.17}$ dB, or a 3.24\%
-multiplicative error on every calibrated PAPER measurement.  These errors are added, in quadrature,
-to the errors in the PAPER spectra.
+J2331-413 calibration, is  $+0.11 ^{+0.05}_{-0.08}$ dB, or a 1.54\%
+multiplicative error on every calibrated PAPER measurement.  This flux scale is applied to the PAPER spectra
+with the errors added in quadrature.
+%gain [dB] 0.03,0.11,0.16
 
-
+%TODO UPDATE this par
 These calibrated spectra are plotted in Figures \ref{fig:srcs1},\ref{fig:srcs2},
 \& \ref{fig:srcs3} and the data are listed in Table \ref{tab:data}.  The
 resulting Pictor A spectrum ranges in precision from 6.5\% at 125MHz to 4.7\%
@@ -714,7 +728,7 @@ cross-matched meta-catalog by \citet{Vollmer:2010p6422} using the
  (log) likelihood which assumes Gaussian measurement errors
 
 \begin{equation}
-\logL = \sum_\nu{\frac{\left(S_\nu - S_{150}\left(\frac{\nu}{150}\right)^\alpha\right)^2}{\Delta S_\nu} }
+\logL = \sum_\nu{\frac{\left[S_\nu - S_{150}\left(\frac{\nu}{150}\right)^\alpha\right]^2}{\Delta S_\nu} }
 %\label{eq:catlogL}
 \end{equation}
 
@@ -743,13 +757,14 @@ illustrated in Figure \ref{fig:src_spec}.
 
 \begin{figure}[htbp]
 \includegraphics[width=0.49\textwidth]{plots/pic_trace_hist.png}
-\includegraphics[width=0.49\textwidth]{plots/1556-466_trace_hist.png}
+\includegraphics[width=0.49\textwidth]{plots/2323-407_trace_hist.png}
 \caption{
 A more detailed view of the posterior probability distribution. On the left
-Pictor A, on the right 1556-466. Confidence contours range from 0.2 to 0.8.
-Compare with the contours for this source shown in Fig. \ref{fig:SI_contour_3}.
-As above, grey for  the fit to catalog data, black for joint catalog and PAPER
-fit.
+Pictor A, on the right 2323-407. Confidence contours range from 0.2 to 0.8. The MCMC
+chain reveals the distinctive ``banana'' shape of the posterior
+due to correlation between the model parameters.
+Compare with the contours for this source shown in Fig. \ref{fig:SI_contour_2}.
+Grey plots the fit to catalog data, black for joint catalog and PAPER.
 }
 \end{figure}
 
@@ -758,6 +773,11 @@ fit.
 
 \section{Results and Discussion}
 \label{sec:fits}
+%TODO Revise all the numbers in this session.
+%now we have 32 sources (counting pic)
+% 25 have >0 improvement
+% 0 have negative
+% 6 have 0 overlap
 In the 59 sources measured, four demonstrated poor convergence fitting a single
 spectral index to both the PAPER data and prior catalog data. In three
 cases\footnote{1243-412,1247-401,1315-460} %TODO update these sources are in
@@ -779,8 +799,9 @@ numerically quantify the overall model improvement derived from the addition of
 the PAPER data as 
 \begin{align}
 \textrm{Improvement} &= \left(\textrm{Precision increase}\right) \left(\textrm{Catalog agreement}\right)\\
-&= \left(\frac{1}{Area(\textrm{PAPER})} - \frac{1}{Area(\textrm{Cat})}\right) \left( Area(\PAPER \cap \textrm{Cat}) \right)
+&= \left(\frac{1}{\textrm{Area}(\textrm{PAPER})} - \frac{1}{\textrm{Area}(\textrm{Cat})}\right) \left( \textrm{Area}(\PAPER \cap \textrm{Cat}) \right)
 \end{align}
+where the area is defined as the number of samples having posterior probability above 76\%.
 
 We quantify the fit {\em precision increase} as the change in the contour
 figure of merit, defined as the inverse area of the confidence contour.
@@ -862,11 +883,11 @@ both image and power spectrum flux.
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.9\textwidth]{plots/1526-423_2250-412_2331-416_1932-464_1421-490_gain_mcmc_chain_gain_conf.png}
+\includegraphics[width=0.9\textwidth]{plots/2250-412_2331-416_1932-464_0103-453_0547-408_0043-424_gain_mcmc_chain_gain_conf.png}
 \caption{
 The marginalized PAPER flux scale factor posterior probability distribution
 function bootstrapped from the NED database listings for
-2250-412,2331-416,2140-434,0007-446 and 0704-427 below 2GHz.
+2250-412,2331-416,1932-464,0103-453,0547-408,0043-424 below 2GHz.
 \label{fig:gain}}
 \end{figure*}
 
@@ -884,7 +905,7 @@ bars.  The most reliable prior measurements (dots) are those by
 are from with Culgoora \cite{Slee:1995p7541} or Parkes
 \cite{Otrupcek:1991p8780} and have been set to the (extrapolated)
 \citet{Baars:1977p9678} scale by  \cite{Kuehr:1981p9628}. A sub-sample of MCMC
-fits are shown in blue. On the right, the grey contour indicates the 76\%
+fits are shown in grey. On the right, the grey contour indicates the 76\%
 confidence interval for 150MHz flux and spectral index given the prior data.
 Black folds in the PAPER data.
 } \label{fig:pic_spectrum}
@@ -948,17 +969,6 @@ flux calibration are noted with a *.
 \end{center}
 \end{figure*}
 
-\begin{figure*}[htbp]
-\begin{center}
-\includegraphics[width=0.9\textwidth]{plots/srcfig_3.png}
-\caption{
-PAPER spectra of 16 sources compared against existing data out of
-\cite{Vollmer:2010p6422} between 40MHz and 2GHz, otherwise as described in
-Figure \ref{fig:pic_spectrum}.\label{fig:srcs3} Sources used to bootstrap the
-flux calibration are noted with a *.
-}
-\end{center}
-\end{figure*}
 
 
 
@@ -967,18 +977,20 @@ flux calibration are noted with a *.
 %the best sources. High quality fit that improves on previous knowledge
 \begin{figure*}[htbp]
 \begin{center}
-\includegraphics[width=2in]{plots/0003-428_SI_MCMC.png} %0.9878
-\includegraphics[width=2in]{plots/0007-446_SI_MCMC.png} %1.0085
-\includegraphics[width=2in]{plots/0039-445_SI_MCMC.png} %1.3403
-\includegraphics[width=2in]{plots/0043-424_SI_MCMC.png} %0.5959
-\includegraphics[width=2in]{plots/0048-447_SI_MCMC.png} %0.6165
-\includegraphics[width=2in]{plots/0049-433_SI_MCMC.png} %1.0632
-\includegraphics[width=2in]{plots/0103-453_SI_MCMC.png} %0.1456
-\includegraphics[width=2in]{plots/0201-440_SI_MCMC.png} %3.0727
-\includegraphics[width=2in]{plots/0438-436_SI_MCMC.png} %0.0991
-\includegraphics[width=2in]{plots/0511-484_SI_MCMC.png} %3.3967
-\includegraphics[width=2in]{plots/0534-497_SI_MCMC.png} %3.4118
-\includegraphics[width=2in]{plots/0546-445_SI_MCMC.png} %0.1647
+\includegraphics[width=2in]{plots/0003-428_SI_MCMC.png} %0.6363
+\includegraphics[width=2in]{plots/0007-446_SI_MCMC.png} %0.7038
+\includegraphics[width=2in]{plots/0008-421_SI_MCMC.png} %0.3103
+\includegraphics[width=2in]{plots/0039-445_SI_MCMC.png} %0.8007
+\includegraphics[width=2in]{plots/0043-424_SI_MCMC.png} %0.3398
+\includegraphics[width=2in]{plots/0048-447_SI_MCMC.png} %0.6566
+\includegraphics[width=2in]{plots/0049-433_SI_MCMC.png} %0.7536
+\includegraphics[width=2in]{plots/0103-453_SI_MCMC.png} %0.1772
+\includegraphics[width=2in]{plots/0201-440_SI_MCMC.png} %2.8054
+\includegraphics[width=2in]{plots/0438-436_SI_MCMC.png} %0.3053
+\includegraphics[width=2in]{plots/0546-445_SI_MCMC.png} %0.1881
+\includegraphics[width=2in]{plots/0547-408_SI_MCMC.png} %0.3435
+
+
 \end{center}
 \caption{Spectral model contours as described in Figure \ref{fig:pic_spectrum}. Sources marked with a
 * were used to assess calibration error.
@@ -986,18 +998,19 @@ flux calibration are noted with a *.
 \end{figure*}
 \clearpage
 \begin{figure*}[htbp]2\begin{center}
-\includegraphics[width=2in]{plots/0547-408_SI_MCMC.png} %0.1506
-\includegraphics[width=2in]{plots/0647-475_SI_MCMC.png} %0.8384
-\includegraphics[width=2in]{plots/0700-473_SI_MCMC.png} %1.9848
-\includegraphics[width=2in]{plots/0704-427_SI_MCMC.png} %0.0785
-\includegraphics[width=2in]{plots/0748-440_SI_MCMC.png} %0.2942
-\includegraphics[width=2in]{plots/0748-454_SI_MCMC.png} %0.0742
-\includegraphics[width=2in]{plots/0809-492_SI_MCMC.png} %0.6265
-\includegraphics[width=2in]{plots/0819-474_SI_MCMC.png} %0.9749
-\includegraphics[width=2in]{plots/1017-421_SI_MCMC.png} %0.0034
-\includegraphics[width=2in]{plots/1017-426_SI_MCMC.png} %0.0195
-\includegraphics[width=2in]{plots/1046-409_SI_MCMC.png} %0.0012
-\includegraphics[width=2in]{plots/1116-462_SI_MCMC.png} %0.0062
+\includegraphics[width=2in]{plots/0704-427_SI_MCMC.png} %0.2743
+\includegraphics[width=2in]{plots/1017-426_SI_MCMC.png} %0.0266
+\includegraphics[width=2in]{plots/1046-409_SI_MCMC.png} %0.014
+\includegraphics[width=2in]{plots/1215-457_SI_MCMC.png} %0.0514
+\includegraphics[width=2in]{plots/1221-423_SI_MCMC.png} %0.0429
+\includegraphics[width=2in]{plots/1840-404_SI_MCMC.png} %0.2905
+\includegraphics[width=2in]{plots/1932-464_SI_MCMC.png} %0.6859
+\includegraphics[width=2in]{plots/1940-406_SI_MCMC.png} %0.0504
+\includegraphics[width=2in]{plots/1953-425_SI_MCMC.png} %0.3409
+\includegraphics[width=2in]{plots/2140-434_SI_MCMC.png} %0.2824
+\includegraphics[width=2in]{plots/2213-456_SI_MCMC.png} %0.2937
+\includegraphics[width=2in]{plots/2226-411_SI_MCMC.png} %0.2383
+
 \end{center}
 \caption{Spectral model contours as described in Figure \ref{fig:pic_spectrum}. Sources marked with a
 * were used to assess calibration error.
@@ -1005,94 +1018,43 @@ flux calibration are noted with a *.
 \end{figure*}
 \clearpage
 \begin{figure*}[htbp]2\begin{center}
-\includegraphics[width=2in]{plots/1143-483_SI_MCMC.png} %0.004
-\includegraphics[width=2in]{plots/1215-457_SI_MCMC.png} %0.0163
-\includegraphics[width=2in]{plots/1232-416_SI_MCMC.png} %0.0227
-\includegraphics[width=2in]{plots/1243-412_SI_MCMC.png} %0.0076
-\includegraphics[width=2in]{plots/1246-410_SI_MCMC.png} %0.06
-\includegraphics[width=2in]{plots/1247-401_SI_MCMC.png} %0.1161
-\includegraphics[width=2in]{plots/1302-491_SI_MCMC.png} %0.5328
-\includegraphics[width=2in]{plots/1355-416_SI_MCMC.png} %0.1959
-\includegraphics[width=2in]{plots/1358-493_SI_MCMC.png} %0.7284
-\includegraphics[width=2in]{plots/1421-490_SI_MCMC.png} %1.3529
-\includegraphics[width=2in]{plots/1424-418_SI_MCMC.png} %0.0218
-\includegraphics[width=2in]{plots/1445-468_SI_MCMC.png} %1.8104
+\includegraphics[width=2in]{plots/2250-412_SI_MCMC.png} %0.3487
+\includegraphics[width=2in]{plots/2323-407_SI_MCMC.png} %7.8431
+\includegraphics[width=2in]{plots/2331-416_SI_MCMC.png} %0.3356
 \end{center}
-\caption{Spectral model contours as described in Figure \ref{fig:pic_spectrum}. Sources marked with a
+\caption{fits of the next 16 sources, as described in Figure \ref{fig:SI_contour_1}. Sources marked with a
 * were used to assess calibration error.
 }\label{fig:SI_contour_3}
 \end{figure*}
-\clearpage
-\begin{figure*}[htbp]2\begin{center}
-\includegraphics[width=2in]{plots/1526-423_SI_MCMC.png} %0.1985
-\includegraphics[width=2in]{plots/1552-433_SI_MCMC.png} %1.3211
-\includegraphics[width=2in]{plots/1556-466_SI_MCMC.png} %2.5579
-\includegraphics[width=2in]{plots/1616-457_SI_MCMC.png} %0.0507
-\includegraphics[width=2in]{plots/1618-430_SI_MCMC.png} %3.821
-\includegraphics[width=2in]{plots/1633-409_SI_MCMC.png} %1.3843
-\includegraphics[width=2in]{plots/1839-487_SI_MCMC.png} %0.1766
-\includegraphics[width=2in]{plots/1840-404_SI_MCMC.png} %0.1658
-\includegraphics[width=2in]{plots/1932-464_SI_MCMC.png} %0.4321
-\includegraphics[width=2in]{plots/1940-406_SI_MCMC.png} %0.0325
-\includegraphics[width=2in]{plots/1953-425_SI_MCMC.png} %0.1181
-\includegraphics[width=2in]{plots/2140-434_SI_MCMC.png} %0.2976
-\end{center}
-\caption{Spectral model contours as described in Figure \ref{fig:pic_spectrum}. Sources marked with a
-* were used to assess calibration error.
-}\label{fig:SI_contour_4}
-\end{figure*}
-\clearpage
-\begin{figure*}[htbp]2\begin{center}
-\includegraphics[width=2in]{plots/2213-456_SI_MCMC.png} %0.2146
-\includegraphics[width=2in]{plots/2226-411_SI_MCMC.png} %0.3157
-\includegraphics[width=2in]{plots/2250-412_SI_MCMC.png} %0.5585
-\includegraphics[width=2in]{plots/2323-407_SI_MCMC.png} %4.9008
-\includegraphics[width=2in]{plots/2331-416_SI_MCMC.png} %0.8134
-\end{center}
-\caption{fits of the last 5 sources, as described in Figure \ref{fig:SI_contour_1}. Sources marked with a
-* were used to assess calibration error.
-}\label{fig:SI_contour_5}
-\end{figure*}%BOTTOM OF MAIN CONFIDENCE PLOT SECTION
+%BOTTOM OF MAIN CONFIDENCE PLOT SECTION
 %%%%%%%%%%%%%%%%%%%%
 
 
 %BEGIN PASTE
-\begin{figure*}[htbp]
-\begin{center}
-%ok fit, but doesn't agree with past data, or actually increases model uncertainty
-%contour length limit =  223.105907705
-%Poor improvement:  1407-425 14.03,15.48,16.92 -1.23,-1.11,-0.99 9.88,11.36,12.93 -1.08,-0.95,-0.82 0.4 0.41 -0.01 0.07 -0.0006 118.0
-\includegraphics[width=2in]{plots/1407-425_SI_MCMC.png} %-0.0006
-\caption{Contours of spectral fit as described in Figure \ref{fig:SI_contour_1}. This source displays negative 
-improvement. The addition of the PAPER data actually slightly increases the uncertainty.
-\label{fig:SI_contour_bad}}
-\end{center}
-\end{figure*}
+
 
 \begin{figure*}[htbp]
 \begin{center}
 %zero overlap
-\includegraphics[width=2in]{plots/1221-423_SI_MCMC.png} %0.0
-\includegraphics[width=2in]{plots/1315-460_SI_MCMC.png} %0.0
-\includegraphics[width=2in]{plots/1320-446_SI_MCMC.png} %0.0
-\includegraphics[width=2in]{plots/1416-493_SI_MCMC.png} %0.0
-\includegraphics[width=2in]{plots/1459-417_SI_MCMC.png} %0
-\includegraphics[width=2in]{plots/cen_SI_MCMC.png} %0.0
+\includegraphics[width=2in]{plots/1424-418_SI_MCMC.png} %0.0
+\includegraphics[width=2in]{plots/1526-423_SI_MCMC.png} %0.0
+
 \end{center}
 \caption{
-These sources are at odds with previous measurements.
-Two simply do not have enough
-prior catalog data to fit a spectral model, while the rest have
-suggest a deviation from the catalog spectral index fit.
-All are near Centaurus A (see Figure
-\ref{fig:error_map}), a very bright, extended source, as well as the galactic plane.
-Side lobes manifest as
-ripples in the beam formed spectra which increases the error bars. See for example the 
-Pictor A spectrum \ref{fig:pic_spectrum_detail}. However, the sources shown here are close
-enough to Centaurus A that the side-lobe oscillates on scales longer than 10MHz
-and does not fall into the rms, but rather into the mean. Thus these few points
-have anomalously high fluxes and small error bars. 
+These fits are somehow at odds with other measurements.  The 1526-42 spectrum is visibly curved (see Fig. \ref{fig:srcs1), which explains the large disagreement in spectral index but not flux. 1424-418 is an optically polarized quasar with a flat and variable radio spectrum which might imply co-aligned jet viewing and high intrinsic variability. 
 } \label{fig:SI_contour_new}
+\end{figure*}
+
+\begin{figure*}[htbp]
+\begin{center}
+%ok fit, but doesn't agree with past data, or actually increases model uncertainty
+%contour length limit =  196.42253912
+%Poor improvement:  1017-421 11.88,13.56,15.22 -1.2,-1.08,-0.96 12.03,13.82,15.68 -1.22,-1.09,-0.96 0.25 0.25 -0 0.6 -0.0011 172.0 0
+\includegraphics[width=2in]{plots/1017-421_SI_MCMC.png} %-0.0011
+\end{center}
+\caption{A source with a slightly negative improvement index (-0.0011).  Here the PAPER data represents a large fraction of the available data
+but due to the large error bars slightly increases the uncertainty.
+}\label{fig:SI_contour_bad}
 \end{figure*}
 
 
@@ -1101,14 +1063,13 @@ have anomalously high fluxes and small error bars.
 
 
 \begin{figure*}
-\includegraphics[width=\textwidth]{plots/psa64_pic_strip_positions_annotated_cropped.pdf}
+\includegraphics[width=\textwidth]{plots/psa64_pic_strip_positions_psa747_v2_annotated_cropped.png}
 \caption{
-A map of the radio sky centered on the south pole
-\citep{deOliveiraCosta:2008p2242}.  x's mark measured locations and have size
+A PAPER map of the radio sky centered on the south pole showing relative positions of targeted sources. The map was made using the July half of the
+data used in this catalog using the procedure described in \citet{Jacobs:2011p8438} to produce a lightly CLEANed map. The circular artifact around the south Celestial pole is due to residual instrumental cross-talk and appears to be highly localized below declinations of 75\arcdeg where PAPER's sensitivity is small.  x's mark measured source locations and have size
 scaled by dis-agreement with prior data (inverse ``improvement index" from 
-\S\ref{sec:fits}). Smaller indicates better agreement with past data.  Black dots indicate sources with $\le0$ improvement score;
-agreement decreases with addition of PAPER data (see Figures \ref{fig:SI_contour_bad} and \ref{fig:SI_contour_new}). 
-This is most likely due to galactic, and Centaurus A, side lobes.    \label{fig:error_map}
+\S\ref{sec:fits}). Smaller indicates better agreement with past data.  Orange dots indicate sources with no model overlap at 76\% \ref{fig:SI_contour_new}. 
+\label{fig:error_map}
 }
 \end{figure*}
 
@@ -1118,7 +1079,7 @@ This is most likely due to galactic, and Centaurus A, side lobes.    \label{fig:
 
 \begin{deluxetable}{lllllllllllll}
 \tablecolumns{13}
-\tablecaption{PAPER spectra for 59 MRC sources. Full table available online}
+\tablecaption{PAPER spectra for 32 MRC sources}
 \tablehead{
 \colhead{Name} &
 \colhead{\parbox[c][3em]{2em}{Ra \unit{deg}}} & 
@@ -1135,17 +1096,17 @@ This is most likely due to galactic, and Centaurus A, side lobes.    \label{fig:
 \colhead{\parbox[c][2em]{2em}{rms \unit{Jy}}}
 }
 \startdata
-Pictor A&	80.1&	-45.79&	459.23&	30.2&	416.59&	28.3&	397.17&	21.8&	375.14&	18.5&	359.72&	17.1 \\
-0003-428&	1.67&	-42.5&	14.98&	2.0&	13.45&	1.2&	13.02&	1.8&	12.9&	1.6&	10.42&	1.2 \\
-0007-446&	2.79&	-44.31&	23.51&	2.5&	21.18&	2.4&	20.24&	1.5&	18.74&	1.5&	17.61&	1.8 \\
-0008-421&	2.88&	-41.81&	-0.94&	1.7&	-0.68&	1.7&	0.54&	1.8&	0.52&	1.4&	1.98&	1.8 \\
-0039-445&	10.69&	-44.16&	31.95&	2.9&	30.29&	3.0&	28.54&	2.1&	26.0&	1.9&	24.06&	1.4 \\
-0043-424&	11.72&	-42.05&	51.9&	4.2&	47.43&	3.5&	45.82&	2.6&	42.74&	3.0&	40.68&	2.6 \\
-0048-447&	12.86&	-44.41&	17.86&	2.6&	16.02&	2.3&	15.15&	2.5&	14.51&	1.5&	12.51&	1.6 \\
-0049-433&	13.21&	-43.03&	23.53&	2.4&	21.0&	1.5&	21.94&	2.4&	20.2&	1.9&	18.85&	2.1 \\
-0103-453&	16.48&	-45.02&	35.5&	3.2&	32.61&	3.5&	30.86&	2.4&	28.21&	2.5&	27.2&	1.5 \\
-0201-440&	31.05&	-43.77&	16.22&	4.4&	15.02&	1.7&	13.73&	1.7&	12.78&	1.2&	14.07&	1.7 \\
-0438-436&	70.17&	-43.53&	8.44&	2.5&	6.26&	1.9&	8.05&	1.6&	5.74&	2.1&	9.0&	1.7 \\
+Pictor A&	80.09&	-45.78&	455.3&	13.3&	409.6&	15.8&	389.2&	12.4&	363.5&	11.1&	350.6&	9.1 \\
+0003-428&	1.68&	-42.5&	14.5&	1.7&	13.1&	1.4&	12.8&	1.2&	12.6&	1.1&	10.3&	1.0 \\
+0007-446&	2.8&	-44.3&	23.2&	2.2&	21.1&	2.2&	20.2&	1.7&	18.6&	1.4&	17.2&	1.6 \\
+0008-421&	2.89&	-41.81&	-0.2&	0.8&	-0.3&	1.0&	0.9&	0.9&	0.7&	0.9&	1.3&	1.0 \\
+0039-445&	10.7&	-44.16&	29.2&	3.0&	27.6&	2.2&	26.4&	2.2&	24.0&	1.6&	22.2&	1.5 \\
+0043-424&	11.73&	-42.05&	48.6&	4.2&	45.2&	3.5&	43.9&	2.3&	40.8&	2.2&	38.4&	2.4 \\
+0048-447&	12.87&	-44.4&	16.2&	1.7&	14.6&	1.3&	13.7&	1.6&	13.3&	1.3&	11.3&	1.2 \\
+0049-433&	13.22&	-43.03&	20.9&	2.5&	19.0&	2.2&	20.8&	2.2&	19.0&	1.5&	17.4&	1.2 \\
+0103-453&	16.48&	-45.02&	31.3&	3.0&	29.0&	2.7&	27.1&	2.9&	25.4&	1.8&	24.3&	2.0 \\
+0201-440&	31.05&	-43.76&	13.6&	2.2&	12.6&	1.5&	11.7&	1.0&	11.0&	1.0&	12.0&	1.2 \\
+0438-436&	70.17&	-43.53&	9.5&	1.4&	6.0&	0.7&	6.6&	0.6&	5.8&	0.7&	10.5&	1.0 \\
 
 \enddata
 \label{tab:data}
@@ -1153,13 +1114,14 @@ Pictor A&	80.1&	-45.79&	459.23&	30.2&	416.59&	28.3&	397.17&	21.8&	375.14&	18.5&	
 
 
 %note: put at top of latex file \newcommand{\unit}[1]{\footnotesize \#1}
-\begin{deluxetable}{ccccccccccc}
-\tablecolumns{11}
-\tablecaption{Spectral fits for 52 MRC sources with and without PAPER.}
+\begin{deluxetable}{cccccccccccc}
+\tablecolumns{12}
+\tablecaption{Spectral fits for 31\tablenotemark{1} MRC sources. Before and after the addition of PAPER data. 90\% agree well with prior
+measurements and demonstrate increased precision over previous measurements. Full table available online.}
 \tablehead{
 \multicolumn{3}{c}{ }&
-\multicolumn{4}{c}{PAPER\tablenotemark{1} + Catalog}&
-\multicolumn{4}{c}{Catalog\tablenotemark{2}}\\
+\multicolumn{4}{c}{PAPER + Catalog}&
+\multicolumn{4}{c}{Catalog\tablenotemark{2}}&\\
 \colhead{Name} &
 \colhead{\parbox[c][3em]{2em}{Ra\\ \unit{deg}}}& 
 \colhead{\parbox[c][3em]{2em}{Dec\\ \unit{deg}}} &
@@ -1170,28 +1132,31 @@ Pictor A&	80.1&	-45.79&	459.23&	30.2&	416.59&	28.3&	397.17&	21.8&	375.14&	18.5&	
 \colhead{\parbox[c][3em]{2em}{$S150_p$\\ \unit{Jy}}} &
 \colhead{\parbox[c][3em]{2em}{$\Delta S_p$\\ \unit{Jy}}} &
 \colhead{\parbox[c][3em]{2em}{$\alpha_p$\\ \unit{--}}} &
-\colhead{\parbox[c][3em]{2em}{$\Delta\alpha_p$\\ \unit{--}}}
+\colhead{\parbox[c][3em]{2em}{$\Delta\alpha_p$\\ \unit{--}}} &
+\colhead{\parbox[c][3em]{2em}{Imp.\tablenotemark{3}\\ \unit{--}}}
 }
 \startdata
-Pictor A&	80.09&	-45.79&	388.92&	9.35&	-0.77&	0.02&	392.08&	21.36&	-0.77&	0.04 \\
-0003-428&	1.67&	-42.5&	11.61&	0.54&	-0.81&	0.03&	10.32&	0.76&	-0.73&	0.05 \\
-0007-446&	2.79&	-44.31&	18.74&	0.69&	-1.0&	0.03&	16.98&	1.26&	-0.93&	0.05 \\
-0039-445&	10.69&	-44.16&	26.77&	1.08&	-0.92&	0.11&	22.71&	5.1&	-0.79&	0.19 \\
-0043-424&	11.72&	-42.05&	43.6&	1.46&	-0.79&	0.11&	36.16&	4.97&	-0.69&	0.13 \\
-0048-447&	12.86&	-44.41&	13.21&	0.64&	-0.98&	0.04&	11.58&	0.88&	-0.89&	0.05 \\
-0049-433&	13.21&	-43.03&	20.16&	0.77&	-0.97&	0.03&	20.54&	1.53&	-0.98&	0.05 \\
-0103-453&	16.48&	-45.02&	28.9&	1.14&	-1.16&	0.11&	21.76&	2.93&	-1.04&	0.12 \\
-0201-440&	31.05&	-43.77&	13.72&	0.9&	-0.71&	0.12&	10.31&	6.54&	-0.51&	0.42 \\
-0438-436&	70.17&	-43.53&	8.08&	0.74&	-0.19&	0.09&	8.32&	1.09&	-0.21&	0.1 \\
-0511-484&	78.3&	-48.39&	24.92&	1.59&	-1.14&	0.09&	17.3&	10.7&	-0.93&	0.39 
+Pictor A&	80.09&	-45.78&	381.88&	5.36&	-0.76&	0.01&	392.63&	21.18&	-0.77&	0.04&	0.942 \\
+0003-428&	1.68&	-42.5&	12.24&	0.61&	-0.86&	0.11&	12.42&	2.75&	-0.86&	0.19&	0.636 \\
+0007-446&	2.8&	-44.3&	19.17&	0.82&	-1.02&	0.11&	18.08&	4.0&	-0.98&	0.19&	0.704 \\
+0008-421&	2.89&	-41.81&	5.68&	2.13&	-0.03&	0.22&	9.67&	4.11&	-0.32&	0.24&	0.31 \\
+0039-445&	10.7&	-44.16&	24.78&	0.91&	-0.86&	0.12&	22.6&	4.96&	-0.78&	0.19&	0.801 \\
+0043-424&	11.72&	-42.05&	41.69&	1.27&	-0.77&	0.1&	36.14&	4.93&	-0.69&	0.12&	0.34 \\
+0048-447&	12.87&	-44.4&	13.24&	0.64&	-0.99&	0.12&	13.37&	2.81&	-0.99&	0.19&	0.657 \\
+0049-433&	13.22&	-43.03&	18.99&	0.84&	-0.91&	0.11&	21.2&	4.58&	-1.01&	0.2&	0.754 \\
+0103-453&	16.48&	-45.02&	25.73&	1.07&	-1.11&	0.1&	21.75&	2.85&	-1.04&	0.12&	0.177 \\
+0201-440&	31.05&	-43.76&	11.71&	0.66&	-0.6&	0.12&	10.19&	6.72&	-0.5&	0.44&	2.805 \\
+0438-436&	70.17&	-43.53&	7.51&	0.38&	-0.14&	0.08&	8.35&	1.13&	-0.21&	0.1&	0.305 \\
 
 \enddata
 \label{tab:fits}
-\tablenotetext{1}{Fits for the majority of sources (78\%) that agree with prior measurements are included here. 
-The remainder (the 6 sources shown in Figure \ref{fig:SI_contour_new}) are likely contaminated by bright sources and are not included.   Full table available online.}
-
+\tablenotetext{1}{0008-421 is self-absorbed at 150MHz and is not listed here, while 1 did not have sufficient catalog data
+for a spectral fit and was also excluded}
 \tablenotetext{2}{MCMC fits to prior catalog data, before addition of PAPER measurements}
+\tablenotetext{3}{SED figure of merit change times confidence overlap, a measure of accuracy and precision.  Higher
+value indicates an increase in both model fit precision and accuracy.}
 \end{deluxetable}
+
 
 
 %\begin{deluxetable}{ccccccccrrr}
