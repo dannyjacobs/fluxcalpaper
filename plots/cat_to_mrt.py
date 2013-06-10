@@ -55,7 +55,7 @@ for i,line in enumerate(lines):
     spec = line[1].split(',')
     err = line[2].split(',')
     for v,e in zip(spec,err):
-        rec.append(str(n.round(float(v),2)))
+        rec.append(str(n.round(float(v),1)))
         rec.append(str(n.round(float(e),1)))
     if i==0:
         print "UNITS:"
