@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.2"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.2 http://www.ivoa.net/xml/VOTable/v1.2">
+ <DESCRIPTION>
+   VizieR Astronomical Server vizier.u-strasbg.fr
+    Date: 2013-05-09T14:23:01 [V1.97 (28-Nov-2012)]
+   Explanations and Statistics of UCDs:			See LINK below
+   In case of problem, please report to:	question@simbad.u-strasbg.fr
+ </DESCRIPTION>
+<!-- VOTable description at http://www.ivoa.net/Documents/latest/VOT.html -->
+<INFO ID="VERSION" name="votable-version" value="1.97 (28-Nov-2012)"/>
+<INFO ID="Ref" name="-ref" value="VIZ518bb0ed4bc5"/>
+<INFO ID="MaxTuples" name="-out.max" value="50"/>
+<INFO name="queryParameters" value="25">
+-oc.form=dec
+-out.max=50
+-out.all=1
+-out.add=_r
+-out.add=_RAJ,_DEJ
+-sort=_r
+-out.src=VIII/16/mrcj2000
+-nav=cat:VIII/2&amp;cat:VIII/16&amp;tab:{VIII/16/mrcj2000}&amp;cat:J/ApJS/107/19&amp;key:source=molonglo+reference+catalog&amp;HTTPPRM:&amp;&amp;-ref=VIZ518bb0ed4bc5&amp;-out.max=50&amp;-out.form=HTML Table&amp;-out.add=_r&amp;-out.add=_RAJ,_DEJ&amp;-sort=_r&amp;-oc.form=sexa&amp;-c.eq=J2000&amp;-c.r=  2&amp;-c.u=arcmin&amp;-c.geom=r&amp;-order=I&amp;-out=MRC&amp;-out=RAB1950&amp;-out=DEB1950&amp;DE2000=&gt;-50 &amp; &lt;-40&amp;-out=S408&amp;S408=&gt;6.7&amp;-out=e_S408&amp;-out=n_S408&amp;-out=Mflag&amp;-out=Cflag&amp;-file=.&amp;-meta.ucd=2&amp;-meta=1&amp;-meta.foot=1&amp;-usenav=1&amp;-out.src=VIII/16/mrcj2000
+-c.eq=J2000
+-c.r=  2
+-c.u=arcmin
+-c.geom=r
+-sort=_r
+-source=VIII/16/mrcj2000
+-order=I
+-out=MRC
+-out=RAB1950
+-out=DEB1950
+DE2000=&gt;-50 &amp; &lt;-40
+-out=S408
+S408=&gt;6.7
+-out=e_S408
+-out=n_S408
+-out=Mflag
+-out=Cflag
+</INFO>
+
+<!--
+Execution Reports
+ -->
+
+<RESOURCE ID="yCat_8016" name="VIII/16">
+  <DESCRIPTION>Molonglo Reference Catalogue of Radio Sources (Large+ 1991)</DESCRIPTION>
+  <COOSYS ID="B1950" system="eq_FK4" equinox="B1950"/>
+  <COOSYS ID="J2000" system="eq_FK5" equinox="J2000"/>
+  <TABLE ID="VIII_16_mrcj2000" name="VIII/16/mrcj2000">
+    <DESCRIPTION>Catalog Data</DESCRIPTION>
+    <!-- Definitions of GROUPs and FIELDs -->
+    <FIELD name="_RAJ2000" ucd="pos.eq.ra" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="POS_EQ_RA" -->
+      <DESCRIPTION>Right ascension (FK5, Equinox=J2000.0) (computed by VizieR, not part of the original data)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="_DEJ2000" ucd="pos.eq.dec" ref="J2000" datatype="double" width="8" precision="4" unit="deg"><!-- ucd="POS_EQ_DEC" -->
+      <DESCRIPTION>Declination (FK5, Equinox=J2000.0) (computed by VizieR, not part of the original data)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="recno" ucd="meta.record" datatype="int" width="8"><!-- ucd="RECORD" -->
+      <DESCRIPTION>Record number within the original table (starting from 1)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="MRC" ucd="meta.id;meta.main" datatype="char" arraysize="9*"><!-- ucd="ID_MAIN" -->
+      <DESCRIPTION>Recommended IAU name of the source based on B1950 equinox.</DESCRIPTION>
+    </FIELD>
+    <FIELD name="RAB1950" ucd="pos.eq.ra;meta.main" ref="B1950" datatype="char" arraysize="10" unit="&quot;h:m:s&quot;"><!-- ucd="POS_EQ_RA_MAIN" -->
+      <DESCRIPTION>Right ascension in B1950 equinox</DESCRIPTION>
+    </FIELD>
+    <FIELD name="DEB1950" ucd="pos.eq.dec;meta.main" ref="B1950" datatype="char" arraysize="9" unit="&quot;d:m:s&quot;"><!-- ucd="POS_EQ_DEC_MAIN" -->
+      <DESCRIPTION>DEC in degrees in B1950 equinox</DESCRIPTION>
+    </FIELD>
+    <FIELD name="RA2000" ucd="pos.eq.ra" datatype="char" arraysize="10" unit="&quot;h:m:s&quot;"><!-- ucd="POS_EQ_RA_OTHER" -->
+      <DESCRIPTION>Right ascension in J2000 equinox (Converted from B1950 using the STARLINK program COCO)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="DE2000" ucd="pos.eq.dec" datatype="char" arraysize="9" unit="&quot;d:m:s&quot;"><!-- ucd="POS_EQ_DEC_OTHER" -->
+      <DESCRIPTION>DEC in J2000 equinox</DESCRIPTION>
+    </FIELD>
+    <FIELD name="e_RA2000" ucd="stat.error;pos.eq.ra" datatype="float" width="4" precision="1" unit="s"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Standard error in RA (in seconds of time)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="n_RAB1950" ucd="meta.note" datatype="char" arraysize="1"><!-- ucd="NOTE" -->
+      <DESCRIPTION>[*] scattering flag (1)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="e_DE2000" ucd="stat.error;pos.eq.dec" datatype="short" width="2" unit="arcsec"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Standard error in Dec (in seconds of arc)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="n_DEB1950" ucd="meta.note" datatype="char" arraysize="1"><!-- ucd="NOTE" -->
+      <DESCRIPTION>[*] scattering flag (1)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="S408" ucd="phot.flux.density;em.radio.200-400MHz" datatype="float" width="7" precision="2" unit="Jy"><!-- ucd="PHOT_FLUX_RADIO_400M" -->
+      <DESCRIPTION>Flux density</DESCRIPTION>
+    </FIELD>
+    <FIELD name="e_S408" ucd="stat.error" datatype="float" width="5" precision="2" unit="Jy"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Standard error</DESCRIPTION>
+    </FIELD>
+    <FIELD name="n_S408" ucd="meta.note" datatype="char" arraysize="1"><!-- ucd="NOTE" -->
+      <DESCRIPTION>[*] scattering flag (1)</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Mflag" ucd="meta.code" datatype="char" arraysize="3"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[ AECMN] *Morphology flags</DESCRIPTION>
+    </FIELD>
+    <FIELD name="Cflag" ucd="meta.code" datatype="char" arraysize="3"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[ CJMPRST] Cross-reference flags.</DESCRIPTION>
+    </FIELD>
+    <FIELD name="GLON" ucd="pos.galactic.lon" datatype="float" width="5" precision="1" unit="deg"><!-- ucd="POS_GAL_LON" -->
+      <DESCRIPTION>[0,360] Galactic longitude</DESCRIPTION>
+    </FIELD>
+    <FIELD name="GLAT" ucd="pos.galactic.lat" datatype="float" width="6" precision="1" unit="deg"><!-- ucd="POS_GAL_LAT" -->
+      <DESCRIPTION>Galactic latitude</DESCRIPTION>
+    </FIELD>
+<DATA><TABLEDATA>
+<TR><TD>002.6284</TD><TD>-44.3831</TD><TD>70</TD><TD>0007-446</TD><TD>00 07 59.7</TD><TD>-44 39 41</TD><TD>00 10 30.8</TD><TD>-44 23 00</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>6.81</TD><TD>0.21</TD><TD></TD><TD></TD><TD> P</TD><TD>325.7</TD><TD>-70.9</TD></TR>
+<TR><TD>010.5401</TD><TD>-44.2349</TD><TD>369</TD><TD>0039-445</TD><TD>00 39 47.5</TD><TD>-44 30 32</TD><TD>00 42 09.6</TD><TD>-44 14 06</TD><TD>0.3</TD><TD>*</TD><TD>3</TD><TD></TD><TD>10.23</TD><TD>0.31</TD><TD></TD><TD></TD><TD> P</TD><TD>308.6</TD><TD>-72.8</TD></TR>
+<TR><TD>011.5683</TD><TD>-42.1272</TD><TD>405</TD><TD>0043-424</TD><TD>00 43 54.5</TD><TD>-42 24 01</TD><TD>00 46 16.4</TD><TD>-42 07 38</TD><TD>0.2</TD><TD></TD><TD>3</TD><TD></TD><TD>15.65</TD><TD>0.39</TD><TD></TD><TD>A</TD><TD>JP</TD><TD>306.6</TD><TD>-75.0</TD></TR>
+<TR><TD>013.0615</TD><TD>-43.1067</TD><TD>464</TD><TD>0049-433</TD><TD>00 49 54.9</TD><TD>-43 22 42</TD><TD>00 52 14.8</TD><TD>-43 06 24</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>8.07</TD><TD>0.25</TD><TD></TD><TD></TD><TD> P</TD><TD>302.4</TD><TD>-74.0</TD></TR>
+<TR><TD>070.0712</TD><TD>-43.5525</TD><TD>2487</TD><TD>0438-436</TD><TD>04 38 43.1</TD><TD>-43 38 54</TD><TD>04 40 17.1</TD><TD>-43 33 09</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>8.12</TD><TD>0.25</TD><TD></TD><TD></TD><TD> P</TD><TD>248.4</TD><TD>-41.6</TD></TR>
+<TR><TD>078.2134</TD><TD>-48.3998</TD><TD>2771</TD><TD>0511-484</TD><TD>05 11 31.2</TD><TD>-48 27 27</TD><TD>05 12 51.3</TD><TD>-48 23 59</TD><TD>0.2</TD><TD></TD><TD>2</TD><TD></TD><TD>6.84</TD><TD>0.11</TD><TD></TD><TD>E</TD><TD>JPS</TD><TD>254.7</TD><TD>-36.0</TD></TR>
+<TR><TD>079.8911</TD><TD>-45.7608</TD><TD>2833</TD><TD>0518-458B</TD><TD>05 18 07.7</TD><TD>-45 48 38</TD><TD>05 19 33.9</TD><TD>-45 45 39</TD><TD>0.4</TD><TD></TD><TD>4</TD><TD></TD><TD>45.02</TD><TD>1.94</TD><TD></TD><TD>EM</TD><TD>JPT</TD><TD>251.6</TD><TD>-34.7</TD></TR>
+<TR><TD>080.0023</TD><TD>-45.7941</TD><TD>2836</TD><TD>0518-458A</TD><TD>05 18 34.5</TD><TD>-45 50 36</TD><TD>05 20 00.6</TD><TD>-45 47 39</TD><TD>0.4</TD><TD></TD><TD>4</TD><TD></TD><TD>46.25</TD><TD>1.99</TD><TD></TD><TD>EM</TD><TD>JPT</TD><TD>251.6</TD><TD>-34.6</TD></TR>
+<TR><TD>087.3504</TD><TD>-40.8542</TD><TD>3078</TD><TD>0547-408</TD><TD>05 47 48.1</TD><TD>-40 52 05</TD><TD>05 49 24.1</TD><TD>-40 51 15</TD><TD>0.2</TD><TD></TD><TD>3</TD><TD></TD><TD>8.24</TD><TD>0.24</TD><TD></TD><TD></TD><TD> P</TD><TD>246.8</TD><TD>-28.6</TD></TR>
+<TR><TD>117.4265</TD><TD>-44.2096</TD><TD>3965</TD><TD>0748-440</TD><TD>07 48 06.3</TD><TD>-44 04 56</TD><TD>07 49 42.4</TD><TD>-44 12 34</TD><TD>0.2</TD><TD></TD><TD>2</TD><TD></TD><TD>7.97</TD><TD>0.19</TD><TD></TD><TD></TD><TD> P</TD><TD>258.3</TD><TD>-9.1</TD></TR>
+<TR><TD>125.6797</TD><TD>-42.9949</TD><TD>4209</TD><TD>0821-428</TD><TD>08 21 00.0</TD><TD>-42 50 00</TD><TD>08 22 43.2</TD><TD>-42 59 41</TD><TD>0.0</TD><TD></TD><TD>0</TD><TD></TD><TD>198.00</TD><TD>0.00</TD><TD></TD><TD></TD><TD> PT</TD><TD>260.5</TD><TD>-3.4</TD></TR>
+<TR><TD>155.0155</TD><TD>-42.8582</TD><TD>5159</TD><TD>1017-426</TD><TD>10 17 56.3</TD><TD>-42 36 23</TD><TD>10 20 03.7</TD><TD>-42 51 29</TD><TD>0.3</TD><TD></TD><TD>4</TD><TD></TD><TD>12.72</TD><TD>0.55</TD><TD></TD><TD></TD><TD> P</TD><TD>275.6</TD><TD>11.8</TD></TR>
+<TR><TD>176.3799</TD><TD>-48.6014</TD><TD>5909</TD><TD>1143-483</TD><TD>11 43 02.6</TD><TD>-48 19 25</TD><TD>11 45 31.2</TD><TD>-48 36 05</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>7.47</TD><TD>0.23</TD><TD></TD><TD></TD><TD> P</TD><TD>291.8</TD><TD>12.8</TD></TR>
+<TR><TD>184.5258</TD><TD>-46.0086</TD><TD>6165</TD><TD>1215-457</TD><TD>12 15 27.4</TD><TD>-45 43 51</TD><TD>12 18 06.2</TD><TD>-46 00 31</TD><TD>0.4</TD><TD></TD><TD>4</TD><TD></TD><TD>9.59</TD><TD>0.42</TD><TD></TD><TD></TD><TD> P</TD><TD>296.9</TD><TD>16.5</TD></TR>
+<TR><TD>192.2061</TD><TD>-41.3117</TD><TD>6441</TD><TD>1246-410</TD><TD>12 46 03.7</TD><TD>-41 02 21</TD><TD>12 48 49.5</TD><TD>-41 18 42</TD><TD>0.3</TD><TD></TD><TD>4</TD><TD></TD><TD>10.59</TD><TD>0.46</TD><TD></TD><TD></TD><TD> P</TD><TD>302.4</TD><TD>21.6</TD></TR>
+<TR><TD>196.3646</TD><TD>-49.4660</TD><TD>6590</TD><TD>1302-491</TD><TD>13 02 32.3</TD><TD>-49 11 54</TD><TD>13 05 27.5</TD><TD>-49 27 57</TD><TD>0.3</TD><TD></TD><TD>5</TD><TD></TD><TD>8.75</TD><TD>0.45</TD><TD></TD><TD>E</TD><TD>JPC</TD><TD>305.3</TD><TD>13.3</TD></TR>
+<TR><TD>200.7690</TD><TD>-44.8763</TD><TD>6740</TD><TD>1320-446</TD><TD>13 20 07.7</TD><TD>-44 36 55</TD><TD>13 23 04.6</TD><TD>-44 52 34</TD><TD>0.4</TD><TD></TD><TD>7</TD><TD></TD><TD>6.91</TD><TD>0.55</TD><TD></TD><TD></TD><TD> P</TD><TD>308.8</TD><TD>17.6</TD></TR>
+<TR><TD>201.3332</TD><TD>-43.0100</TD><TD>6761</TD><TD>1322-427</TD><TD>13 22 24.0</TD><TD>-42 45 00</TD><TD>13 25 20.0</TD><TD>-43 00 36</TD><TD>0.0</TD><TD></TD><TD>0</TD><TD></TD><TD>2740.00</TD><TD>0.00</TD><TD></TD><TD></TD><TD>JPT</TD><TD>309.5</TD><TD>19.4</TD></TR>
+<TR><TD>209.7505</TD><TD>-41.8807</TD><TD>7037</TD><TD>1355-416</TD><TD>13 55 57.1</TD><TD>-41 38 17</TD><TD>13 59 00.1</TD><TD>-41 52 50</TD><TD>0.2</TD><TD></TD><TD>2</TD><TD></TD><TD>9.52</TD><TD>0.24</TD><TD></TD><TD>A</TD><TD>JPR</TD><TD>316.2</TD><TD>19.2</TD></TR>
+<TR><TD>215.0153</TD><TD>-49.5959</TD><TD>7228</TD><TD>1416-493</TD><TD>14 16 45.5</TD><TD>-49 22 00</TD><TD>14 20 03.7</TD><TD>-49 35 45</TD><TD>0.4</TD><TD></TD><TD>4</TD><TD></TD><TD>7.34</TD><TD>0.32</TD><TD></TD><TD></TD><TD> P</TD><TD>317.3</TD><TD>10.8</TD></TR>
+<TR><TD>216.1356</TD><TD>-49.2305</TD><TD>7267</TD><TD>1421-490</TD><TD>14 21 13.7</TD><TD>-49 00 16</TD><TD>14 24 32.5</TD><TD>-49 13 50</TD><TD>0.3</TD><TD></TD><TD>5</TD><TD></TD><TD>13.10</TD><TD>0.67</TD><TD></TD><TD></TD><TD> P</TD><TD>318.2</TD><TD>10.9</TD></TR>
+<TR><TD>222.1197</TD><TD>-47.0288</TD><TD>7476</TD><TD>1445-468</TD><TD>14 45 07.4</TD><TD>-46 49 15</TD><TD>14 48 28.7</TD><TD>-47 01 43</TD><TD>0.4</TD><TD></TD><TD>4</TD><TD></TD><TD>6.97</TD><TD>0.31</TD><TD></TD><TD></TD><TD> P</TD><TD>322.8</TD><TD>11.3</TD></TR>
+<TR><TD>225.6929</TD><TD>-41.9459</TD><TD>7609</TD><TD>1459-417</TD><TD>14 59 30.0</TD><TD>-41 45 00</TD><TD>15 02 46.3</TD><TD>-41 56 45</TD><TD>0.0</TD><TD></TD><TD>0</TD><TD></TD><TD>30.80</TD><TD>0.00</TD><TD></TD><TD></TD><TD> PT</TD><TD>327.6</TD><TD>14.6</TD></TR>
+<TR><TD>232.5597</TD><TD>-42.5301</TD><TD>7851</TD><TD>1526-423</TD><TD>15 26 52.3</TD><TD>-42 21 33</TD><TD>15 30 14.3</TD><TD>-42 31 48</TD><TD>0.3</TD><TD></TD><TD>7</TD><TD></TD><TD>17.86</TD><TD>1.38</TD><TD></TD><TD></TD><TD></TD><TD>331.6</TD><TD>11.3</TD></TR>
+<TR><TD>240.0811</TD><TD>-46.8188</TD><TD>8097</TD><TD>1556-466</TD><TD>15 56 44.4</TD><TD>-46 40 41</TD><TD>16 00 19.5</TD><TD>-46 49 08</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>12.75</TD><TD>0.56</TD><TD></TD><TD></TD><TD></TD><TD>333.2</TD><TD>4.7</TD></TR>
+<TR><TD>280.8148</TD><TD>-48.6109</TD><TD>9419</TD><TD>1839-487</TD><TD>18 39 27.1</TD><TD>-48 39 39</TD><TD>18 43 15.5</TD><TD>-48 36 39</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>9.08</TD><TD>0.23</TD><TD></TD><TD></TD><TD> P</TD><TD>347.2</TD><TD>-18.7</TD></TR>
+<TR><TD>281.1190</TD><TD>-40.3667</TD><TD>9425</TD><TD>1840-404</TD><TD>18 40 58.9</TD><TD>-40 25 06</TD><TD>18 44 28.5</TD><TD>-40 22 00</TD><TD>0.2</TD><TD></TD><TD>3</TD><TD></TD><TD>8.44</TD><TD>0.24</TD><TD></TD><TD>A</TD><TD>JP</TD><TD>355.3</TD><TD>-15.9</TD></TR>
+<TR><TD>293.9880</TD><TD>-46.3455</TD><TD>9813</TD><TD>1932-464</TD><TD>19 32 19.0</TD><TD>-46 27 24</TD><TD>19 35 57.1</TD><TD>-46 20 44</TD><TD>0.2</TD><TD></TD><TD>2</TD><TD></TD><TD>39.61</TD><TD>0.83</TD><TD></TD><TD></TD><TD> P</TD><TD>352.2</TD><TD>-26.6</TD></TR>
+<TR><TD>299.3137</TD><TD>-42.3719</TD><TD>10003</TD><TD>1953-425</TD><TD>19 53 48.0</TD><TD>-42 30 23</TD><TD>19 57 15.3</TD><TD>-42 22 19</TD><TD>0.4</TD><TD></TD><TD>8</TD><TD></TD><TD>10.13</TD><TD>0.95</TD><TD></TD><TD></TD><TD> P</TD><TD>357.5</TD><TD>-29.6</TD></TR>
+<TR><TD>325.8891</TD><TD>-43.2133</TD><TD>10898</TD><TD>2140-434</TD><TD>21 40 23.9</TD><TD>-43 26 34</TD><TD>21 43 33.4</TD><TD>-43 12 48</TD><TD>0.3</TD><TD></TD><TD>3</TD><TD></TD><TD>9.18</TD><TD>0.28</TD><TD></TD><TD></TD><TD> P</TD><TD>357.2</TD><TD>-49.0</TD></TR>
+<TR><TD>337.3275</TD><TD>-40.8587</TD><TD>11322</TD><TD>2226-411</TD><TD>22 26 22.1</TD><TD>-41 06 54</TD><TD>22 29 18.6</TD><TD>-40 51 32</TD><TD>0.3</TD><TD></TD><TD>10</TD><TD></TD><TD>6.83</TD><TD>0.79</TD><TD></TD><TD>M</TD><TD>JP</TD><TD>358.5</TD><TD>-57.8</TD></TR>
+<TR><TD>343.2642</TD><TD>-40.9633</TD><TD>11521</TD><TD>2250-412</TD><TD>22 50 12.5</TD><TD>-41 13 46</TD><TD>22 53 03.4</TD><TD>-40 57 48</TD><TD>0.3</TD><TD></TD><TD>4</TD><TD></TD><TD>13.93</TD><TD>0.60</TD><TD></TD><TD></TD><TD> P</TD><TD>355.6</TD><TD>-62.0</TD></TR>
+<TR><TD>351.6409</TD><TD>-40.4547</TD><TD>11817</TD><TD>2323-407</TD><TD>23 23 51.4</TD><TD>-40 43 48</TD><TD>23 26 33.8</TD><TD>-40 27 17</TD><TD>0.3</TD><TD></TD><TD>4</TD><TD></TD><TD>9.28</TD><TD>0.40</TD><TD></TD><TD></TD><TD> P</TD><TD>350.2</TD><TD>-68.0</TD></TR>
+<TR><TD>353.6088</TD><TD>-41.4218</TD><TD>11886</TD><TD>2331-416</TD><TD>23 31 45.4</TD><TD>-41 41 54</TD><TD>23 34 26.1</TD><TD>-41 25 19</TD><TD>0.3</TD><TD></TD><TD>4</TD><TD></TD><TD>15.92</TD><TD>0.69</TD><TD></TD><TD></TD><TD> P</TD><TD>345.8</TD><TD>-68.7</TD></TR>
+</TABLEDATA></DATA>
+</TABLE>
+
+<INFO name="Warning" value="No center provided++++"/>
+<INFO name="Warning" value="-sort column '_r' ignored"/>
+<INFO name="Warning" value="-sort column '_r' ignored"/>
+</RESOURCE>
+</VOTABLE>

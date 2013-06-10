@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VOTABLE version="1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns="http://www.ivoa.net/xml/VOTable/v1.2"
+  xsi:schemaLocation="http://www.ivoa.net/xml/VOTable/v1.2 http://www.ivoa.net/xml/VOTable/v1.2">
+ <DESCRIPTION>
+   VizieR Astronomical Server vizier.u-strasbg.fr
+    Date: 2013-05-09T14:46:35 [V1.97 (28-Nov-2012)]
+   Explanations and Statistics of UCDs:			See LINK below
+   In case of problem, please report to:	question@simbad.u-strasbg.fr
+ </DESCRIPTION>
+<!-- VOTable description at http://www.ivoa.net/Documents/latest/VOT.html -->
+<INFO ID="VERSION" name="votable-version" value="1.97 (28-Nov-2012)"/>
+<INFO ID="Ref" name="-ref" value="VIZ518a753f6cb3"/>
+<INFO ID="MaxTuples" name="-out.max" value="50"/>
+<INFO name="queryParameters" value="36">
+-oc.form=dec
+-out.max=50
+-out.all=1
+-out.add=_r
+-out.add=_RAJ,_DEJ
+-sort=_r
+-out.src=VIII/5/sources,VIII/5/fluxes
+-nav=cat:VIII/5&amp;tab:{VIII/5/sources}&amp;tab:{VIII/5/fluxes}&amp;key:source=VIII/5/sources&amp;key:source=VIII/5/fluxes&amp;HTTPPRM:&amp;&amp;-ref=VIZ518a753f6cb3&amp;-out.max=50&amp;-out.form=HTML Table&amp;-out.add=_r&amp;-out.add=_RAJ,_DEJ&amp;-sort=_r&amp;-oc.form=sexa&amp;-c.eq=J2000&amp;-c.r=  2&amp;-c.u=arcmin&amp;-c.geom=r&amp;-order=I&amp;-out=1Jy&amp;-joincol=VIII/5/sources.1Jy&amp;-outjoin=VIII/5/sources.1Jy&amp;-out=3C&amp;-out=RA1950&amp;-out=DE1950&amp;DE1950=&gt;-51 &amp; &lt;-40&amp;-out=GLAT&amp;-out=Class&amp;-out=Vmag&amp;-out=z&amp;-out=alpha&amp;-ignore=Fluxes=*&amp;Fluxes=Fluxes&amp;-out=SED&amp;SED=SED&amp;-out=Freq&amp;Freq=635 || 580 || 468&amp;-out=S&amp;-out=e_S&amp;-out=r_S&amp;-out=RefSuf&amp;-file=.&amp;-meta.ucd=2&amp;-meta=1&amp;-meta.foot=1&amp;-usenav=1&amp;-out.src=VIII/5/sources,VIII/5/fluxes
+-c.eq=J2000
+-c.r=  2
+-c.u=arcmin
+-c.geom=r
+-sort=_r
+-source=VIII/5/sources VIII/5/fluxes
+-order=I
+-out=1Jy
+-joincol=VIII/5/sources.1Jy
+-joincol=1Jy
+-outjoin=VIII/5/sources.1Jy
+-out=3C
+-out=RA1950
+-out=DE1950
+DE1950=&gt;-51 &amp; &lt;-40
+-out=GLAT
+-out=Class
+-out=Vmag
+-out=z
+-out=alpha
+-out=SED
+-out=Freq
+Freq=635 || 580 || 468
+-out=S
+S=&gt;5
+-out=e_S
+-out=r_S
+-out=RefSuf
+</INFO>
+
+<RESOURCE ID="join" name="#Join">
+<DESCRIPTION> Join tables VIII/5/sources,VIII/5/fluxes
+</DESCRIPTION>
+  <COOSYS ID="B1950" system="eq_FK4" equinox="B1950"/>
+  <COOSYS ID="J2000" system="eq_FK5" equinox="J2000"/>
+<TABLE ID="VIII_5_sources_VIII_5_fluxes" name="VIII/5/sources,VIII/5/fluxes">
+<!--Fields from table VIII/5/sources-->
+    <!-- Definitions of GROUPs and FIELDs -->
+    <FIELD name="_RAJ2000{1}" ucd="pos.eq.ra" ref="J2000" datatype="double" width="9" precision="5" unit="deg"><!-- ucd="POS_EQ_RA" -->
+      <DESCRIPTION>Right ascension (FK5, Equinox=J2000.0) (computed by VizieR, not part of the original data)</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="_DEJ2000{1}" ucd="pos.eq.dec" ref="J2000" datatype="double" width="9" precision="5" unit="deg"><!-- ucd="POS_EQ_DEC" -->
+      <DESCRIPTION>Declination (FK5, Equinox=J2000.0) (computed by VizieR, not part of the original data)</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="recno{1}" ucd="meta.record" datatype="int" width="8"><!-- ucd="RECORD" -->
+      <DESCRIPTION>Record number within the original table (starting from 1)</DESCRIPTION>
+      <VALUES null="-2147483648" />
+    </FIELD>
+    <FIELD name="1Jy{1}" ucd="meta.id;meta.main" datatype="char" arraysize="8*"><!-- ucd="ID_MAIN" -->
+      <DESCRIPTION>Source name</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="3C{1}" ucd="meta.id" datatype="char" arraysize="7*"><!-- ucd="ID_ALTERNATIVE" -->
+      <DESCRIPTION>3C name</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="RA1950{1}" ucd="pos.eq.ra;meta.main" ref="B1950" datatype="char" arraysize="11" unit="&quot;h:m:s&quot;"><!-- ucd="POS_EQ_RA_MAIN" -->
+      <DESCRIPTION>Right Ascension (RA) (1950.0) hours</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="e_RAs{1}" ucd="stat.error" datatype="float" width="5" precision="2" unit="s"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Error in RA</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="DE1950{1}" ucd="pos.eq.dec;meta.main" ref="B1950" datatype="char" arraysize="11" unit="&quot;d:m:s&quot;"><!-- ucd="POS_EQ_DEC_MAIN" -->
+      <DESCRIPTION>Declination (DE) sign</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="e_DEs{1}" ucd="stat.error" datatype="float" width="5" precision="1" unit="arcsec"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Error in DE</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="PosRef{1}" ucd="meta.ref" datatype="char" arraysize="2"><!-- ucd="REFER_CODE" -->
+      <DESCRIPTION>Position reference</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="GLAT{1}" ucd="pos.galactic.lat" datatype="float" width="6" precision="1" unit="deg"><!-- ucd="POS_GAL_LAT" -->
+      <DESCRIPTION>Galactic latitude</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="Class{1}" ucd="src.class" datatype="char" arraysize="3"><!-- ucd="CLASS_OBJECT" -->
+      <DESCRIPTION>Object class</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="Vmag{1}" ucd="phot.mag;em.opt.V" datatype="float" width="5" precision="1" unit="mag"><!-- ucd="PHOT_MAG_V" -->
+      <DESCRIPTION>?Visual magnitude</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="z{1}" ucd="src.redshift" datatype="float" width="6" precision="3"><!-- ucd="REDSHIFT_HC" -->
+      <DESCRIPTION>?Redshift</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="alpha{1}" ucd="spect.index" datatype="float" width="6" precision="2"><!-- ucd="SPECT_SP-INDEX" -->
+      <DESCRIPTION>?Spectral index</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_alpha{1}" ucd="stat.error" datatype="float" width="5" precision="2"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?Mean error on alpha</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="Fct{1}" ucd="meta.id;stat.fit" datatype="char" arraysize="3"><!-- ucd="FIT_TYPE" -->
+      <DESCRIPTION>Function type</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="A{1}" ucd="stat.fit.param" datatype="float" width="7" precision="2"><!-- ucd="FIT_PARAM_VALUE" -->
+      <DESCRIPTION>?Coefficient A</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_A{1}" ucd="stat.error" datatype="float" width="6" precision="2"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?A error</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="B{1}" ucd="stat.fit.param" datatype="float" width="6" precision="2"><!-- ucd="FIT_PARAM_VALUE" -->
+      <DESCRIPTION>?Coefficient B</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_B{1}" ucd="stat.error" datatype="float" width="5" precision="2"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?B error</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="C{1}" ucd="stat.fit.param" datatype="double" width="8" precision="2"><!-- ucd="FIT_PARAM_VALUE" -->
+      <DESCRIPTION>?Coefficient C</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_C{1}" ucd="stat.error" datatype="float" width="6" precision="2"><!-- ucd="ERROR" -->
+      <DESCRIPTION>?C error</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="D{1}" ucd="stat.fit.param" datatype="short" width="3"><!-- ucd="FIT_PARAM_VALUE" -->
+      <DESCRIPTION>?Coefficient D</DESCRIPTION>
+      <VALUES null="-32768" />
+    </FIELD>
+    <FIELD name="Fluxes{1}" ucd="meta.ref" datatype="char" arraysize="6"><!-- ucd="DATA_LINK" -->
+      <DESCRIPTION>Show the fluxes known for this source</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="SED{1}" ucd="meta.ref" datatype="char" arraysize="3"><!-- ucd="DATA_LINK" -->
+      <DESCRIPTION>Plot of the Spectral Energy Distribution for this source</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+<!--Fields from table VIII/5/fluxes-->
+    <!-- Definitions of GROUPs and FIELDs -->
+    <FIELD name="recno{2}" ucd="meta.record" datatype="int" width="8"><!-- ucd="RECORD" -->
+      <DESCRIPTION>Record number within the original table (starting from 1)</DESCRIPTION>
+      <VALUES null="-2147483648" />
+    </FIELD>
+    <FIELD name="1Jy{2}" ucd="meta.id;meta.main" datatype="char" arraysize="8*"><!-- ucd="ID_MAIN" -->
+      <DESCRIPTION>Source name</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+    <FIELD name="Freq{2}" ucd="em.freq" datatype="int" width="5" unit="MHz"><!-- ucd="OBS_FREQUENCY" -->
+      <DESCRIPTION>Frequency</DESCRIPTION>
+      <VALUES null="-2147483648" />
+    </FIELD>
+    <FIELD name="S{2}" ucd="phot.flux.density;em.radio" datatype="double" width="8" precision="2" unit="Jy"><!-- ucd="PHOT_FLUX_RADIO_MISC" -->
+      <DESCRIPTION>Flux density</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="e_S{2}" ucd="stat.error" datatype="double" width="8" precision="2" unit="Jy"><!-- ucd="ERROR" -->
+      <DESCRIPTION>Flux density error</DESCRIPTION>
+      <VALUES null="NaN" />
+    </FIELD>
+    <FIELD name="r_S{2}" ucd="meta.ref" datatype="short" width="3"><!-- ucd="REFER_CODE" -->
+      <DESCRIPTION>[1/909]? Reference number</DESCRIPTION>
+      <VALUES null="-32768" />
+    </FIELD>
+    <FIELD name="RefSuf{2}" ucd="meta.code" datatype="char" arraysize="1"><!-- ucd="CODE_MISC" -->
+      <DESCRIPTION>[AB] Reference suffix</DESCRIPTION>
+      <VALUES null=" " />
+    </FIELD>
+<DATA><TABLEDATA>
+<TR><TD>-41.88094</TD><TD>002.72103</TD><TD>3</TD><TD>0008-42</TD><TD></TD><TD>00 08 21.81</TD><TD>0.18</TD><TD>-42 09 33.0</TD><TD>12.0</TD><TD>AP</TD><TD>-73.1</TD><TD>GAL</TD><TD>18.2</TD><TD></TD><TD>-1.05</TD><TD>0.19</TD><TD>EXP</TD><TD>8.09</TD><TD>0.27</TD><TD>-1.98</TD><TD>0.11</TD><TD>-27.97</TD><TD>2.53</TD><TD>-1</TD><TD>Fluxes</TD><TD>SED</TD><TD>54</TD><TD>0008-42</TD><TD>635</TD><TD>7.27</TD><TD>0.23</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-41.88094</TD><TD>002.72103</TD><TD>3</TD><TD>0008-42</TD><TD></TD><TD>00 08 21.81</TD><TD>0.18</TD><TD>-42 09 33.0</TD><TD>12.0</TD><TD>AP</TD><TD>-73.1</TD><TD>GAL</TD><TD>18.2</TD><TD></TD><TD>-1.05</TD><TD>0.19</TD><TD>EXP</TD><TD>8.09</TD><TD>0.27</TD><TD>-1.98</TD><TD>0.11</TD><TD>-27.97</TD><TD>2.53</TD><TD>-1</TD><TD>Fluxes</TD><TD>SED</TD><TD>53</TD><TD>0008-42</TD><TD>580</TD><TD>6.62</TD><TD>0.35</TD><TD>33</TD><TD></TD></TR>
+<TR><TD>-41.88094</TD><TD>002.72103</TD><TD>3</TD><TD>0008-42</TD><TD></TD><TD>00 08 21.81</TD><TD>0.18</TD><TD>-42 09 33.0</TD><TD>12.0</TD><TD>AP</TD><TD>-73.1</TD><TD>GAL</TD><TD>18.2</TD><TD></TD><TD>-1.05</TD><TD>0.19</TD><TD>EXP</TD><TD>8.09</TD><TD>0.27</TD><TD>-1.98</TD><TD>0.11</TD><TD>-27.97</TD><TD>2.53</TD><TD>-1</TD><TD>Fluxes</TD><TD>SED</TD><TD>52</TD><TD>0008-42</TD><TD>468</TD><TD>6.96</TD><TD>0.66</TD><TD>32</TD><TD></TD></TR>
+<TR><TD>-42.12857</TD><TD>011.57368</TD><TD>19</TD><TD>0043-42</TD><TD></TD><TD>00 43 55.80</TD><TD>1.10</TD><TD>-42 24 06.0</TD><TD>12.0</TD><TD>SG</TD><TD>-75.0</TD><TD>GAL</TD><TD>16.0</TD><TD></TD><TD>-0.71</TD><TD>0.08</TD><TD>LIN</TD><TD>3.21</TD><TD>0.07</TD><TD>-0.73</TD><TD>0.02</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>308</TD><TD>0043-42</TD><TD>635</TD><TD>14.57</TD><TD>0.27</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-42.12857</TD><TD>011.57368</TD><TD>19</TD><TD>0043-42</TD><TD></TD><TD>00 43 55.80</TD><TD>1.10</TD><TD>-42 24 06.0</TD><TD>12.0</TD><TD>SG</TD><TD>-75.0</TD><TD>GAL</TD><TD>16.0</TD><TD></TD><TD>-0.71</TD><TD>0.08</TD><TD>LIN</TD><TD>3.21</TD><TD>0.07</TD><TD>-0.73</TD><TD>0.02</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>307</TD><TD>0043-42</TD><TD>468</TD><TD>18.26</TD><TD>1.05</TD><TD>32</TD><TD></TD></TR>
+<TR><TD>-43.55237</TD><TD>070.07153</TD><TD>120</TD><TD>0438-43</TD><TD></TD><TD>04 38 43.18</TD><TD>0.05</TD><TD>-43 38 53.5</TD><TD>0.5</TD><TD>AA</TD><TD>-41.6</TD><TD>QSO</TD><TD>19.8</TD><TD>2.852</TD><TD>0.23</TD><TD>0.06</TD><TD>CPX</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>2205</TD><TD>0438-43</TD><TD>635</TD><TD>8.58</TD><TD>0.25</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-43.55237</TD><TD>070.07153</TD><TD>120</TD><TD>0438-43</TD><TD></TD><TD>04 38 43.18</TD><TD>0.05</TD><TD>-43 38 53.5</TD><TD>0.5</TD><TD>AA</TD><TD>-41.6</TD><TD>QSO</TD><TD>19.8</TD><TD>2.852</TD><TD>0.23</TD><TD>0.06</TD><TD>CPX</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>2204</TD><TD>0438-43</TD><TD>580</TD><TD>8.91</TD><TD>0.29</TD><TD>33</TD><TD></TD></TR>
+<TR><TD>-43.55237</TD><TD>070.07153</TD><TD>120</TD><TD>0438-43</TD><TD></TD><TD>04 38 43.18</TD><TD>0.05</TD><TD>-43 38 53.5</TD><TD>0.5</TD><TD>AA</TD><TD>-41.6</TD><TD>QSO</TD><TD>19.8</TD><TD>2.852</TD><TD>0.23</TD><TD>0.06</TD><TD>CPX</TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>2203</TD><TD>0438-43</TD><TD>468</TD><TD>9.48</TD><TD>1.46</TD><TD>32</TD><TD></TD></TR>
+<TR><TD>-45.77795</TD><TD>079.93462</TD><TD>141</TD><TD>0518-45</TD><TD></TD><TD>05 18 18.20</TD><TD>0.75</TD><TD>-45 49 39.0</TD><TD>8.0</TD><TD>SM</TD><TD>-34.6</TD><TD>GAL</TD><TD>15.8</TD><TD>0.034</TD><TD>-1.02</TD><TD>0.16</TD><TD>EXP</TD><TD>6.51</TD><TD>0.08</TD><TD>-1.38</TD><TD>0.05</TD><TD>-8.31</TD><TD>0.97</TD><TD>-1</TD><TD>Fluxes</TD><TD>SED</TD><TD>2539</TD><TD>0518-45</TD><TD>635</TD><TD>132.37</TD><TD>3.43</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-45.77795</TD><TD>079.93462</TD><TD>141</TD><TD>0518-45</TD><TD></TD><TD>05 18 18.20</TD><TD>0.75</TD><TD>-45 49 39.0</TD><TD>8.0</TD><TD>SM</TD><TD>-34.6</TD><TD>GAL</TD><TD>15.8</TD><TD>0.034</TD><TD>-1.02</TD><TD>0.16</TD><TD>EXP</TD><TD>6.51</TD><TD>0.08</TD><TD>-1.38</TD><TD>0.05</TD><TD>-8.31</TD><TD>0.97</TD><TD>-1</TD><TD>Fluxes</TD><TD>SED</TD><TD>2538</TD><TD>0518-45</TD><TD>580</TD><TD>141.58</TD><TD>3.64</TD><TD>33</TD><TD></TD></TR>
+<TR><TD>-41.31180</TD><TD>192.20434</TD><TD>278</TD><TD>1246-41</TD><TD></TD><TD>12 46 03.27</TD><TD>0.15</TD><TD>-41 02 21.4</TD><TD>1.7</TD><TD>AZ</TD><TD>21.6</TD><TD>GAL</TD><TD>12.2</TD><TD>0.009</TD><TD>-0.80</TD><TD>0.17</TD><TD>LIN</TD><TD>3.30</TD><TD>0.12</TD><TD>-0.86</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>4848</TD><TD>1246-41</TD><TD>635</TD><TD>7.95</TD><TD>0.27</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-41.31180</TD><TD>192.20434</TD><TD>278</TD><TD>1246-41</TD><TD></TD><TD>12 46 03.27</TD><TD>0.15</TD><TD>-41 02 21.4</TD><TD>1.7</TD><TD>AZ</TD><TD>21.6</TD><TD>GAL</TD><TD>12.2</TD><TD>0.009</TD><TD>-0.80</TD><TD>0.17</TD><TD>LIN</TD><TD>3.30</TD><TD>0.12</TD><TD>-0.86</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>4847</TD><TD>1246-41</TD><TD>468</TD><TD>12.67</TD><TD>1.46</TD><TD>32</TD><TD></TD></TR>
+<TR><TD>-46.34546</TD><TD>293.98764</TD><TD>411</TD><TD>1932-46</TD><TD></TD><TD>19 32 18.91</TD><TD>0.12</TD><TD>-46 27 23.9</TD><TD>1.2</TD><TD>AZ</TD><TD>-26.6</TD><TD>GAL</TD><TD>18.5</TD><TD></TD><TD>-1.06</TD><TD>0.08</TD><TD>LIN</TD><TD>4.25</TD><TD>0.02</TD><TD>-1.00</TD><TD>0.01</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>7064</TD><TD>1932-46</TD><TD>635</TD><TD>28.72</TD><TD>0.25</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-46.34546</TD><TD>293.98764</TD><TD>411</TD><TD>1932-46</TD><TD></TD><TD>19 32 18.91</TD><TD>0.12</TD><TD>-46 27 23.9</TD><TD>1.2</TD><TD>AZ</TD><TD>-26.6</TD><TD>GAL</TD><TD>18.5</TD><TD></TD><TD>-1.06</TD><TD>0.08</TD><TD>LIN</TD><TD>4.25</TD><TD>0.02</TD><TD>-1.00</TD><TD>0.01</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>7062</TD><TD>1932-46</TD><TD>468</TD><TD>36.92</TD><TD>0.27</TD><TD>32</TD><TD></TD></TR>
+<TR><TD>-46.34546</TD><TD>293.98764</TD><TD>411</TD><TD>1932-46</TD><TD></TD><TD>19 32 18.91</TD><TD>0.12</TD><TD>-46 27 23.9</TD><TD>1.2</TD><TD>AZ</TD><TD>-26.6</TD><TD>GAL</TD><TD>18.5</TD><TD></TD><TD>-1.06</TD><TD>0.08</TD><TD>LIN</TD><TD>4.25</TD><TD>0.02</TD><TD>-1.00</TD><TD>0.01</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>7063</TD><TD>1932-46</TD><TD>580</TD><TD>30.94</TD><TD>0.53</TD><TD>33</TD><TD></TD></TR>
+<TR><TD>-41.42414</TD><TD>353.60866</TD><TD>505</TD><TD>2331-41</TD><TD></TD><TD>23 31 45.37</TD><TD>0.13</TD><TD>-41 42 02.5</TD><TD>1.3</TD><TD>AZ</TD><TD>-68.7</TD><TD>GAL</TD><TD>19.5</TD><TD></TD><TD>-0.82</TD><TD>0.12</TD><TD>LIN</TD><TD>3.69</TD><TD>0.08</TD><TD>-0.94</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>8422</TD><TD>2331-41</TD><TD>635</TD><TD>11.65</TD><TD>0.27</TD><TD>37</TD><TD></TD></TR>
+<TR><TD>-41.42414</TD><TD>353.60866</TD><TD>505</TD><TD>2331-41</TD><TD></TD><TD>23 31 45.37</TD><TD>0.13</TD><TD>-41 42 02.5</TD><TD>1.3</TD><TD>AZ</TD><TD>-68.7</TD><TD>GAL</TD><TD>19.5</TD><TD></TD><TD>-0.82</TD><TD>0.12</TD><TD>LIN</TD><TD>3.69</TD><TD>0.08</TD><TD>-0.94</TD><TD>0.03</TD><TD></TD><TD></TD><TD></TD><TD>Fluxes</TD><TD>SED</TD><TD>8421</TD><TD>2331-41</TD><TD>468</TD><TD>14.66</TD><TD>1.54</TD><TD>32</TD><TD></TD></TR>
+</TABLEDATA></DATA>
+</TABLE>
+</RESOURCE>
+
+<INFO name="Warning" value="No center provided++++"/>
+<INFO name="Warning" value="add computed column _RAJ2000"/>
+<INFO name="Warning" value="add computed column _DEJ2000"/>
+<INFO name="Warning" value="-sort column '_r' ignored"/>
+<INFO name="Warning" value="-sort column '_r' ignored"/>
+<INFO name="Warning" value="bufouterjoin: no temporary table"/>
+</VOTABLE>
