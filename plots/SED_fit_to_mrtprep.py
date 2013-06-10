@@ -24,9 +24,13 @@ else:
 
 lines = open(args[-1]).readlines()
 lines = [line.split() for line in lines if not line.startswith('#')]
+#exclude sources with no catalog fit
+nocatfits = [l for l in lines if l[3].startswith('-1')]
+lines = [l for l in lines if not l[3].startswith('-1')]
 srclist = [l[0] for l in lines]
 overlap = n.array([n.float(line[8]) for line in lines])
-
+improvement = n.array([n.float(line[9]) for line in lines])
+print "found %d sources, %d with zero overlap"%(len(srclist),n.sum(overlap==0))
 #if not opts.cat is None:
 srclist,cutoff,catalogs = a.scripting.parse_srcs(','.join(srclist), opts.cat)
 if not opts.cal is None:
@@ -51,7 +55,7 @@ picrec = None
 total = 0
 for i,line in enumerate(lines):
     rec = []
-    if overlap[i]==0: continue
+    #if overlap[i]==0: continue
     if line[0] == 'pic':
         rec.append('Pictor A')
         picrec = total
@@ -69,18 +73,20 @@ for i,line in enumerate(lines):
 #    rec.append(line[3]) #catalpha
 #    rec.append(line[4])
     S0 = l2a(line[1])
-    rec.append(p(S0[1],2))
+    rec.append(p(S0[1],1))
     rec.append(p(n.abs((S0[-1]-S0[0]))/2,2))
     alpha = l2a(line[2])
     rec.append(p(alpha[1],2))
     rec.append(p(n.abs(alpha[-1] - alpha[0])/2,2))
     catS0 = l2a(line[3])
-    rec.append(p(catS0[1],2))
+    rec.append(p(catS0[1],1))
     rec.append(p(n.abs(catS0[-1]-catS0[0])/2,2))
     catalpha = l2a(line[4])
     rec.append(p(catalpha[1],2))
     rec.append(p(n.abs(catalpha[-1] - catalpha[0])/2,2))
-    
+    rec.append(p(improvement[i],3))
+    #if overlap[i]==0: rec.append('1')
+    #else:rec.append('0')
     if i==0:
         print "UNITS:"
         print '--'
@@ -94,6 +100,7 @@ for i,line in enumerate(lines):
         print 'Jy' #catalog S150 +/- 76% conf
         print '--' #catalog alpha
         print '--' #catalog alpha +/- 76% conf
+        print '--' #improvement
 
         #column names
         print '\n\n'
@@ -109,6 +116,7 @@ for i,line in enumerate(lines):
         print 'e_S150-prior'
         print 'alpha-prior'
         print 'e_alpha-prior'
+        print 'improvement'
 
         print '\n\n'
         print "EXPLANATION"
@@ -122,7 +130,8 @@ for i,line in enumerate(lines):
         print "catalog prior power law fit for S150"
         print "catalog prior power law fit error for S150 (76% confidence)"
         print "catalog prior power law fit for Spectral Index"
-        print "catalot prior power law fit error for Spectral Index (76% confidence)"
+        print "catalog prior power law fit error for Spectral Index (76% confidence)"
+        print """Improvement index (SED figure of merit change times confidence overlap). Higher indicates better agreement with past data."""
 
     F.write(','.join(rec)+'\n')
     recs.append(rec)
@@ -136,15 +145,15 @@ print """
 %%note: put at top of latex file \\newcommand{\\unit}[1]{\\footnotesize \#1}
 \\begin{deluxetable}{%s}
 \\tablecolumns{%d}
-\\tablecaption{Spectral fits for %d MRC sources with and without PAPER data. 75\\%% agree well with prior
-measurements. The remainder are likely contaminated by bright sources. Full table available online.}
+\\tablecaption{Spectral fits for %d\\tablenotemark{1} MRC sources. Before and after the addition of PAPER data. %d\\%% agree well with prior
+measurements and demonstrate increased precision over previous measurements. Full table available online.}
 \\tablehead{
 \\multicolumn{3}{c}{ }&
-\\multicolumn{4}{c}{PAPER\\tablenotemark{1} + Catalog}&
-\\multicolumn{4}{c}{Catalog\\tablenotemark{2}}\\
+\\multicolumn{4}{c}{PAPER + Catalog}&
+\\multicolumn{4}{c}{Catalog\\tablenotemark{2}}&\\\\
 \\colhead{Name} &
 %s& 
-%s &"""%('c'*len(rec),len(rec),len(recs),colhead('Ra','deg'),colhead('Dec','deg'))
+%s &"""%('c'*len(rec),len(rec),len(recs),(100.*n.sum(improvement>0))/len(recs),colhead('Ra','deg'),colhead('Dec','deg'))
 print colhead('$S150$','Jy'),'&'
 print colhead('$\\Delta$S','Jy'),'&'
 print colhead('$\\alpha$','--'),'&'
@@ -152,7 +161,8 @@ print colhead('$\\Delta\\alpha$','--'),'&'
 print colhead('$S150_p$','Jy'),'&'
 print colhead('$\\Delta S_p$','Jy'),'&'
 print colhead('$\\alpha_p$','--'),'&'
-print colhead('$\\Delta\\alpha_p$','--')
+print colhead('$\\Delta\\alpha_p$','--'),'&'
+print colhead('Imp.\\tablenotemark{3}','--')
 print "}"
 print "\\startdata"
 if not picrec is None: print '&\t'.join(recs[picrec]),'\\\\'
@@ -162,9 +172,12 @@ for i in range(10):
 print """
 \\enddata
 \\label{tab:fits}
-\\tablenotetext{1}{Fits for the majority of sources (78\%) that agree with prior measurements are included here. 
-The remainder (shown in Figure \\ref{fig:SI_contour_new}) are likely contaminated by bright sources and are not included.   Full table available online.}
-
+\\tablenotetext{1}{0008-421 is self-absorbed at 150MHz and is not listed here, while %s did not have sufficient catalog data
+for a spectral fit and was also excluded}
 \\tablenotetext{2}{MCMC fits to prior catalog data, before addition of PAPER measurements}
+\\tablenotetext{3}{SED figure of merit change times confidence overlap, a measure of accuracy and precision.  Higher
+value indicates an increase in both model fit precision and accuracy.}
 \\end{deluxetable}
-"""
+"""%len(nocatfits)
+
+
