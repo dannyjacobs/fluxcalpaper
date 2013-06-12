@@ -1,10 +1,30 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{42}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Baars {et~al.}(1977)Baars, Genzel, Pauliny-Toth, \&
   Witzel}]{Baars:1977p9678}
 Baars, J. W.~M., Genzel, R., Pauliny-Toth, I. I.~K., \& Witzel, A. 1977,
   Astronomy and Astrophysics, 61, 99, a{\&}AA ID. AAA020.141.048
+
+\bibitem[{Bernardi {et~al.}(2013)Bernardi, Greenhill, Mitchell, Ord, Hazelton,
+  Gaensler, de~Oliveira-Costa, Morales, Shankar, Subrahmanyan, Wayth, Lenc,
+  Williams, Arcus, Arora, Barnes, Bowman, Briggs, Bunton, Cappallo, Corey,
+  Deshpande, Desouza, Emrich, Goeke, Herne, Hewitt, Johnston-Hollitt, Kaplan,
+  Kasper, Kincaid, Koenig, Kratzenberg, Lonsdale, Lynch, McWhirter, Morgan,
+  Oberoi, Pathikulangara, Prabu, Remillard, Rogers, Roshi, Salah, Sault,
+  Srivani, Stevens, Tingay, Waterson, Webster, Whitney, Williams, \&
+  Wyithe}]{Bernardi:2013p9859}
+Bernardi, G. {et~al.} 2013, arXiv, astro-ph.CO
+
+\bibitem[{Bernardi {et~al.}(2012)Bernardi, Williams, Hewitt, Levine,
+  de~Oliveira-Costa, Bowman, Briggs, Gaensler, Hernquist, Mitchell, Morales,
+  Sethi, Subrahmanyan, Sadler, Arcus, Barnes, Bernardi, Bunton, Cappallo,
+  Crosse, Corey, Deshpande, deSouza, Emrich, Goeke, Greenhill, Hazelton, Herne,
+  Kaplan, Kasper, Kincaid, Koenig, Kratzenberg, Lonsdale, Lynch, McWhirter,
+  Morgan, Oberoi, Ord, Pathikulangara, Prabu, Remillard, Rogers, Roshi, Salah,
+  Sault, Shankar, Srivani, Stevens, Tingay, Wayth, Waterson, Webster, Whitney,
+  Williams, \& Wyithe}]{Bernardi:2012p9020}
+---. 2012, ApJ submitted
 
 \bibitem[{Bowman {et~al.}(2012)Bowman, D, Cairns, Kaplan, Murphy, Oberoi,
   Staveley-SmithNQ, Arcus, Barnes, Bernardi, Briggs, Brown, Bunton, Burgasser,
@@ -17,8 +37,15 @@ Baars, J. W.~M., Genzel, R., Pauliny-Toth, I. I.~K., \& Witzel, A. 1977,
   \& Wyithe}]{Bowman:2012p9138}
 Bowman {et~al.} 2012, PASA, submitted
 
+\bibitem[{Bowman {et~al.}(2009)Bowman, Morales, \& Hewitt}]{Bowman:2009p7816}
+Bowman, J., Morales, M., \& Hewitt, J. 2009, The Astrophysical Journal, 695,
+  183
+
 \bibitem[{Bowman \& Rogers(2010)}]{Bowman:2010p8546}
 Bowman, J.~D. \& Rogers, A. E.~E. 2010, Nature, 468, 796, (c) 2010: Nature
+
+\bibitem[{Burgess \& Hunstead(2006)}]{Burgess:2006p7814}
+Burgess, A.~M. \& Hunstead, R.~W. 2006, The Astronomical Journal, 131, 100
 
 \bibitem[{de~Oliveira-Costa {et~al.}(2008)de~Oliveira-Costa, Tegmark, Gaensler,
   Jonas, Landecker, \& Reich}]{deOliveiraCosta:2008p2242}
@@ -44,9 +71,15 @@ Hogg, D.~W., Bovy, J., \& Lang, D. 2010, eprint arXiv, 1008, 4686, a chapter
   Carilli, Gugliucci, Manley, Merwe, Moore, \& Parashare}]{Jacobs:2011p8438}
 Jacobs, D. {et~al.} 2011, The Astrophysical Journal, 734, L34
 
-\bibitem[{Jacobs {et~al.}(2013)Jacobs, Bowman, \& Aguirre}]{Jacobs:2013p9713}
-Jacobs, D., Bowman, J., \& Aguirre, J. 2013, arXiv, astro-ph.CO, 10 pages, 10
-  figures, submitted to ApJ
+\bibitem[{Jacobs {et~al.}(2013{\natexlab{a}})Jacobs, Bowman, \&
+  Aguirre}]{Jacobs:2013p9713}
+Jacobs, D., Bowman, J., \& Aguirre, J. 2013{\natexlab{a}}, arXiv, astro-ph.CO,
+  10 pages, 10 figures, submitted to ApJ
+
+\bibitem[{Jacobs {et~al.}(2013{\natexlab{b}})Jacobs, Bowman, \&
+  Aguirre}]{Jacobs:2013p9837}
+---. 2013{\natexlab{b}}, eprint arXiv, 1303, 2107, 10 pages, 10 figures,
+  submitted to ApJ
 
 \bibitem[{Kuehr {et~al.}(1981)Kuehr, Witzel, Pauliny-Toth, \&
   Nauber}]{Kuehr:1981p9628}
@@ -59,8 +92,18 @@ Large, M.~I., Mills, B.~Y., Little, A.~G., Crawford, D.~F., \& Sutton, J.~M.
   1981, ROYAL ASTRON. SOC. MONTHLY NOTICES V.194, 194, 693, a{\&}AA ID.
   AAA029.002.002
 
+\bibitem[{Liu {et~al.}(2009)Liu, Tegmark, \& Zaldarriaga}]{Liu:2009p4762}
+Liu, A., Tegmark, M., \& Zaldarriaga, M. 2009, Monthly Notices of the Royal
+  Astronomical Society, 394, 1575, (c) Journal compilation {\copyright} 2009
+  RAS
+
 \bibitem[{Mackay(2003)}]{Mackay:2003p9717}
 Mackay, D. J.~C. 2003, Information Theory
+
+\bibitem[{Moore {et~al.}(2013)Moore, Aguirre, Parsons, Jacobs, \&
+  Pober}]{Moore:2013p9621}
+Moore, D.~F., Aguirre, J.~E., Parsons, A.~R., Jacobs, D.~C., \& Pober, J.~C.
+  2013, eprint arXiv, 1302, 876, 29 pages, 12 figures
 
 \bibitem[{Morales \& Wyithe(2010)}]{Morales:2010p8093}
 Morales, M.~F. \& Wyithe, J. S.~B. 2010, Annual review of astronomy and
@@ -83,13 +126,27 @@ Paciga, G. {et~al.} 2013, eprint arXiv:1301.5906
   Peterson, Roy, \& Sigurdson}]{Paciga:2011p9470}
 ---. 2011, Monthly Notices of the Royal Astronomical Society, 413, 1174
 
+\bibitem[{Parashare(2011)}]{Parashare:2011p9872}
+Parashare, C.~R. 2011, ProQuest Dissertations And Theses; Thesis
+  (Ph.D.)--University of Virginia, 55
+
 \bibitem[{Parsons {et~al.}(2010)Parsons, Backer, Foster, Wright, Bradley,
   Gugliucci, Parashare, Benoit, Aguirre, Jacobs, Carilli, Herne, Lynch, Manley,
   \& Werthimer}]{Parsons:2010p6757}
 Parsons, A. {et~al.} 2010, The Astronomical Journal, 139, 1468
 
+\bibitem[{Parsons {et~al.}(2012)Parsons, Pober, McQuinn, Jacobs, \&
+  Aguirre}]{Parsons:2012p9028}
+Parsons, A., Pober, J., McQuinn, M., Jacobs, D., \& Aguirre, J. 2012, The
+  Astrophysical Journal, 753, 81
+
 \bibitem[{Parsons \& Backer(2009)}]{Parsons:2009p7859}
 Parsons, A.~R. \& Backer, D.~C. 2009, The Astronomical Journal, 138, 219
+
+\bibitem[{Parsons {et~al.}(2013)Parsons, Liu, Aguirre, Ali, Bradley, Carilli,
+  DeBoer, Dexter, Gugliucci, Jacobs, Klima, MacMahon, Manley, Moore, Pober,
+  Stefan, \& Walbrugh}]{Parsons:2013p9876}
+Parsons, A.~R. {et~al.} 2013, arXiv, astro-ph.CO
 
 \bibitem[{Perley {et~al.}(1997)Perley, Roser, \&
   Meisenheimer}]{Perley:1997p9312}
