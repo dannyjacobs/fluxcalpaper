@@ -375,7 +375,7 @@ and Table \ref{tab:data} for a complete listing of names and positions.
 %match multi-wavelength observations \citep{Vollmer:2010p6422}.
 % given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
 
-\subsection*{Data Processing Overview}
+\subsection{Data Processing Overview}
 \label{sec:data_overview}
 The spectra reported here are measured by beam-forming ---phasing the visibilities to
 the target location and summing over baselines to produce a spectral time series of perceived flux $S_p$,
@@ -434,8 +434,6 @@ technically limited to 300MHz and above.
 Data was captured during July and October of 2011 on a single 'x' polarization over a band between 120 and 180 MHz.
 }\label{fig:antpos}
 \end{figure*}
-
-\subsection{Observations}
 
  Measurements are derived from observations using  the east-west dipole arms of
 64 PAPER antennas deployed in a minimum-redundancy imaging configuration
@@ -835,20 +833,17 @@ over the full horizon to horizon transit, while carefully controlling for system
  \section{Conclusion}
  \label{sec:Conclusion}
 
-This paper presents a set of detailed total flux measurements, providing
+This paper presents a set of total flux measurements at multiple frequencies within
+a 100--200-MHz band, providing
 an absolute flux calibration for southern hemisphere EoR studies, as well as a
 modest set of verification fluxes for other sources suitable for constraining future primary beam studies.
-Here we have provided a measurement of Pictor A with enough precision to confirm
-a highly linear spectral index between 150 and 600MHz. We then used the same
-filtered beam form method to measure the spectra of bright sources with similar
+We have provided a measurement of Pictor A with enough precision to confirm
+a linear spectral index between 150 and 600MHz. We apply the same
+filtered beamforming method to measure the spectra of bright sources with similar
 primary beam response.
-Although we focus on a narrow declination range in this paper, the techniques we describe
-may be applied over any declination range.  Future work will aim to extend this analysis
-to other declination ranges, and to tie the flux calibration of these other declination ranges
-back to the absolute flux scale we derive here.
 
 The measurements provided
-here are the first, calibrated, broad-band spectra to cover the EoR band. Existing EoR band measurements
+here are the first calibrated, broad-band spectra to cover the EoR band. Existing EoR band measurements
 are accurate to 20\% implying a 40\% uncertainty in the absolute power spectrum
 level.  The PAPER Pictor A spectrum is found to be accurate to 
 $\sim$3\%, a factor of 7 improvement over previous EoR-band measurements.
@@ -863,18 +858,20 @@ to confirm a single spectral index model for Pictor between 120MHz and 600MHz.
 
 A set of  31 additional verification sources were also targeted to provide additional 
 characterization of the flux scale as well as an overall assessment of the catalog accuracy.
-.  Using a Bayesian analysis we conclude that most of
+Using a Bayesian analysis, we conclude that most of
 these are consistent with previous measurements, provide useful new
-constraints and support the conclusion that the  Pictor A flux is likely on the correct scale.
+constraints and support the conclusion that the Pictor A flux is on the correct scale.
 
 Direct measurements of the Pictor A spectrum are key to correctly setting the
 flux scale of PAPER, MWA and future EoR experiments like the Hydrogen Epoch of Reionization Array (HERA).
 These spectra provide tighter constraints on many of the EoR band fluxes, while
 limiting the pernicious affect of primary beam uncertainty.  Future work will use these
-fluxes to further  refine the primary beam models of these experiments which is crucial to properly reconstructing
+fluxes to further refine the primary beam models of these experiments which is crucial to properly reconstructing
 both image and power spectrum flux.
-
-
+Although we have focused on a narrow declination range in this paper, the techniques we describe
+may be applied over any declination range.  Future work will also aim to extend this analysis
+to other declination ranges, and to tie the flux calibration of these other declination ranges
+back to the absolute flux scale we derive here.
 
 
 \begin{figure*}[htbp]
@@ -903,13 +900,11 @@ are from with Culgoora \cite{Slee:1995p7541} or Parkes
 The PAPER project is supported by the National Science Foundation (awards
 0804508, 1129258, and 1125558), and a generous grant from the Mt. Cuba
 Astronomical Association.
-
 This work makes use of the ``MCMC Hammer" emcee python library \citep[
 \url{http://danfm.ca/emcee/}]{ForemanMackey:2012p8684}  and the NASA/IPAC
 Extragalactic Database (NED) which is operated by the Jet Propulsion
 Laboratory, California Institute of Technology, under contract with the
 National Aeronautics and Space Administration.
-
 
 
 \begin{figure*}[htbp]
