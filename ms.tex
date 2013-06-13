@@ -43,7 +43,7 @@
 \title{A Flux Scale for Southern Hemisphere 21cm EoR Experiments}
 \author{
 Daniel C. Jacobs\altaffilmark{1},
-Aaron R. Parsons\altaffilmark{2},
+Aaron R. Parsons\altaffilmark{2,8},
 James E. Aguirre\altaffilmark{3},
 Zaki Ali\altaffilmark{2},
 Judd Bowman\altaffilmark{1},
@@ -72,29 +72,38 @@ William P. Walbrugh\altaffilmark{9}}
 \altaffiltext{10}{Cavendish Lab., Cambridge, UK}
 
 \begin{abstract}
-We present a catalog of broad-band spectral measurements from the 
+We present a catalog of spectral measurements covering a 100--200-MHz band for 32 sources, derived
+from observations with 
+a 64-antenna deployment of the 
 Donald C. Backer Precision Array for Probing
-the Epoch of Reionization (PAPER) in South Africa observed in July and
-September of 2011.  In order to reduce the impact of beam calibration, which proves to
-be a difficult endeavor for transit telescopes such as PAPER, on the determination
-of source spectra, we have focused on calibrating sources in a narrow declination range.
-Since each source follows a nearly identical path through the primary beam, this
-restriction allows beam calibration to be greatly reduced as a source of error,
-yielding a dramatic improvement in the accuracy of source spectra measured in the 
-100--200-MHz band which is receiving renewed attention by experiments seeking to
-measure 21cm emission from the Epoch of Reionization (EoR). Using beam forming
-and fringe-rate filtering we measure spectra for Pictor A, which provides a key flux reference for PAPER's EoR
-power spectrum analysis, 
-as well as \Nconf{} other sources at nearby declinations. Extrapolating from higher frequency
-catalogs we set the flux scale in a Monte-Carlo fit across multiple sources. This fit 
-propagates uncertainty from both catalog and measurement errors. Fitting new spectral 
-models to both catalog and the new PAPER data we find a Pictor A flux model accurate to
-1.4\%, confirming that Pictor A is a linear power law through the EoR band, and is an excellent calibrator. 
-This accuracy is limited by the uncertainty in the catalog measurements we use
-to estimate an absolute flux scale, and represents 
-an order of magnitude improvement over previous measurements in this band.  
-Comparing with prior measurements, 90\% are found to confirm and refine a power-law model for flux density.
-
+the Epoch of Reionization (PAPER) in South Africa.
+% ARP: don't think obs dates matter for abstract, observed in July and September of 2011.
+For transit telescopes such as PAPER, calibration of the primary beam is
+a difficult endeavor, and errors in this calibration are a major source of error in
+the determination of source spectra.
+In order to decrease reliance on accurate beam calibration,
+we focus on calibrating sources in a narrow declination range
+from -46\arcdeg{} to -40\arcdeg{}.
+Since sources at similar declinations follow nearly identical paths through the primary beam, this
+restriction greatly reduces errors associated with beam calibration,
+yielding a dramatic improvement in the accuracy of derived source spectra.
+Extrapolating from higher frequency
+catalogs, we derive the flux scale using a Monte-Carlo fit across multiple sources that 
+includes uncertainty from both catalog and measurement errors. Fitting spectral 
+models to catalog data and these new PAPER measurements, we derive new flux models for
+Pictor A and \Nconf{} other sources as nearby declinations, 
+90\% are found to confirm and refine a power-law model for flux density.
+Of particular importance is the new Pictor A flux model, which is accurate to
+1.4\% and shows, in contrast to previous models, that between 100 MHz and 2 GHz, the spectrum of Pictor A 
+is consistent with a single power law given by a flux at 150 MHz of
+381.9$\pm$5.4 Jy, and a spectral index of -0.76$\pm$0.01.  
+This accuracy represents 
+an order of magnitude improvement over previous measurements in this band, and
+is limited by the uncertainty in the catalog measurements used
+to estimate the absolute flux scale.  The simplicity and improved accuracy of Pictor A's spectrum
+make it an excellent calibrator in a band of
+importance to experiments seeking to
+measure 21cm emission from the Epoch of Reionization. 
 \end{abstract}
 
 \keywords{dark ages, reionization, first stars --- catalogs --- instrumentation: interferometers}
@@ -104,14 +113,14 @@ Comparing with prior measurements, 90\% are found to confirm and refine a power-
 
 Numerous radio telescopes are now exploring the prospects for using
 measurements of highly redshifted 21cm emission to inform our understanding of
-cosmic reionization in the redshift range $6< z<12$, corresponding to radio
+cosmic reionization in the redshift range $z>6$, corresponding to radio
 frequencies below 200 MHz (see reviews in
 \citealt{Furlanetto:2006p2267,Morales:2010p8093,Pritchard:2012p9555}).  These
 include telescopes aiming to measure the global temperature change of 21cm
 emission during the Epoch of Reionization (EoR), such as the Compact
 Reionization Experiment (CoRE), the Zero-spacing Interferometer \citep{Raghunathan:2011}  and the Experiment to Detect the Global EoR
 Signature (EDGES; \citealt{Bowman:2010p8546}), and interferometers aiming to
-measure the power spectrum of 21-cm EoR emission, such as the Giant Metre-wave
+measure the power spectrum of 21cm EoR emission, such as the Giant Metre-wave
 Radio Telescope (GMRT;
 \citealt{Paciga:2011p9470,Paciga:2013p9627})\footnote{\url{http://gmrt.ncra.tifr.res.in/}},
 the LOw Frequency ARray (LOFAR;
@@ -124,17 +133,17 @@ the Donald C. Backer Precision Array for Probing the Epoch of Reionization
 As such, there has been a renewed interest in the spectral and spatial variation of
 foreground emission in the 100--200 MHz frequency band that covers
 the $z=6$--13 redshift range expected to encompass reionization
-\citep{Furlanetto:2006p2267}.
+\citep{Furlanetto:2006p2267}. % XXX I think this sentence is a repeat from another paper
 In particular, the spectral properties of extra-galactic point-sources are important
 both because they are valuable calibration references
-and because they are strong foreground emitters that must be removed from 21-cm EoR measurements.
+and because they are strong foreground emitters that must be removed from 21cm EoR measurements.
 With the sparse availability of measured foreground properties in the
 100--200-MHz frequency band over large areas of the sky \citep{deOliveiraCosta:2008p2242}, continued
 foreground characterization is a
-vital step en route to any 21-cm EoR detection.
+vital step en route to any 21cm EoR detection.
 At these low
-frequencies the Southern sky is much less well known than the North, 
-with catalog source fluxes at 150MHz being inaccurate at the 20\% level
+frequencies, the Southern sky is much less well known than the North;
+catalog source fluxes at 150MHz are inaccurate at the 20\% level
 for $\delta<-20$\arcdeg{} \citep{Slee:1995p7541,Vollmer:2005p6425}.
 Both PAPER and the MWA are located in the southern hemisphere at radio-quiet
 reserves being prepared for the upcoming Square Kilometer Array, and hence,
@@ -149,6 +158,7 @@ This design decision has largely been driven by the simplicity and cost-effectiv
 phased and/or correlated dipoles to achieve the aggressive sensitivity requirements
 for measuring the 21cm power spectrum of reionization.
 %TODO ARP wanted a cite for the above.  I really don't know of a good one. Its it a bit of a broad statement
+% XXX how about Parsons 2012a, Beardsley 2012, and jelic 2008 (i think it has sensitivty for lofar)
 Adding to the challenge, these telescopes 
 cover much wider fields of view ($>10$\arcdeg) and bandwidths
 ($\sim 100$\% fractional) than traditional dish telescopes.
@@ -157,6 +167,7 @@ on an accurate model of the primary beam response to correct for an
 the apparent flux scale that varies across the sky.
 This direction dependent gain is currently uncertain to 10\% or higher
 \citep{Pober:2012p8800}, and comprises a large fraction of the 20\% difference between current telescopes \citep{Jacobs:2013p9908}.
+% XXX difference of what?
 
 In this paper, we set out to significantly improve the accuracy of spectral measurements between 
 100--200 MHz for a set of bright sources in the declination range -46\arcdeg{} to -40\arcdeg{} that
@@ -166,32 +177,30 @@ sources transit through a nearly identical primary beam response pattern, we are
 most debilitating source of error in these measurements: the primary beam.  
 
 
-In section \ref{sec:background} we provide some background on uncertainty in early EoR-band catalogs,
-and explain our choice of calibrator. Section \ref{sec:approach} gives an overview 
-of our approach to making the measurement and motivates our data processing steps, which 
-are described in detail in section \ref{sec:Observations}. In section 
-
-In section \ref{sec:approach} we describe our approach for measuring source spectra with
+In \S\ref{sec:background} we provide some background on uncertainty in early EoR-band catalogs,
+and explain our choice of calibrators.
+In \S\ref{sec:approach} we describe our approach for measuring source spectra with
 drift-scan observations and deriving an absolute flux scale from catalog data.  
 In \S\ref{sec:Observations} we detail the instrumental 
 setup, observations and analysis method followed. Sections \ref{sec:mcmc} through
 \ref{fig:gain} detail our approach for fitting a global flux scale and spectral models for each source.
-We use these fits in section \ref{sec:results} to understand how well PAPER data agree
-with previous measurements and conclude in \ref{sec:Conclusion}.
-
+We use these fits in \S\ref{sec:results} to understand how well PAPER data agree
+with previous measurements and conclude in \S\ref{sec:Conclusion}.
 
 
 \subsection{The sources and instrument}
 EoR measurements in the southern sky have focused on the coldest regions where
-galactic foregrounds are minimal. With the majority of possible observing time falling on 
+galactic foregrounds are minimal. With the majority of possible observing time falling around
 RA=4h,Dec=-30. The brightest and least-resolved calibrator in this region is Pictor A 
-(5h19m49.1 -45d46m45.0). Pictor A is a nearby FR-II type radio galaxy 
- similar to Cygnus A.  At $\sim$400Jy Pictor is bright and sufficiently distant from other 
+(5h19m49.1,-45d46m45.0). Pictor A is a nearby FR-II type radio galaxy 
+ similar to Cygnus A.  At $\sim$400Jy, Pictor is bright and sufficiently distant from other 
 bright sources to make it eminently suitable as both a phase and flux calibrator. Its apparent
-size of $\sim$8\arcmin{} is smaller than the scales being probed by current EoR instruments , 
-making resolution effects, making it suitable for precision calibration.  However, 
+size of $\sim$8\arcmin{} is smaller than the scales being probed by current EoR instruments, 
+making it suitable for precision calibration, with only a modest
+level of resolution effects.
+However, 
 like most other sources, precise flux measurements in the EoR band are not available.
-The current best EoR band measurement
+The previous best EoR band measurement
 is uncertain to 12\% and appears to imply spectral flattening in the EoR band
 \citep{Perley:1997p9312}. 
  
@@ -210,9 +219,9 @@ configuration to make deep power spectral integrations \citep{Parsons:2012p9028}
 Though highly sensitive as a power spectrum instrument, the maximally redundant array 
 has a broad point spread function in the image domain. This severely limits the number 
 of sources which may be used for flux calibration. Drift scanning across the sky with a 45\arcdeg{} FWHM
-primary beam there are very few unresolved, bright sources which are far from the galactic plane. 
+primary beam, there are very few unresolved, bright sources which are far from the galactic plane. 
 Pictor A is bright and well enough separated from other emission to dominate the visibilities for a good fraction of
-the EoR observing season, making it an ideal flux calibrator.
+the EoR observing season, making it an excellent flux calibrator.
 
 \subsection{Primary beam}
 \label{sec:background}
@@ -240,20 +249,21 @@ Differences between the polarization responses cause leakage of polarized
 signals into the total intensity measurement possibly corrupting the 
 EoR power spectrum \citep{Moore:2013p9621}.  The primary beam 
 shape is also critical to measuring and subtracting foregrounds 
-\cite{Bernardi:2012p9020,Sullivan:2012p9457,Morales:2012p8790} a process which, to be affective, must be done to better than 1\%
+\cite{Bernardi:2012p9020,Sullivan:2012p9457,Morales:2012p8790} a process which, to be effective, must be done to better than 1\%
 precision for the brightest sources \citet{Liu:2009p4762,Bowman:2009p7816} .
 
 A method for decoupling uncertain fluxes from the uncertain beam has been
 described by \citet{Pober:2012p8800}. In simulation the method was able to
 achieve 3 to 10\% accuracy in measuring the primary beam, depending on the
 number of antennae and other variables. The Pober method emphasized the need
+% XXX mention key assumption of 180deg rotational symmetry
 for many repeated measurements of each alt-az pointing. Further investigation
 is under way to improve and implement this method and would be greatly aided by
 the availability of precise flux measurements unaffected by primary beam
 uncertainty. 
 
 In this paper we provide a set of detailed total flux measurements aimed at providing
-an absolute flux calibration for southern hemisphere EoR studies as well as a
+an absolute flux calibration for southern hemisphere EoR studies, as well as a
 small set of verification fluxes suitable for constraining future primary beam studies.
 
 
@@ -298,9 +308,9 @@ we estimate the error resulting from this limited scope application of the prima
 \includegraphics[width=\textwidth]{plots/psa64_pic_strip_positions_psa747_v2_annotated_cropped.png}
 \caption{
 A PAPER map of the radio sky centered on the south pole showing relative positions of targeted sources. The map was made using the July half of the
-data used in this catalog using the procedure described in \citet{Jacobs:2011p8438} to produce a lightly CLEANed map. The circular artifact around the south Celestial pole is due to residual instrumental cross-talk and appears to be highly localized below declinations of 75\arcdeg{} where PAPER's sensitivity is small.  x's mark measured source locations and have size
-scaled by dis-agreement with prior data (inverse ``improvement index" from 
-\S\ref{sec:results}). Smaller indicates better agreement with past data.  Orange dots indicate sources with no model overlap at 76\% \ref{fig:SI_contour_new}. 
+data used in this catalog using the procedure described in \citet{Jacobs:2011p8438} to produce a lightly CLEANed map. The circular artifact around the south Celestial pole is due to residual instrumental cross-talk and appears to be highly localized below declinations of 75\arcdeg{} where PAPER's sensitivity is small.  `x''s mark measured source locations and have size
+scaled by disagreement with prior data (inverse ``improvement index" from 
+\S\ref{sec:results}). Smaller indicates better agreement with past data.  Orange dots indicate sources with no model overlap at 76\% in Figure \ref{fig:SI_contour_new}. 
 \label{fig:error_map}
 }
 \end{figure*}
@@ -358,25 +368,38 @@ and Table \ref{tab:data} for a complete listing of names and positions.
 \subsection*{Data Processing Overview}
 \label{sec:data_overview}
 The spectra reported here are measured by beam-forming ---phasing the visibilities to
-the target location and summing to produce a spectral time series of perceived flux $S_p$. The spectrum is then isolated
-from neighboring sources by filtering and averaged in the time domain.  This time average is 
-weighted by a model of PAPER's primary beam response ($B$).  
+the target location and summing over baselines to produce a spectral time series of perceived flux $S_p$,
+which is given by the true source flux, $S$, illuminated by the true beam pattern $B$, according to
+% XXX would be nice to capture here and below that B, B_M, and S_p are vectors indexed by t.  would
+% suggest subscript, except you already have B_M.  Could use B^\prime (and S^\prime) instead...
+\begin{equation}
+S_p=BS.
+\end{equation}
+The spectrum is then isolated
+from neighboring sources by filtering and averaged in the time domain.  This time-average is 
+weighted by a model of PAPER's primary beam response ($B_M$).  
 \begin{align}
 S_\textrm{est} &= \frac{\sum_t B_M S_p}{\sum_t B^2_M} \nonumber \\ 
 &= \frac{\sum_t B_M B}{\sum_t B^2_M} S  \nonumber \\
 &= g(\delta) S  \label{eq:g}
 \end{align}
-
+% XXX where g and \delta are...?  Should connect this nomeclature to J2331-416 language below (i.e. solving for g)
 As the perceived flux is already weighted once by the true beam $B$ this weighted sum is an effective approximation of inverse-variance weighting \citep{Pober:2012p8800}. 
 
 
-The pre factor in Eq \ref{eq:g} has been integrated in time over the full azimuthal sweep across the sky and therefor depends only on declination. The rate at which this factor
+The pre-factor in Eq \ref{eq:g} has been integrated in time over the full azimuthal sweep across the sky and therefore depends only on declination. The rate at which this factor
 changes with declination defines maximum declination distance we can observe from our calibrator. 
 In simulation we multiplied an early holographic beam map \cite{Pober:2012p8800}
+% XXX to simulate what?  need to say something like:
+% To simulate the effect of beam model errors on ???, we used simulations derived from the holographic
+% beam map measured in \citet{Pober:2012p8800} weighted by a beam model derived from electromagnetic
+% simulations, and find that ...
 by electromagnetic simulations and find that it 
 diverges slowly with declination, with a maximum of 10\% over 5\arcdeg{} of declination range, though most are less. 
 We estimate this spectral dependent gain at a reference declination of 41\arcdeg{}36\arcmin{}   using (J2331-416) fitting a spectral index model to the
  catalog data points below 2GHz. 
+% XXX clarify that this is not the last correction; there is one more flux cal that is derived from MCMC
+% over several calibrator sources (Figure XXX).
  
  Finally we average the spectra from a resolution of 400kHz to 10MHz bins, adding the individual errors in quadrature
  for our uncertainty.
@@ -385,7 +408,7 @@ At this point we have a set of spectra that have been calibrated relative to eac
 they must be put on a global flux scale. Meanwhile, our error estimate does not include an estimate of the 
 flux calibration error.  To address both points we fit for a global flux scale that incorporates the best available
 catalog data. These catalogs
-have all been set, as best as possible, to the Baars et al scale to which all other points are tied \citep{Baars:1977p9678}. Using a Bayesian analysis we compute the 
+have all been set, as best as possible, to the \citet{Baars:1977p9678} scale to which all other points are tied. Using a Bayesian analysis we compute the 
 variation in the flux scale implied by comparing many sources to prior catalog models. By including sources from across
 the RA/Dec range, the variation in this flux scale fit estimates the overall uncertainty in flux resulting from primary beam 
 or prior catalog uncertainty.  This folds in the error due to extrapolation beyond the frequency range of the Baars scale which is
@@ -447,10 +470,10 @@ channels become 203, and the 60 original time samples per 10-minute file become
 \subsection{Per-Antenna Gain Calibration}
 
 
-Small gain variations between antennae and over time introduce significant systematic effects which degrade 
+Small time- and antenna-dependent gain variations time introduce significant systematic effects that degrade 
 instrument performance. Temporal variations are dominated by changes in ambient temperature. 
-Measurements of ambient temperature versus time on the balun amplifier of a fiducial antenna and near
-receiver amplifiers were used to divide out the predicted gain variation versus temperature that these amplifiers
+We use measurements of ambient temperature versus time on the balun amplifier of a fiducial antenna and near
+receiver amplifiers to divide out the predicted gain variation versus temperature that these amplifiers
 are known to exhibit.  Inspecting the auto correlations we find that the net antenna temperature gain coefficient (-0.042 dB/C) found in previous laboratory \citep{Parashare:2011p9872} and early field 
 measurements  \citep{Pober:2012p8800} did not appear to remove all temperature variation.  To
 revise the temperature coefficient we use the October observations, when the temperatures remained nearly constant, as a reference.
@@ -465,6 +488,9 @@ with the peak difference decreasing from 18\% to 3\%.
 \includegraphics[width=0.9\textwidth]{plots/auto_tempcorr.png}
 \caption{Calibrating the temperature coefficient  between the July and October observing runs.  Here we plot the ratio of auto-correlations (averaged over frequency and antenna) against the temperature difference between the two nights. The very linear middle region has a slope of  -0.055 dB/C while the full, more complex, range is fit by -0.06dB/C (black line).  We compromise by choosing -0.058dB/C   
 which was found to significantly improve the agreement (see Figure \ref{fig:auto_compare}).
+% XXX When comparing autos from different JDs, the change in position of sun can substantially affect signal level
+% I'm worried this is the cause of the dither on either end of Figure 3, unless you've been conservative about
+% what data you've included here.
 \label{fig:autos_tempcorr}}
 \end{figure}
 
@@ -472,13 +498,14 @@ which was found to significantly improve the agreement (see Figure \ref{fig:auto
 \includegraphics[width=0.9\textwidth]{plots/auto_balance.png}
 \caption{Gain differences between the July and October nights are dominated by temperature variation. Here we see the affect on 
 the average auto correlation before ({\color{orange} orange}) and after (black) application of the temperature dependent gain. \label{fig:auto_compare}}
+% XXX why does the gap in data in the top plot not match the bottom?
 \end{figure}
 
 
 Matching of relative gains and phases between antenna was done by fitting a per-antenna complex gain to portions
 of data which have easily modeled sky. 
 This calibration is only relative between antennae, bandpass and absolute flux calibration
-comes after time and frequency averaging in sections \ref{sec:Calibration} \ref{sec:flux_scale}.   
+comes after time and frequency averaging in sections \ref{sec:Calibration} and \ref{sec:flux_scale}.   
 The antenna delays and amplitudes were found by fitting a point source visibility
 model to Centaurus A, Pictor A, and Fornax A.  Each source is imperfectly
 modeled by a single point-source, but the solution differences are minimized by
@@ -877,7 +904,7 @@ National Aeronautics and Space Administration.
 PAPER spectra of 31 sources compared against existing data out of
 \cite{Vollmer:2010p6422} between 40MHz and 2GHz and a sampling
 of spectra fits drawn from MCMC samples at greater than 76\% confidence. Sources used to bootstrap the
-flux calibration are noted with a * and are shown with the additional calibration data
+flux calibration are noted with a `*' and are shown with the additional calibration data
 found in NED. Pictor A is shown separately in Figure \ref{fig:pic_spectrum}.
 \label{fig:srcs1}}
 \end{figure*}
@@ -909,7 +936,7 @@ found in NED. Pictor A is shown separately in Figure \ref{fig:pic_spectrum}.
 \caption{Spectral model contours as described in Figure \ref{fig:pic_spectrum}. 
 Catalog fit in grey, black folds in the PAPER 
 data. Sources marked with a
-* were used to assess calibration error.
+`*' were used to assess calibration error.
 }\label{fig:SI_contour_1}
 \end{figure*}
 \clearpage
@@ -932,7 +959,7 @@ data. Sources marked with a
 Catalog fit in grey, black folds in the PAPER 
 data. 
 Sources marked with a
-* were used to assess calibration error.
+`*' were used to assess calibration error.
 }\label{fig:SI_contour_2}
 \end{figure*}
 \clearpage
@@ -945,7 +972,7 @@ Sources marked with a
 Catalog fit in grey, black folds in the PAPER 
 data. 
 Sources marked with a
-* were used to assess calibration error.
+`*' were used to assess calibration error.
 }\label{fig:SI_contour_3}
 \end{figure*}
 %BOTTOM OF MAIN CONFIDENCE PLOT SECTION
@@ -1072,5 +1099,8 @@ value indicates an increase in both model fit precision and accuracy.}
 
 
 \bibliography{library}
+
+% XXX re-check arxiv cites in bib for finishing peer review.  Paciga 2013, Pober 2013, Moore 2013, and Stefan 2013
+% all published now.  what is bernardi 2012 submitted?
 
 \end{document}
