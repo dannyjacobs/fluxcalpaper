@@ -188,8 +188,42 @@ We use these fits in \S\ref{sec:results} to understand how well PAPER data agree
 with previous measurements and conclude in \S\ref{sec:Conclusion}.
 
 
-\subsection{The sources and instrument}
-EoR measurements in the southern sky have focused on the coldest regions where
+\section{Background}
+\label{sec:background}
+
+Historically, the best Southern Hemisphere 
+EoR band data were by \citet{Slee:1995p7541} with Culgoora Circular
+Array\footnote{Known during daylight hours as Culgoora Radio Heliograph} and
+various higher frequency measurements with Parkes.  These data are typically
+uncertain to 20\% or higher and provide little coverage of the EoR band beyond
+a single narrow-band data point. 
+More recent surveys include narrow-band surveys by the GMRT \footnote{\url{http://tgss.ncra.tifr.res.in/}} and Mauritius \citep{Pandey:2005p8687}, a
+deep survey of the region near Hydra A by the 32 antenna MWA prototype
+\cite{Williams:2012p8768} and a wide field survey by PAPER, also with 32
+elements \cite{Jacobs:2011p8438}. Several sub-channels were provided in the
+Williams catalog, though with 60-80\% error bars ---large compared to the 30\%
+uncertainty on their wide band measurements.  The latter cover the band and
+spatial scales relevant to EoR measurements but are limited by the accuracy of
+the primary beam \citep{Jacobs:2013p9908} as well as the lack of precise in-band flux calibrators.
+
+The response of the primary beam is of critical importance to EoR measurements.
+Differences between the polarization responses cause leakage of polarized
+signals into the total intensity measurement possibly corrupting the 
+EoR power spectrum \citep{Moore:2013p9621}.  The primary beam 
+shape is also critical to measuring and subtracting foregrounds 
+\cite{Bernardi:2012p9020,Sullivan:2012p9457,Morales:2012p8790} a process which, to be effective, must be done to better than 1\%
+precision for the brightest sources \citet{Liu:2009p4762,Bowman:2009p7816} .
+A method for decoupling uncertain fluxes from the uncertain beam has been
+described by \citet{Pober:2012p8800}. In simulation the method was able to
+achieve 3 to 10\% accuracy in measuring the primary beam, depending on the
+number of antennae and other variables. The Pober method emphasized the need
+% XXX mention key assumption of 180deg rotational symmetry
+for many repeated measurements of each alt-az pointing. Further investigation
+is under way to improve and implement this method and would be greatly aided by
+the availability of precise flux measurements unaffected by primary beam
+uncertainty. 
+
+EoR measurements by PAPER and the MWA in the southern hemisphere have focused on the coldest regions where
 galactic foregrounds are minimal. With the majority of possible observing time falling around
 RA=4h,Dec=-30. The brightest and least-resolved calibrator in this region is Pictor A 
 (5h19m49.1,-45d46m45.0). Pictor A is a nearby FR-II type radio galaxy 
@@ -221,66 +255,31 @@ has a broad point spread function in the image domain. This severely limits the 
 of sources which may be used for flux calibration. Drift scanning across the sky with a 45\arcdeg{} FWHM
 primary beam, there are very few unresolved, bright sources which are far from the galactic plane. 
 Pictor A is bright and well enough separated from other emission to dominate the visibilities for a good fraction of
-the EoR observing season, making it an excellent flux calibrator.
-
-\subsection{Primary beam}
-\label{sec:background}
-
-
-Historically, the best Southern Hemisphere 
-EoR band data were by \citet{Slee:1995p7541} with Culgoora Circular
-Array\footnote{Known during daylight hours as Culgoora Radio Heliograph} and
-various higher frequency measurements with Parkes.  These data are typically
-uncertain to 20\% or higher and provide little coverage of the EoR band beyond
-a single narrow-band data point. 
-
-More recent surveys include narrow-band surveys by the GMRT \footnote{\url{http://tgss.ncra.tifr.res.in/}} and Mauritius \citep{Pandey:2005p8687}, a
-deep survey of the region near Hydra A by the 32 antenna MWA prototype
-\cite{Williams:2012p8768} and a wide field survey by PAPER, also with 32
-elements \cite{Jacobs:2011p8438}. Several sub-channels were provided in the
-Williams catalog, though with 60-80\% error bars ---large compared to the 30\%
-uncertainty on their wide band measurements.  The latter cover the band and
-spatial scales relevant to EoR measurements but are limited by the accuracy of
-the primary beam \citep{Jacobs:2013p9908} as well as the lack of precise in-band flux calibrators.
-
-
-The response of the primary beam is of critical importance to EoR measurements.
-Differences between the polarization responses cause leakage of polarized
-signals into the total intensity measurement possibly corrupting the 
-EoR power spectrum \citep{Moore:2013p9621}.  The primary beam 
-shape is also critical to measuring and subtracting foregrounds 
-\cite{Bernardi:2012p9020,Sullivan:2012p9457,Morales:2012p8790} a process which, to be effective, must be done to better than 1\%
-precision for the brightest sources \citet{Liu:2009p4762,Bowman:2009p7816} .
-
-A method for decoupling uncertain fluxes from the uncertain beam has been
-described by \citet{Pober:2012p8800}. In simulation the method was able to
-achieve 3 to 10\% accuracy in measuring the primary beam, depending on the
-number of antennae and other variables. The Pober method emphasized the need
-% XXX mention key assumption of 180deg rotational symmetry
-for many repeated measurements of each alt-az pointing. Further investigation
-is under way to improve and implement this method and would be greatly aided by
-the availability of precise flux measurements unaffected by primary beam
-uncertainty. 
-
-In this paper we provide a set of detailed total flux measurements aimed at providing
-an absolute flux calibration for southern hemisphere EoR studies, as well as a
-small set of verification fluxes suitable for constraining future primary beam studies.
-
-
-
-
-
-
+the EoR observing season, making it a desireable source to use for flux calibration.
 
 \section{Approach}
 \label{sec:approach}
-In this section, we describe how we use PAPER in its imaging configuration
-to measure Pictor A and a  selection of known, bright sources. The fluxes are obtained
-by forming beams towards known sources as they drift through the primary beam, calibrating to a single source making a similar track.
-These long tracks allow us to sidestep primary beam uncertainty and measure accurately calibrated fluxes.
+In this section, we describe our general approach to controlling the impact of beam model errors on measured
+spectra derived from 
+drift-scan observations 
+of Pictor A and a selection of known, bright sources.  Our approach uses a set of ``source tracks'' as
+a function of frequency and time.  Each source track is a beam, formed by phasing measured visibilities toward
+known source locations as they drift through the primary beam, and summing over antenna pairs, as
+described in \S\ref{sec:XXX}.  Since sources fall
+at different positions
+within the primary beam, it is generally not possible to relate the fluxes of sources at different positions to
+one another without an accurate beam model.  To date, the accuracy of source flux measurements in the
+southern hemisphere in the 100--200 MHz band have largely been limited by the accuracy of these beam models.
 
+We mitigate this problem by selecting sources within a narrow declination range, so that source tracks represent
+nearly identical cuts through the beam response pattern.  Using this fact, the relative amplitudes of sources
+can be deduced with minimal reliance on an accurate beam model.  In our analysis, a prior beam model is only
+necessary for extrapolating across a narrow declination range (we estimate the errors associated with this 
+extrapolation in \S\ref{sec:XXX}), and for approximating optimal inverse-variance weighting when averaging
+over source tracks to determine a single spectrum.
 
- In \citet{Jacobs:2013p9908} several errors were identified as originating in primary beam uncertainty.
+This approach addresses several sources of error that were identified in \citet{Jacobs:2013p9908} 
+as originating from uncertainty in the primary beam model.
   First, under most imaging schemes, each source flux is measured at just a few 
 points in the primary beam. As errors tend to vary across the beam it is often
  difficult to decouple flux uncertainty from beam uncertainty.
@@ -294,13 +293,24 @@ to a single reference source.
 was the increase of uncertainty towards the edge of the beam. To minimize our sensitivity to both beam and noise
 uncertainty, we weight the source track by an additional factor of the primary beam model.  
 
+The remainder of the analysis in this paper relates to calibrating the relative source amplitudes that we
+establish to an absolute flux scale as a function of frequency.  Given the shortcomings of 
+existing in-band measurements of sources
+in the southern hemisphere, we must bootstrap this flux scale from an ensemble of calibrator sources that
+exhibit simple power-law spectra.
+As described in \S\ref{sec:XXX},
+this proceeds by first using a single calibrator to set the relative amplitudes of spectral channels, and
+then using several sources, extrapolating across a large set of measurements 
+between 70 MHz and 2 GHz, in a Markov-Chain Monte Carlo simulation to establish an absolute flux scale
+for the measured spectra.
 
-\subsection{Selection of confirmation sources}
+
+\subsection{Selection of confirmation sources} % XXX what is meant by "confirmation source" ?  Maybe just "Source Selection"?
 As PAPER is a drift scan instrument, each declination describes a distinct path through the primary beam. The flux time seres of a beamform
  provides a detailed sample of the primary beam relative to the peak of the trace, however,
 a model is still required to calibrate between declinations. Below we argue that be averaging over long tracks, we minimize our 
 susceptibility to localized primary beam error and find that limiting our source selection range to within 
-a declination range of 5\arcdeg{} around a calibrator is a good compromise. In section\ref{fig:gain}
+a declination range of 5\arcdeg{} around a calibrator is a good compromise. In \S\ref{fig:gain},
 we estimate the error resulting from this limited scope application of the primary beam model.
 
 
@@ -825,11 +835,17 @@ over the full horizon to horizon transit, while carefully controlling for system
  \section{Conclusion}
  \label{sec:Conclusion}
 
+This paper presents a set of detailed total flux measurements, providing
+an absolute flux calibration for southern hemisphere EoR studies, as well as a
+modest set of verification fluxes for other sources suitable for constraining future primary beam studies.
 Here we have provided a measurement of Pictor A with enough precision to confirm
 a highly linear spectral index between 150 and 600MHz. We then used the same
 filtered beam form method to measure the spectra of bright sources with similar
 primary beam response.
-
+Although we focus on a narrow declination range in this paper, the techniques we describe
+may be applied over any declination range.  Future work will aim to extend this analysis
+to other declination ranges, and to tie the flux calibration of these other declination ranges
+back to the absolute flux scale we derive here.
 
 The measurements provided
 here are the first, calibrated, broad-band spectra to cover the EoR band. Existing EoR band measurements
