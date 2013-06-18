@@ -1,10 +1,19 @@
-\begin{thebibliography}{47}
+\begin{thebibliography}{48}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Baars {et~al.}(1977)Baars, Genzel, Pauliny-Toth, \&
   Witzel}]{Baars:1977p9678}
 Baars, J. W.~M., Genzel, R., Pauliny-Toth, I. I.~K., \& Witzel, A. 1977,
   Astronomy and Astrophysics, 61, 99, a{\&}AA ID. AAA020.141.048
+
+\bibitem[{Beardsley {et~al.}(2012)Beardsley, Hazelton, Morales, Arcus, Barnes,
+  Bernardi, Bowman, Briggs, Bunton, Cappallo, Corey, Deshpande, Desouza,
+  Emrich, Gaensler, Goeke, Greenhill, Herne, Hewitt, Johnston-Hollitt, Kaplan,
+  Kasper, Kincaid, Koenig, Kratzenberg, Lonsdale, Lynch, McWhirter, Mitchell,
+  Morgan, Oberoi, Ord, Pathikulangara, Prabu, Remillard, Rogers, Roshi, Salah,
+  Sault, Shankar, Srivani, Stevens, Subrahmanyan, Tingay, Wayth, Waterson,
+  Webster, Whitney, Williams, Williams, \& Wyithe}]{Beardsley:2012p9136}
+Beardsley, A.~P. {et~al.} 2012, eprint arXiv, 1204, 3111
 
 \bibitem[{Bernardi {et~al.}(2013)Bernardi, Greenhill, Mitchell, Ord, Hazelton,
   Gaensler, de~Oliveira-Costa, Morales, Shankar, Subrahmanyan, Wayth, Lenc,
@@ -16,26 +25,17 @@ Baars, J. W.~M., Genzel, R., Pauliny-Toth, I. I.~K., \& Witzel, A. 1977,
   Wyithe}]{Bernardi:2013p9859}
 Bernardi, G. {et~al.} 2013, arXiv, astro-ph.CO
 
-\bibitem[{Bernardi {et~al.}(2012)Bernardi, Williams, Hewitt, Levine,
-  de~Oliveira-Costa, Bowman, Briggs, Gaensler, Hernquist, Mitchell, Morales,
-  Sethi, Subrahmanyan, Sadler, Arcus, Barnes, Bernardi, Bunton, Cappallo,
-  Crosse, Corey, Deshpande, deSouza, Emrich, Goeke, Greenhill, Hazelton, Herne,
-  Kaplan, Kasper, Kincaid, Koenig, Kratzenberg, Lonsdale, Lynch, McWhirter,
-  Morgan, Oberoi, Ord, Pathikulangara, Prabu, Remillard, Rogers, Roshi, Salah,
-  Sault, Shankar, Srivani, Stevens, Tingay, Wayth, Waterson, Webster, Whitney,
-  Williams, \& Wyithe}]{Bernardi:2012p9020}
----. 2012, ApJ submitted
-
-\bibitem[{Bowman {et~al.}(2012)Bowman, D, Cairns, Kaplan, Murphy, Oberoi,
-  Staveley-SmithNQ, Arcus, Barnes, Bernardi, Briggs, Brown, Bunton, Burgasser,
-  Cappallo, Chatterjee, Corey, Coster, Deshpand, deSouza, Emrich, Erickson,
+\bibitem[{Bowman {et~al.}(2013)Bowman, Cairns, Kaplan, Murphy, Oberoi,
+  Staveley-Smith, Arcus, Barnes, Bernardi, Briggs, Brown, Bunton, Burgasser,
+  Cappallo, Chatterjee, Corey, Coster, Deshpande, deSouza, Emrich, Erickson,
   Goeke, Gaensler, Greenhill, Harvey-Smith, Hazelton, Herne, Hewitt,
   Johnston-Hollitt, Kasper, Kincaid, Koenig, Kratzenberg, Lonsdale, Lynch,
-  Matthews, McWhirter, Mitchell, MoralesM, Morgan, Ord, Pathikulangara, Prabu,
+  Matthews, Mcwhirter, Mitchell, Morales, Morgan, Ord, Pathikulangara, Prabu,
   Remillard, Robishaw, Rogers, Roshi, Salah, Sault, Shankar, Srivani, Stevens,
   Subrahmanyan, Tingay, Wayth, Waterson, Webster, Whitney, Williams, Williams,
-  \& Wyithe}]{Bowman:2012p9138}
-Bowman {et~al.} 2012, PASA, submitted
+  \& Wyithe}]{Bowman:2013p9950}
+Bowman, J. {et~al.} 2013, Publications of the Astronomical Society of
+  Australia, 30, 31
 
 \bibitem[{Bowman {et~al.}(2009)Bowman, Morales, \& Hewitt}]{Bowman:2009p7816}
 Bowman, J., Morales, M., \& Hewitt, J. 2009, The Astrophysical Journal, 695,
@@ -75,6 +75,12 @@ Jacobs, D. {et~al.} 2011, The Astrophysical Journal, 734, L34
 Jacobs, D.~C., Bowman, J., \& Aguirre, J.~E. 2013, The Astrophysical Journal,
   769, 5
 
+\bibitem[{Jeli{\'c} {et~al.}(2008)Jeli{\'c}, Zaroubi, Labropoulos, Thomas,
+  Bernardi, Brentjens, de~Bruyn, Ciardi, Harker, Koopmans, Pandey, Schaye, \&
+  Yatawatta}]{Jelic:2008p2130}
+Jeli{\'c}, V. {et~al.} 2008, Monthly Notices of the Royal Astronomical Society,
+  389, 1319, (c) Journal compilation {\copyright} 2008 RAS
+
 \bibitem[{Kuehr {et~al.}(1981{\natexlab{a}})Kuehr, Witzel, Pauliny-Toth, \&
   Nauber}]{Kuehr:1981p9628}
 Kuehr, H., Witzel, A., Pauliny-Toth, I., \& Nauber, U. 1981{\natexlab{a}},
@@ -101,9 +107,9 @@ Liu, A., Tegmark, M., \& Zaldarriaga, M. 2009, Monthly Notices of the Royal
 Mackay, D. J.~C. 2003, Information Theory
 
 \bibitem[{Moore {et~al.}(2013)Moore, Aguirre, Parsons, Jacobs, \&
-  Pober}]{Moore:2013p9621}
-Moore, D.~F., Aguirre, J.~E., Parsons, A.~R., Jacobs, D.~C., \& Pober, J.~C.
-  2013, eprint arXiv, 1302, 876, 29 pages, 12 figures
+  Pober}]{Moore:2013p9941}
+Moore, D., Aguirre, J., Parsons, A., Jacobs, D., \& Pober, J. 2013, The
+  Astrophysical Journal, 769, 154
 
 \bibitem[{Morales {et~al.}(2012)Morales, Hazelton, Sullivan, \&
   Beardsley}]{Morales:2012p8790}
@@ -124,8 +130,9 @@ Otrupcek, R. \& Wright, A. 1991, Proceedings of the Astronomical Society of
   Australia, 9, 170
 
 \bibitem[{Paciga {et~al.}(2013)Paciga, Albert, Bandura, Chang, Gupta, Hirata,
-  Odegova, Pen, Peterson, Roy, Shaw, Sigurdson, \& Voytek}]{Paciga:2013p9627}
-Paciga, G. {et~al.} 2013, eprint arXiv:1301.5906
+  Odegova, Pen, Peterson, Roy, Shaw, Sigurdson, \& Voytek}]{Paciga:2013p9943}
+Paciga, G. {et~al.} 2013, Monthly Notices of the Royal Astronomical Society,
+  -1, 1427
 
 \bibitem[{Paciga {et~al.}(2011)Paciga, Chang, Gupta, Nityanada, Odegova, Pen,
   Peterson, Roy, \& Sigurdson}]{Paciga:2011p9470}
@@ -162,14 +169,13 @@ Perley, R.~A., Roser, H.-J., \& Meisenheimer, K. 1997, Astronomy and
   Astrophysics, 328, 12
 
 \bibitem[{Pober {et~al.}(2013)Pober, Parsons, Aguirre, Ali, Bradley, Carilli,
-  DeBoer, Dexter, Gugliucci, Jacobs, MacMahon, Manley, Moore, Stefan, \&
-  Walbrugh}]{Pober:2013p9567}
-Pober, J.~C. {et~al.} 2013, eprint arXiv, 1301, 7099, 6 pages, 5 figures,
-  submitted to ApJL
+  DeBoer, Dexter, Gugliucci, Jacobs, Klima, MacMahon, Manley, Moore, Stefan, \&
+  Walbrugh}]{Pober:2013p9942}
+Pober, J. {et~al.} 2013, The Astrophysical Journal, 768, L36
 
 \bibitem[{Pober {et~al.}(2012)Pober, Parsons, Jacobs, Aguirre, Bradley,
   Carilli, Gugliucci, Moore, \& Parashare}]{Pober:2012p8800}
----. 2012, The Astronomical Journal, 143, 53
+Pober, J.~C. {et~al.} 2012, The Astronomical Journal, 143, 53
 
 \bibitem[{Press(1997)}]{Press:1997p9783}
 Press, W. 1997, Unsolved Problems in Astrophysics, 49
@@ -189,10 +195,11 @@ Sivia, D. \& Skilling, J. 2006, citeulike.org
 \bibitem[{Slee(1995)}]{Slee:1995p7541}
 Slee, O. 1995, Australian Journal of Physics, 48, 143, d
 
-\bibitem[{Stefan {et~al.}(2012)Stefan, Carilli, Green, Ali, Aguirre, Bradley,
-  DeBoer, Dexter, Gugliucci, Harris, Jacobs, MacMahon, Manley, Moore, Parsons,
-  Pober, \& Walbrugh}]{Stefan:2012p9707}
-Stefan, I.~I. {et~al.} 2012, eprint arXiv, 1212, 1624
+\bibitem[{Stefan {et~al.}(2013)Stefan, Carilli, Green, Ali, Aguirre, Bradley,
+  DeBoer, Dexter, Gugliucci, Harris, Jacobs, Klima, MacMahon, Manley, Moore,
+  Parsons, Pober, \& Walbrugh}]{Stefan:2013p9926}
+Stefan, I.~I. {et~al.} 2013, Monthly Notices of the Royal Astronomical Society,
+  432, 1285
 
 \bibitem[{Sullivan {et~al.}(2012)Sullivan, Morales, Hazelton, Arcus, Barnes,
   Bernardi, Briggs, Bowman, Bunton, Cappallo, Corey, Deshpande, Desouza,

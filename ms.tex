@@ -122,18 +122,18 @@ Reionization Experiment (CoRE), the Zero-spacing Interferometer \citep{Raghunath
 Signature (EDGES; \citealt{Bowman:2010p8546}), and interferometers aiming to
 measure the power spectrum of 21cm EoR emission, such as the Giant Metre-wave
 Radio Telescope (GMRT;
-\citealt{Paciga:2011p9470,Paciga:2013p9627})\footnote{\url{http://gmrt.ncra.tifr.res.in/}},
+\citealt{Paciga:2011p9470,Paciga:2013p9943})\footnote{\url{http://gmrt.ncra.tifr.res.in/}},
 the LOw Frequency ARray (LOFAR;
 \citealt{Yatawatta:2013p9699})\footnote{\url{http://www.lofar.org/}}, the
-Murchison Widefield Array (MWA;  \citealt{Bowman:2012p9138};
+Murchison Widefield Array (MWA;  \citealt{Bowman:2013p9950};
 \citealt{Tingay:2013p9022}))\footnote{\url{http://www.mwatelescope.org/}}, and
 the Donald C. Backer Precision Array for Probing the Epoch of Reionization
-(PAPER; \citealt{Parsons:2010p6757,Pober:2013p9567})\footnote{\url{http://eor.berkeley.edu/}}.
+(PAPER; \citealt{Parsons:2010p6757,Pober:2013p9942})\footnote{\url{http://eor.berkeley.edu/}}.
 
-As such, there has been a renewed interest in the spectral and spatial variation of
-foreground emission in the 100--200 MHz frequency band that covers
-the $z=6$--13 redshift range expected to encompass reionization
-\citep{Furlanetto:2006p2267}. % XXX I think this sentence is a repeat from another paper
+%As such, there has been a renewed interest in the spectral and spatial variation of
+%foreground emission in the 100--200 MHz frequency band that covers
+%the $z=6$--13 redshift range expected to encompass reionization
+%\citep{Furlanetto:2006p2267}. % XXX I think this sentence is a repeat from another paper
 In particular, the spectral properties of extra-galactic point-sources are important
 both because they are valuable calibration references
 and because they are strong foreground emitters that must be removed from 21cm EoR measurements.
@@ -156,9 +156,7 @@ is that many 21cm EoR experiments, including LOFAR in the northern hemisphere, a
 PAPER and MWA in the southern hemisphere, are designed for drift-scan observations or steered via phased array.
 This design decision has largely been driven by the simplicity and cost-effectiveness of
 phased and/or correlated dipoles to achieve the aggressive sensitivity requirements
-for measuring the 21cm power spectrum of reionization.
-%TODO ARP wanted a cite for the above.  I really don't know of a good one. Its it a bit of a broad statement
-% XXX how about Parsons 2012a, Beardsley 2012, and jelic 2008 (i think it has sensitivty for lofar)
+for measuring the 21cm power spectrum of reionization \citep{Parsons:2012p9028,Beardsley:2012p9136,Jelic:2008p2130}.
 Adding to the challenge, these telescopes 
 cover much wider fields of view ($>10$\arcdeg) and bandwidths
 ($\sim 100$\% fractional) than traditional dish telescopes.
@@ -166,8 +164,8 @@ Because they do not physically point, flux calibration for such arrays relies he
 on an accurate model of the primary beam response to correct for an
 the apparent flux scale that varies across the sky.
 This direction dependent gain is currently uncertain to 10\% or higher
-\citep{Pober:2012p8800}, and comprises a large fraction of the 20\% difference between current telescopes \citep{Jacobs:2013p9908}.
-% XXX difference of what?
+\citep{Pober:2012p8800}, and comprises a large fraction of the 20\% flux uncertainty between current telescopes \citep{Jacobs:2013p9908}.
+
 
 In this paper, we set out to significantly improve the accuracy of spectral measurements between 
 100--200 MHz for a set of bright sources in the declination range -46\arcdeg{} to -40\arcdeg{} that
@@ -209,16 +207,16 @@ the primary beam \citep{Jacobs:2013p9908} as well as the lack of precise in-band
 The response of the primary beam is of critical importance to EoR measurements.
 Differences between the polarization responses cause leakage of polarized
 signals into the total intensity measurement possibly corrupting the 
-EoR power spectrum \citep{Moore:2013p9621}.  The primary beam 
+EoR power spectrum \citep{Moore:2013p9941}.  The primary beam 
 shape is also critical to measuring and subtracting foregrounds 
-\cite{Bernardi:2012p9020,Sullivan:2012p9457,Morales:2012p8790} a process which, to be effective, must be done to better than 1\%
+\cite{Bernardi:2013p9859,Sullivan:2012p9457,Morales:2012p8790} a process which, to be effective, must be done to better than 1\%
 precision for the brightest sources \citet{Liu:2009p4762,Bowman:2009p7816} .
 A method for decoupling uncertain fluxes from the uncertain beam has been
 described by \citet{Pober:2012p8800}. In simulation the method was able to
 achieve 3 to 10\% accuracy in measuring the primary beam, depending on the
-number of antennae and other variables. The Pober method emphasized the need
-% XXX mention key assumption of 180deg rotational symmetry
-for many repeated measurements of each alt-az pointing. Further investigation
+number of antennae and other variables. In particular, it emphasized the need
+for many repeated measurements of each alt-az pointing, which in that
+case were found by assuming 180\arcdeg{} symmetry. Further investigation
 is under way to improve and implement this method and would be greatly aided by
 the availability of precise flux measurements unaffected by primary beam
 uncertainty. 
@@ -255,7 +253,7 @@ has a broad point spread function in the image domain. This severely limits the 
 of sources which may be used for flux calibration. Drift scanning across the sky with a 45\arcdeg{} FWHM
 primary beam, there are very few unresolved, bright sources which are far from the galactic plane. 
 Pictor A is bright and well enough separated from other emission to dominate the visibilities for a good fraction of
-the EoR observing season, making it a desireable source to use for flux calibration.
+the EoR observing season, making it a desirable source to use for flux calibration.
 
 \section{Approach}
 \label{sec:approach}
@@ -265,7 +263,7 @@ drift-scan observations
 of Pictor A and a selection of known, bright sources.  Our approach uses a set of ``source tracks'' as
 a function of frequency and time.  Each source track is a beam, formed by phasing measured visibilities toward
 known source locations as they drift through the primary beam, and summing over antenna pairs, as
-described in \S\ref{sec:XXX}.  Since sources fall
+described in \S\ref{sec:beamforming}.  Since sources fall
 at different positions
 within the primary beam, it is generally not possible to relate the fluxes of sources at different positions to
 one another without an accurate beam model.  To date, the accuracy of source flux measurements in the
@@ -275,7 +273,7 @@ We mitigate this problem by selecting sources within a narrow declination range,
 nearly identical cuts through the beam response pattern.  Using this fact, the relative amplitudes of sources
 can be deduced with minimal reliance on an accurate beam model.  In our analysis, a prior beam model is only
 necessary for extrapolating across a narrow declination range (we estimate the errors associated with this 
-extrapolation in \S\ref{sec:XXX}), and for approximating optimal inverse-variance weighting when averaging
+extrapolation in \S\ref{sec:flux_scale}), and for approximating optimal inverse-variance weighting when averaging
 over source tracks to determine a single spectrum.
 
 This approach addresses several sources of error that were identified in \citet{Jacobs:2013p9908} 
@@ -284,7 +282,7 @@ as originating from uncertainty in the primary beam model.
 points in the primary beam. As errors tend to vary across the beam it is often
  difficult to decouple flux uncertainty from beam uncertainty.
  Using the drift scan-beamforming technique, each 
-source is measured thousands of times at a variety of different primay beam values to provide a complete sample of the
+source is measured thousands of times at a variety of different primary beam values to provide a complete sample of the
 flux variance due to primary beam variation.  Second, the flux calibration was found to vary over the 
 sky due to the dual uncertainties of primary beam response and prior catalog. To reduce our exposure to flux calibration
 variation, we limit our observations to sources passing within 5\arcdeg{}  of pointings which we can directly calibrate
@@ -298,17 +296,17 @@ establish to an absolute flux scale as a function of frequency.  Given the short
 existing in-band measurements of sources
 in the southern hemisphere, we must bootstrap this flux scale from an ensemble of calibrator sources that
 exhibit simple power-law spectra.
-As described in \S\ref{sec:XXX},
+As described in \S\ref{sec:flux_scale},
 this proceeds by first using a single calibrator to set the relative amplitudes of spectral channels, and
 then using several sources, extrapolating across a large set of measurements 
 between 70 MHz and 2 GHz, in a Markov-Chain Monte Carlo simulation to establish an absolute flux scale
 for the measured spectra.
 
 
-\subsection{Selection of confirmation sources} % XXX what is meant by "confirmation source" ?  Maybe just "Source Selection"?
-As PAPER is a drift scan instrument, each declination describes a distinct path through the primary beam. The flux time seres of a beamform
+\subsection{Source Selection} 
+As PAPER is a drift scan instrument, each declination describes a distinct path through the primary beam. The flux time series of a beamform
  provides a detailed sample of the primary beam relative to the peak of the trace, however,
-a model is still required to calibrate between declinations. Below we argue that be averaging over long tracks, we minimize our 
+a model is still required to calibrate between declinations. Below we argue that by averaging over long tracks, we minimize our 
 susceptibility to localized primary beam error and find that limiting our source selection range to within 
 a declination range of 5\arcdeg{} around a calibrator is a good compromise. In \S\ref{fig:gain},
 we estimate the error resulting from this limited scope application of the primary beam model.
@@ -380,39 +378,30 @@ and Table \ref{tab:data} for a complete listing of names and positions.
 The spectra reported here are measured by beam-forming ---phasing the visibilities to
 the target location and summing over baselines to produce a spectral time series of perceived flux $S_p$,
 which is given by the true source flux, $S$, illuminated by the true beam pattern $B$, according to
-% XXX would be nice to capture here and below that B, B_M, and S_p are vectors indexed by t.  would
-% suggest subscript, except you already have B_M.  Could use B^\prime (and S^\prime) instead...
 \begin{equation}
-S_p=BS.
+S_p=B(t)S.
 \end{equation}
 The spectrum is then isolated
 from neighboring sources by filtering and averaged in the time domain.  This time-average is 
-weighted by a model of PAPER's primary beam response ($B_M$).  
+weighted by a model of PAPER's primary beam response ($B_M$). As the perceived flux is already weighted once by the true beam $B$ this weighted sum is an effective approximation of inverse-variance weighting \citep{Pober:2012p8800}. 
 \begin{align}
-S_\textrm{est} &= \frac{\sum_t B_M S_p}{\sum_t B^2_M} \nonumber \\ 
-&= \frac{\sum_t B_M B}{\sum_t B^2_M} S  \nonumber \\
-&= g(\delta) S  \label{eq:g}
+S_\textrm{est} &= \frac{\sum_t B(t)_M S_p}{\sum_t B(t)^2_M} \nonumber \\ 
+&= \frac{\sum_t B(t)_M B(t)}{\sum_t B(t)^2_M} S  \nonumber \\
+&\equiv g(\delta) S  \label{eq:g}
 \end{align}
-% XXX where g and \delta are...?  Should connect this nomeclature to J2331-416 language below (i.e. solving for g)
-As the perceived flux is already weighted once by the true beam $B$ this weighted sum is an effective approximation of inverse-variance weighting \citep{Pober:2012p8800}. 
-
-
-The pre-factor in Eq \ref{eq:g} has been integrated in time over the full azimuthal sweep across the sky and therefore depends only on declination. The rate at which this factor
+The net time integrated, weighted beam response $g$ is purely a function of declination $\delta$.The rate at which this factor
 changes with declination defines maximum declination distance we can observe from our calibrator. 
-In simulation we multiplied an early holographic beam map \cite{Pober:2012p8800}
-% XXX to simulate what?  need to say something like:
-% To simulate the effect of beam model errors on ???, we used simulations derived from the holographic
-% beam map measured in \citet{Pober:2012p8800} weighted by a beam model derived from electromagnetic
-% simulations, and find that ...
-by electromagnetic simulations and find that it 
-diverges slowly with declination, with a maximum of 10\% over 5\arcdeg{} of declination range, though most are less. 
-We estimate this spectral dependent gain at a reference declination of 41\arcdeg{}36\arcmin{}   using (J2331-416) fitting a spectral index model to the
- catalog data points below 2GHz. 
-% XXX clarify that this is not the last correction; there is one more flux cal that is derived from MCMC
-% over several calibrator sources (Figure XXX).
- 
+To simulate this affect we we multiplied a measurement of the primary beam \citep{Pober:2012p8800}
+by electromagnetic simulations \citep{Parsons:2010p6757} and find that $g$ 
+diverges slowly with declination, with a maximum of 10\% over 5\arcdeg{} of declination range, though most are less. Thus, to first order,
+calibration to a single declination will remove most of the variation with declination.
+We estimate this spectral dependent $g$ at a reference declination of 41\arcdeg{}36\arcmin{}  using (J2331-416) fitting a spectral index model to the
+ catalog data points below 2GHz. This levels the bandpass due to spectral dependence  of the primary bean 
+ and puts all the sources on approximately the same flux scale.  
  Finally we average the spectra from a resolution of 400kHz to 10MHz bins, adding the individual errors in quadrature
  for our uncertainty.
+ 
+
 
 At this point we have a set of spectra that have been calibrated relative to each other to the best of our ability. Now 
 they must be put on a global flux scale. Meanwhile, our error estimate does not include an estimate of the 
@@ -435,7 +424,7 @@ Data was captured during July and October of 2011 on a single 'x' polarization o
 }\label{fig:antpos}
 \end{figure*}
 
- Measurements are derived from observations using  the east-west dipole arms of
+ Measurements are derived from observations using two nights on the east-west dipole arms of
 64 PAPER antennas deployed in a minimum-redundancy imaging configuration
 (see Figure \ref{fig:antpos})
 at the Karoo Radio Observatory site in South Africa.
@@ -447,7 +436,7 @@ JD2455852.2 to JD2455852.6.  In both seasons two antennas were omitted owing to
 malfunctioning signal path. This 20 hour long combined dataset provides
 observations provides near complete hour angle coverage for the entire 24 hours of
 Right Ascension. The July portion of the dataset comes from the same observing
-campaign described by \cite{Pober:2013p9567} and \cite{Stefan:2012p9707}. 
+campaign described by \cite{Pober:2013p9942} and \cite{Stefan:2013p9926}. 
 %July (\#40,\#55), September (\#7,\#28) 
 
 %COMPRESSION
@@ -494,19 +483,19 @@ with the peak difference decreasing from 18\% to 3\%.
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{plots/auto_tempcorr.png}
-\caption{Calibrating the temperature coefficient  between the July and October observing runs.  Here we plot the ratio of auto-correlations (averaged over frequency and antenna) against the temperature difference between the two nights. The very linear middle region has a slope of  -0.055 dB/C while the full, more complex, range is fit by -0.06dB/C (black line).  We compromise by choosing -0.058dB/C   
+\caption{Calibrating the temperature coefficient  between the July and October nights.  Here we plot the ratio of auto-correlations (averaged over frequency and antenna) against the temperature difference between the two nights. The very linear middle region has a slope of  -0.055 dB/C while the full, more complex, range is fit by -0.06dB/C (black line).  We compromise by choosing -0.058dB/C   
 which was found to significantly improve the agreement (see Figure \ref{fig:auto_compare}).
 % XXX When comparing autos from different JDs, the change in position of sun can substantially affect signal level
 % I'm worried this is the cause of the dither on either end of Figure 3, unless you've been conservative about
 % what data you've included here.
+% There is no sun data.  Changed "observing runs" to "nights". Is that what you meant? --DCJ
 \label{fig:autos_tempcorr}}
 \end{figure}
 
 \begin{figure}
 \includegraphics[width=0.9\textwidth]{plots/auto_balance.png}
-\caption{Gain differences between the July and October nights are dominated by temperature variation. Here we see the affect on 
-the average auto correlation before ({\color{orange} orange}) and after (black) application of the temperature dependent gain. \label{fig:auto_compare}}
-% XXX why does the gap in data in the top plot not match the bottom?
+\caption{Gain differences between the July and October nights are dominated by temperature variation. Here we see the effect on 
+the average auto correlation before ({\color{orange} orange}) and after (black) application of the temperature dependent gain. \label{fig:auto_compare}}.   Note that the span of the data in the bottom fractional difference plot is limited to points occurring in both nights and does not cover the full range seen in the top.
 \end{figure}
 
 
@@ -518,17 +507,17 @@ The antenna delays and amplitudes were found by fitting a point source visibilit
 model to Centaurus A, Pictor A, and Fornax A.  Each source is imperfectly
 modeled by a single point-source, but the solution differences are minimized by
 averaging over the three independent solutions. These same calibration
-solutions have been successfully applied in \citet{Pober:2013p9567} and \citet{Stefan:2012p9707}.
+solutions have been successfully applied in \citet{Pober:2013p9942} and \citet{Stefan:2013p9926}.
 for power-spectrum analysis of foregrounds and imaging of Centaurus A, respectively.  
 
 The October per-antenna gains were found by computing the average ratio of the auto correlations
-against the July data. Delays were help constant as in \citet{Jacobs:2011p8438}. 
+against the July data. Delays were held constant as in \citet{Jacobs:2011p8438}. 
 
 
 %BEAMFORMING,FILTERING, AVERAGING
 
 \subsection{Beamforming}
-
+\label{sec:beamforming}
 Spectral time-series are computed by beam-forming to the selected sky
 locations. A beam is formed by phasing baselines to the desired location and
 summing over baselines longer than 20 wavelengths.
@@ -591,12 +580,12 @@ led to a 3\% correction, at the lowest frequency, 0.6\%.
 \subsection{Bandpass Calibration}
 \label{sec:Calibration}
 
-The resulting set of spectra were then calibrated to a model of J2331-416
+The resulting set of spectra were then calibrated to a model of J2331-416 
 \footnote{Here we set the spectrum to $S_{150}=33$Jy, $\alpha=-0.76$, derived by a linear least squares fit to
 catalog measurements below 1GHz \citep{Slee:1995p7541,Kuehr:1981p9628,Large:1981p7798,Burgess:2006p7814}.  Further calibration on top of this somewhat arbitrary calibration model
 is explored in detail below. }
  to remove 
-the residual bandpass due to the net effect of the primary beam as discussed in section \ref{sec:approach}. 
+the residual bandpass $g$ from equation \ref{eq:g} caused by the net effect of the primary beam as discussed in section \ref{sec:approach}. 
 This source
 was selected for its relatively high brightness, spectral smoothness and large quantity
  of available catalog data. Each source track has a slightly different sample profile
@@ -641,7 +630,7 @@ conservative probability level of 76\%
 To model the relationship between different wavelengths we assume a single spectral index
 which is the prevailing spectral energy distribution at low frequencies, 
 though curvature or other
-deviation from a power-law is not-uncommon.  
+deviation from a power-law is not uncommon.  
 
 When fitting models to the full catalog, we use the Vollmer et al
 catalog which has been optimally cross-matched at the expense of excluding more data points.
@@ -651,7 +640,7 @@ brighter than most sources in the sample and far from any possibly confusing are
 the sky. 
 By limiting ourselves to a small number of sources we are able to go include catalog points by hand,
 to avoid making the error of falsely including erroneously matched 
-data points but benefiting from some measurements not included. 
+data points.
 
 
 \subsection{Approximating the Absolute Flux Scale}
@@ -660,7 +649,7 @@ data points but benefiting from some measurements not included.
 At the output of the beam forming and bandpass calibration step, the flux scale
  is tied to a model fit of the catalog values of
 J2331-416. The accuracy of this fit, and the implied uncertainty in the flux
-scale, limits the accuracy of the PAPER measurements..  To refine the flux
+scale, limits the accuracy of the PAPER measurements.  To refine the flux
 scale and estimate our flux scale uncertainty, we bootstrap a single global flux scale 
 correction factor using 6
 sources selected for their brightness, spectral linearity and data
@@ -865,7 +854,7 @@ constraints and support the conclusion that the Pictor A flux is on the correct 
 Direct measurements of the Pictor A spectrum are key to correctly setting the
 flux scale of PAPER, MWA and future EoR experiments like the Hydrogen Epoch of Reionization Array (HERA).
 These spectra provide tighter constraints on many of the EoR band fluxes, while
-limiting the pernicious affect of primary beam uncertainty.  Future work will use these
+limiting the pernicious effect of primary beam uncertainty.  Future work will use these
 fluxes to further refine the primary beam models of these experiments which is crucial to properly reconstructing
 both image and power spectrum flux.
 Although we have focused on a narrow declination range in this paper, the techniques we describe
@@ -1111,7 +1100,6 @@ value indicates an increase in both model fit precision and accuracy.}
 
 \bibliography{library}
 
-% XXX re-check arxiv cites in bib for finishing peer review.  Paciga 2013, Pober 2013, Moore 2013, and Stefan 2013
 % all published now.  what is bernardi 2012 submitted?
 
 \end{document}
