@@ -450,7 +450,7 @@ over a factor of 40.  A more detailed description may be found in Appendix A of
 spectrum observations. Here we summarize the process.
 
 First, we remove known RFI transmission bands and analog filter edges, and then
-flag outliers at 6$\sigma$ to remove RFI events.  Next, we suppress sky-like
+flag outliers in the frequency and time derivative at 6$\sigma$ to remove RFI events.  Next, we suppress sky-like
 emission by applying a DDR filter to remove delays and delay-rates within the
 horizon limit of a 300-m baseline (the maximum length of any PAPER baseline).
 We derive a second set of RFI flags by masking 4$\sigma$ outliers in these
