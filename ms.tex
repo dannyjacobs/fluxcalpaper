@@ -373,31 +373,38 @@ and Table \ref{tab:data} for a complete listing of names and positions.
 %match multi-wavelength observations \citep{Vollmer:2010p6422}.
 % given the known source dimensions and spectral properties as well as telescope bandwidth and spatial resolutions. 
 
-\subsection{Data Processing Overview}
+\subsection{Analysis Overview}
 \label{sec:data_overview}
-The spectra reported here are measured by beam-forming ---phasing the visibilities to
-the target location and summing over baselines to produce a spectral time series of perceived flux $S_p$,
-which is given by the true source flux, $S$, illuminated by the true beam pattern $B$, according to
+The spectra reported here are measured by beam-forming --- phasing the visibilities to
+the target location and summing over baselines to produce a spectral time series of ``perceived'' flux $S_p$.
+We define a perceived flux as the true source flux density, $S$, illuminated by the true beam pattern $B$:
 \begin{equation}
-S_p=B(t)S.
+S_p=B(t)S,
 \end{equation}
-The spectrum is then isolated
-from neighboring sources by filtering and averaged in the time domain.  This time-average is 
-weighted by a model of PAPER's primary beam response ($B_M$). As the perceived flux is already weighted once by the true beam $B$ this weighted sum is an effective approximation of inverse-variance weighting \citep{Pober:2012p8800}. 
+where $B$ is a function of time because the observations are taken as a drift
+scan.
+The desired source spectrum is then isolated
+from neighboring sources by filtering.%XXX what kind of filtering?
+We then average the spectrum in the time domain,
+weighting by a model of PAPER's primary beam response ($B_M$); as the perceived flux is already weighted once by the true beam $B$, this weighted sum is an effective approximation of inverse-variance weighting \citep{Pober:2012p8800}.
+Mathematically, our estimated source flux density is given by: 
 \begin{align}
 S_\textrm{est} &= \frac{\sum_t B(t)_M S_p}{\sum_t B(t)^2_M} \nonumber \\ 
 &= \frac{\sum_t B(t)_M B(t)}{\sum_t B(t)^2_M} S  \nonumber \\
-&\equiv g(\delta) S  \label{eq:g}
+&\equiv g(\delta) S  \label{eq:g},
 \end{align}
-The net time integrated, weighted beam response $g$ is purely a function of declination $\delta$.The rate at which this factor
-changes with declination defines maximum declination distance we can observe from our calibrator. 
+where the subscript $M$ indicates a model beam, and the $S$ without subscript is the true flux density of the source.
+The net time integrated, weighted beam response $g$ is purely a function of declination $\delta$.  The rate at which this factor
+changes with declination defines the declination range over which our calibrator source can be used to set the gain scale of the observations.
 To simulate this affect we we multiplied a measurement of the primary beam \citep{Pober:2012p8800}
 by electromagnetic simulations \citep{Parsons:2010p6757} and find that $g$ 
-diverges slowly with declination, with a maximum of 10\% over 5\arcdeg{} of declination range, though most are less. Thus, to first order,
-calibration to a single declination will remove most of the variation with declination.
-We estimate this spectral dependent $g$ at a reference declination of 41\arcdeg{}36\arcmin{}  using (J2331-416) fitting a spectral index model to the
- catalog data points below 2GHz. This levels the bandpass due to spectral dependence  of the primary bean 
- and puts all the sources on approximately the same flux scale.  
+diverges slowly with declination, with a maximum of 10\% over 5\arcdeg{} of declination range, though most are less. %XXX most what are less?
+Thus, to first order,
+we can use our calibrator source to calibrate sources within 5\arcdeg{} of declination and remove most of the variation with declination.
+We estimate this spectral dependent $g$ at a reference declination of 41\arcdeg{}36\arcmin{} using (J2331-416), fitting a spectral index model to the
+ catalog data points below 2GHz. This levels the bandpass due to spectral dependence of the primary beam, and allows us to place our measured source flux
+estimates
+on approximately the same flux scale.  
  Finally we average the spectra from a resolution of 400kHz to 10MHz bins, adding the individual errors in quadrature
  for our uncertainty.
  
@@ -413,9 +420,9 @@ the RA/Dec range, the variation in this flux scale fit estimates the overall unc
 or prior catalog uncertainty.  This folds in the error due to extrapolation beyond the frequency range of the Baars scale which is
 technically limited to 300MHz and above.
 
- 
  \section{Data Reduction}
  \label{sec:Observations}
+
 
 \begin{figure*}\centering
 \includegraphics[width=0.85\columnwidth]{plots/antpos.png}
